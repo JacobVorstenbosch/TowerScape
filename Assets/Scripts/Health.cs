@@ -11,6 +11,8 @@ public class Health : MonoBehaviour {
     const float bgHeight = 0.1f;
     const float fgWidth = 0.995f;
     const float fgHeight = 0.095f;
+    const float minCircleFade = 5f;
+    const float maxCircleFade = 7.5f;
 
     RawImage m_healthFG;
     RawImage m_healthBG;
@@ -55,6 +57,7 @@ public class Health : MonoBehaviour {
 
         Vector3 proj = Vector3.Project(transform.position, Camera.main.transform.forward);
         float offsetMag = (transform.position - proj).magnitude;
+        
         //calculate the opposite side of the triangle
         //tan(theta) = opposite / adjacent
         //adjacent = proj.mag
@@ -64,14 +67,16 @@ public class Health : MonoBehaviour {
         //offset from cone
         float coneOffset = offsetMag - coneWidth;
         //if coneOffset is negative we are in the cone itself
-        if (coneOffset < 0)
+        if (coneOffset < 0 && proj.magnitude < minCircleFade)
         {
             m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z);
             m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z);
         }
         else
         {
-            float alpha = 1 - coneOffset / maxPositionOffset;
+            float coneFade = 1 - coneOffset / maxPositionOffset;
+            float circleFade = 1 - (proj.magnitude - minCircleFade) / maxCircleFade;
+            float alpha = coneFade * circleFade;
             m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z, alpha);
             m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z, alpha);
         }

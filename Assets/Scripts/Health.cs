@@ -52,8 +52,8 @@ public class Health : MonoBehaviour {
 	void Update ()
     {
         //orient to camera
-        m_goBG.transform.LookAt(Camera.main.transform.position);
-        m_goFG.transform.LookAt(Camera.main.transform.position);
+        m_goBG.transform.rotation = Camera.main.transform.rotation;
+        m_goFG.transform.rotation = Camera.main.transform.rotation;
 
         Vector3 proj = Vector3.Project(transform.position, Camera.main.transform.forward);
         float offsetMag = (transform.position - proj).magnitude;

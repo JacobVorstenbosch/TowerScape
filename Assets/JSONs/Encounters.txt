@@ -1,0 +1,4 @@
+{
+	enemies = ["dummy"];
+	counts = [1];
+}

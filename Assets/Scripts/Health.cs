@@ -62,7 +62,7 @@ public class Health : MonoBehaviour {
         //tan(theta) = opposite / adjacent
         //adjacent = proj.mag
         //opposite = tan * adjacent
-        float coneWidth = Mathf.Tan(viewConeHalfAngle * (Mathf.PI / 180)) * proj.magnitude;
+        float coneWidth = Mathf.Tan(viewConeHalfAngle * Mathf.Deg2Rad) * proj.magnitude;
 
         //offset from cone
         float coneOffset = offsetMag - coneWidth;

@@ -22,7 +22,7 @@ public class Encounter : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        int testsize = 5;
+        int testsize = 10;
         m_encounter.enemies = new string[testsize];
         m_encounter.counts = new int[testsize];
         string debugInfo = "Set\t\tCount\n";
@@ -67,7 +67,13 @@ public class Encounter : MonoBehaviour {
             string debugString = "";
             int count = m_encounter.counts[i];
             debugString += "Detected " + count + " enemies to create.\n";
-            float radius = /*EnemyByName(m_encounter.enemies[i]).m_stats.radius*/ 1f;
+            float radius = /*EnemyByName(m_encounter.enemies[i]).m_stats.radius*/ 1.0f + Random.Range(0f, 2f);
+
+            //resize the triangle if radius is bigger
+            float mod = radius + prevRadius;
+            for (int j = 0; j < 3; j++)
+                prevSet[j] += pointNormals[j] * mod;
+             
 
             float triangleLength = (prevSet[0] - prevSet[1]).magnitude;
             debugString += "Previous triangle length: " + triangleLength + "\n";
@@ -76,11 +82,16 @@ public class Encounter : MonoBehaviour {
 
             //check if we need more space
             //radii required appears to be FloorToInt(count / 2) * 4
-            float requiredLength = Mathf.FloorToInt(halfCount) * 4 * radius;
+            float requiredLength;
+            if (count % 2 == 0)
+                requiredLength = (halfCount + 1f) * radius;
+            else
+                requiredLength = halfCount * radius;
+
             debugString += "Required triangle length: " + requiredLength + "\n";
             if (triangleLength < requiredLength)
             {
-                float halfoffsetsqaured = Mathf.Pow((requiredLength - triangleLength)/2, 2f);
+                float halfoffsetsqaured = Mathf.Pow((requiredLength - triangleLength) / 2, 2f);
                 //calculate the required pointnormal scale
                 float scalar = Mathf.Sqrt(halfoffsetsqaured * 2); //c^2 = a^2 + b^2 where a == b
                 //scale the triangle
@@ -88,6 +99,11 @@ public class Encounter : MonoBehaviour {
                     prevSet[j] += pointNormals[j] * scalar;
 
                 debugString += "New triangle length: " + (prevSet[0] - prevSet[1]).magnitude + "\n";
+            }
+            else
+            {
+                debugString += "No need to resize triangle, requiredLength being set to triangleLength.\n";
+                requiredLength = triangleLength;
             }
 
             if (count % 2 == 0)//even
@@ -99,20 +115,20 @@ public class Encounter : MonoBehaviour {
                 {
                     debugString += "Spawning enemy using offset: " + spawnGap * j + "\n";
                     //spawn on both sides
-                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + leftSide * (spawnGap * j));
-                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + rightSide * (spawnGap * j));
+                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + leftSide * (spawnGap * j), radius);
+                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + rightSide * (spawnGap * j), radius);
                 }
             }
             else//odd
             {
-                SpawnEnemy(m_encounter.enemies[i], prevSet[0]);
+                SpawnEnemy(m_encounter.enemies[i], prevSet[0], radius);
                 if (count == 1)//single enemy
                 {
                     debugString += "Only one enemy, were done this set.\n";
                     print(debugString);
                     continue;
                 }
-                float spawnGap = requiredLength / (perSideCount - 1);
+                float spawnGap = requiredLength / perSideCount;
                 //calculate triange sides
                 Vector3 leftSide = (prevSet[1] - prevSet[0]).normalized;
                 Vector3 rightSide = (prevSet[2] - prevSet[0]).normalized;
@@ -121,8 +137,8 @@ public class Encounter : MonoBehaviour {
                 {
                     //spawn on both sides
                     debugString += "Spawning enemy using offset: " + spawnGap * j + "\n";
-                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + leftSide * (spawnGap * j));
-                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + rightSide * (spawnGap * j));
+                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + leftSide * (spawnGap * j), radius);
+                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + rightSide * (spawnGap * j), radius);
                 }
                 
 
@@ -131,8 +147,8 @@ public class Encounter : MonoBehaviour {
             print(debugString);
 
             //increment prevSet triangle
-            for (int j = 0; j < 3; j++)
-                prevSet[j] += pointNormals[j] * radius;
+            //for (int j = 0; j < 3; j++)
+            //    prevSet[j] += pointNormals[j] * radius;
             prevRadius = radius;
         }
     }
@@ -144,8 +160,9 @@ public class Encounter : MonoBehaviour {
         return enemy;
     }
 
-    void SpawnEnemy(string e, Vector3 p)
+    void SpawnEnemy(string e, Vector3 p, float rad)
     {
-        Instantiate(testSpehre, p, Quaternion.identity);
+        GameObject go = Instantiate(testSpehre, p, Quaternion.identity);
+        go.transform.localScale = new Vector3(rad, rad, rad);
     }
 }

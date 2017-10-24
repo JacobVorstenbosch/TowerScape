@@ -1,4 +1,33 @@
+Any text is allowed outside of the braces
+NO BRACES ARE ALLOWED IN A COMMENT
+Comments to not need to be //d
+
+//Wave 1
 {
-	enemies = ["dummy"];
-	counts = [1];
+	"enemies" : ["dummy"],
+	"counts" : [1]
+}
+
+//Wave 2
+{
+	"enemies" : ["dummy"],
+	"counts" : [3]
+}
+
+//Wave 3
+{
+	"enemies" : ["dummy"],
+	"counts" : [5]
+}
+
+//Wave 4
+{
+	"enemies" : ["dummy"],
+	"counts" : [7]
+}
+
+//Wave 5
+{
+	"enemies" : ["dummy"],
+	"counts" : [9]
 }

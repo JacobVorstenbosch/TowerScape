@@ -1,8 +1,13 @@
+Any text is allowed outside of the braces
+NO BRACES ARE ALLOWED IN A COMMENT
+Comments to not need to be //d
+
+//Dummy
 {
-	type = "dummy";
-	aitype = "dummy";
-	hp = "10000";
-	dmg = "0";
-	atsp = "0";
-	radius = "1";
+	"type" : "dummy",
+	"aitype" : "dummy",
+	"hp" : "10000",
+	"dmg" : "0",
+	"atsp" : "0",
+	"radius" : "1"
 }

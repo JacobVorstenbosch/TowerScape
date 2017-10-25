@@ -14,7 +14,7 @@ public class Encounter : MonoBehaviour {
     private JSONManager.EncounterJSON m_encounter;
 
 
-    public GameObject testSpehre;
+    public GameObject baseEnemy;
 
 	// Use this for initialization
 	void Start ()
@@ -95,13 +95,13 @@ public class Encounter : MonoBehaviour {
                 {
                     debugString += "Spawning enemy using offset: " + spawnGap * j + "\n";
                     //spawn on both sides
-                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + leftSide * (spawnGap * j), radius);
-                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + rightSide * (spawnGap * j), radius);
+                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + leftSide * (spawnGap * j));
+                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + rightSide * (spawnGap * j));
                 }
             }
             else//odd
             {
-                SpawnEnemy(m_encounter.enemies[i], prevSet[0], radius);
+                SpawnEnemy(m_encounter.enemies[i], prevSet[0]);
                 if (count == 1)//single enemy
                 {
                     debugString += "Only one enemy, were done this set.\n";
@@ -117,8 +117,8 @@ public class Encounter : MonoBehaviour {
                 {
                     //spawn on both sides
                     debugString += "Spawning enemy using offset: " + spawnGap * j + "\n";
-                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + leftSide * (spawnGap * j), radius);
-                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + rightSide * (spawnGap * j), radius);
+                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + leftSide * (spawnGap * j));
+                    SpawnEnemy(m_encounter.enemies[i], prevSet[0] + rightSide * (spawnGap * j));
                 }
                 
 
@@ -138,9 +138,10 @@ public class Encounter : MonoBehaviour {
         return m_jsonManager.GetEnemyByName(e);
     }
 
-    void SpawnEnemy(string e, Vector3 p, float rad)
+    void SpawnEnemy(string e, Vector3 p)
     {
-        GameObject go = Instantiate(testSpehre, p, Quaternion.identity);
-        go.transform.localScale = new Vector3(rad, rad, rad);
+        GameObject go = Instantiate(Resources.Load("EnemyModels/" + e) as GameObject, p, Quaternion.identity);
+        baseEnemy.GetComponent<Enemy>().SetJSON(EnemyByName(e));
+        go.AddComponent<Enemy>();
     }
 }

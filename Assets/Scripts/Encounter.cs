@@ -4,52 +4,32 @@ using UnityEngine;
 
 public class Encounter : MonoBehaviour {
 
-    public struct EncounterJSON
-    {
-        public string[] enemies;
-        public int[] counts;
-    }
-
     public Transform trianglePoint1;
     public Transform trianglePoint2;
     public Transform trianglePoint3;
 
     public int floorNumber;
 
-    private EncounterJSON m_encounter;
+    private JSONManager m_jsonManager;
+    private JSONManager.EncounterJSON m_encounter;
+
 
     public GameObject testSpehre;
 
 	// Use this for initialization
-	void Start () {
-        int testsize = 10;
-        m_encounter.enemies = new string[testsize];
-        m_encounter.counts = new int[testsize];
-        string debugInfo = "Set\t\tCount\n";
-        for (int i = 0; i < testsize; i++)
-        {
-            m_encounter.enemies[i] = "Test";
-            int count = Random.Range(1, 10);
-            m_encounter.counts[i] = count;
-            debugInfo = i + "\t\t" + count + "\n";
-        }
-        print(debugInfo);
+	void Start ()
+    {
+        m_jsonManager = GameObject.FindGameObjectWithTag("JSONManager").GetComponent<JSONManager>();
+        m_jsonManager.GetEncounterByFloor(floorNumber);
         SpawnEncounter();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    
 
-    //Attempt to spawn in a triangle patter where the backside is unused, in a circular pattern
-    //index 0 would be in the middle, while the last index would be the outer edge
     void SpawnEncounter()
     {
         //define triangle using the 3 points, where 1 points to player
         //always favour middle for spawns
         //back wall is defined by the corners 2 and 3
-
         Vector3 middle = (trianglePoint1.position + trianglePoint2.position + trianglePoint3.position) / 3;
         //float sin60 = Mathf.Sin(60 * Mathf.Deg2Rad);
         Vector3[] prevSet = new Vector3[3];
@@ -67,7 +47,7 @@ public class Encounter : MonoBehaviour {
             string debugString = "";
             int count = m_encounter.counts[i];
             debugString += "Detected " + count + " enemies to create.\n";
-            float radius = /*EnemyByName(m_encounter.enemies[i]).m_stats.radius*/ 1.0f + Random.Range(0f, 2f);
+            float radius = EnemyByName(m_encounter.enemies[i]).radius;
 
             //resize the triangle if radius is bigger
             float mod = radius + prevRadius;
@@ -153,11 +133,9 @@ public class Encounter : MonoBehaviour {
         }
     }
 
-    Enemy EnemyByName(string e)
+    JSONManager.EnemyJSON EnemyByName(string e)
     {
-        Enemy enemy = new Enemy();
-        enemy.m_stats.radius = 1;
-        return enemy;
+        return m_jsonManager.GetEnemyByName(e);
     }
 
     void SpawnEnemy(string e, Vector3 p, float rad)

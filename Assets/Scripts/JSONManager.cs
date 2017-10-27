@@ -25,6 +25,8 @@ public class JSONManager : MonoBehaviour {
     public TextAsset encounterText;
     public TextAsset enemyText;
 
+    public int currentFloor;
+
     private List<EncounterJSON> m_encounterList;
     private Dictionary<string, EnemyJSON> m_enemyDict;
 
@@ -39,6 +41,7 @@ public class JSONManager : MonoBehaviour {
 
         m_enemyDict = new Dictionary<string, EnemyJSON>();
         PrepEnemies();
+        currentFloor = 0;
 	}
 
     void Awake()

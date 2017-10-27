@@ -20,7 +20,9 @@ public class Encounter : MonoBehaviour {
 	void Start ()
     {
         m_jsonManager = GameObject.FindGameObjectWithTag("JSONManager").GetComponent<JSONManager>();
-        m_jsonManager.GetEncounterByFloor(floorNumber);
+        m_jsonManager.currentFloor++;
+        floorNumber = m_jsonManager.currentFloor;
+        m_encounter = m_jsonManager.GetEncounterByFloor(floorNumber);
         SpawnEncounter();
     }
     
@@ -141,7 +143,7 @@ public class Encounter : MonoBehaviour {
     void SpawnEnemy(string e, Vector3 p)
     {
         GameObject go = Instantiate(Resources.Load("EnemyModels/" + e) as GameObject, p, Quaternion.identity);
-        baseEnemy.GetComponent<Enemy>().SetJSON(EnemyByName(e));
         go.AddComponent<Enemy>();
+        go.GetComponent<Enemy>().SetJSON(EnemyByName(e));
     }
 }

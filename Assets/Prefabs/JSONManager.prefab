@@ -53,3 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   encounterText: {fileID: 4900000, guid: 0743c91a02f6f584bb1227c3ad08c896, type: 3}
   enemyText: {fileID: 4900000, guid: be4a945012145ec4aaabdc9c931e5182, type: 3}
+  currentFloor: -1

@@ -297,6 +297,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.005
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: be87ac10b1df35140a8717e0bf73a811, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: be87ac10b1df35140a8717e0bf73a811, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be87ac10b1df35140a8717e0bf73a811, type: 3}
   m_IsPrefabParent: 0
@@ -311,7 +319,7 @@ GameObject:
   - component: {fileID: 411386446}
   - component: {fileID: 411386445}
   - component: {fileID: 411386444}
-  - component: {fileID: 411386448}
+  - component: {fileID: 411386449}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -375,25 +383,30 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 411386443}
-  m_LocalRotation: {x: 0.24862218, y: -0, z: -0, w: 0.96860063}
-  m_LocalPosition: {x: 0, y: 5.38, z: -6.91}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 4.19, z: -2.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 28.792002, y: 0, z: 0}
---- !u!135 &411386448
-SphereCollider:
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!114 &411386449
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 411386443}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9fa82f229a5d4341a944e8f569a12cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1509272333}
+  targetToCenter: {x: 0, y: 0.9, z: 0}
+  damping: 1
+  baseOffset: {x: 0, y: 5, z: -4}
+  resetTime: 3
+  wallLayer: 8
 --- !u!1 &441835872
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +846,11 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: be87ac10b1df35140a8717e0bf73a811, type: 3}
+--- !u!1 &1509272333 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1392637644206102, guid: 03912df350f4be5439a80e04f07405c0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1813517263}
 --- !u!1001 &1813517263
 Prefab:
   m_ObjectHideFlags: 0
@@ -846,7 +864,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4613511125867120, guid: 03912df350f4be5439a80e04f07405c0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4613511125867120, guid: 03912df350f4be5439a80e04f07405c0, type: 2}
       propertyPath: m_LocalPosition.z

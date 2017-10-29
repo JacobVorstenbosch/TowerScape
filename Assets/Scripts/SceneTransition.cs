@@ -7,6 +7,6 @@ public class SceneTransition : MonoBehaviour {
     public void ChangeScene(string sceneName)
     {
         print("Loading Next Level");
-        Application.LoadLevel(sceneName);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 }

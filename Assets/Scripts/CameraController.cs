@@ -13,9 +13,9 @@ public class CameraController : MonoBehaviour {
     public Vector2 minmaxVerticalRotation;
 
     Vector3 offset;
-    float timeSinceInput;
-    float correctedMagnitude;
     Vector2 totalInput;
+    float timeSinceInput;
+    float dampingsqrd;
 
     private bool m_overriden;
 
@@ -24,6 +24,7 @@ public class CameraController : MonoBehaviour {
         totalInput = new Vector2(0,0);
         offset = baseOffset + targetToCenter;
         timeSinceInput = resetTime;
+        dampingsqrd = damping * damping;
 	}
 
     void LateUpdate()
@@ -41,8 +42,7 @@ public class CameraController : MonoBehaviour {
             {
                 float verticalRot = 0; 
                 if ((transform.rotation.eulerAngles.x > minmaxVerticalRotation.x && input.y < 0) || (transform.rotation.eulerAngles.x < minmaxVerticalRotation.y && input.y > 0)) 
-                    verticalRot = input.y; 
-                print(input);
+                    verticalRot = input.y;
                 transform.RotateAround(targetPos, Vector3.up, input.x);
                 transform.RotateAround(targetPos, transform.right, verticalRot);
                 transform.LookAt(targetPos);
@@ -58,15 +58,15 @@ public class CameraController : MonoBehaviour {
             timeSinceInput += Time.deltaTime;
 
             //collision correction
-            //RaycastHit wallHit = new RaycastHit();
-            //if (Physics.Linecast(targetPos, transform.position, out wallHit, 1 << wallLayer))
-            //{
-            //    Vector3 direction = (transform.position - targetPos).normalized;
-            //    transform.position = wallHit.point - direction * 0.01f;
-            //    correctedMagnitude = (targetPos - transform.position).magnitude;
-            //}
-            //
-            //return;
+            RaycastHit wallHit = new RaycastHit();
+            Vector3 direction = (transform.position - targetPos).normalized;
+            Vector3 uncorrectedPos = targetPos + direction * offset.magnitude;
+            if (Physics.Linecast(targetPos, uncorrectedPos, out wallHit, 1 << wallLayer))
+                transform.position = wallHit.point - direction;
+            else
+                transform.position = Vector3.Lerp(transform.position, uncorrectedPos, Time.deltaTime * dampingsqrd);
+            
+            return;
         }
 
         //Do overriden stuff

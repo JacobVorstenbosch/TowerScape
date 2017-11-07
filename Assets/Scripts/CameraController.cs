@@ -10,17 +10,19 @@ public class CameraController : MonoBehaviour {
     public Vector3 baseOffset;
     public float resetTime = 3;
     public int wallLayer;
+    public Vector2 minmaxVerticalRotation;
+
     Vector3 offset;
-    Vector2 totalInput;
     float timeSinceInput;
     float correctedMagnitude;
+    Vector2 totalInput;
 
     private bool m_overriden;
 
 	// Use this for initialization
 	void Start () {
-        totalInput = new Vector3(0, 0, 0);
-        offset = baseOffset;
+        totalInput = new Vector2(0,0);
+        offset = baseOffset + targetToCenter;
         timeSinceInput = resetTime;
 	}
 
@@ -28,48 +30,43 @@ public class CameraController : MonoBehaviour {
     {
         if (!m_overriden)
         {
-            Vector3 desiredPosition;
             Vector3 targetPos = target.transform.position + targetToCenter;
 
-            Vector2 input = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-            if (input.magnitude > 0f)
+            Vector2 input = new Vector2(Input.GetAxis("RightJoystickHorizontal"), Input.GetAxis("RightJoystickVertical"));
+            //input *= Mathf.Deg2Rad;
+            if (input.magnitude >= 0.1f)
                 timeSinceInput = 0f;
             //controlled rotation
             if (timeSinceInput <= resetTime)
             {
-                timeSinceInput += Time.deltaTime;
-                Vector3 rotation = new Vector3(target.transform.rotation.eulerAngles.x, target.transform.rotation.eulerAngles.y, target.transform.rotation.eulerAngles.z);
-                rotation += new Vector3(totalInput.y, totalInput.x, 0);
-
-                desiredPosition = Vector3.RotateTowards(transform.position, Quaternion.Euler(rotation.x, rotation.y, rotation.z) * transform.position, 2, 0);
-                if (desiredPosition.magnitude < correctedMagnitude)
-                    desiredPosition *= 1 / (correctedMagnitude - desiredPosition.magnitude);
-                if (correctedMagnitude < baseOffset.magnitude)
-                    correctedMagnitude = Mathf.Lerp(correctedMagnitude, baseOffset.magnitude, Time.deltaTime / 3);
+                float verticalRot = 0; 
+                if ((transform.rotation.eulerAngles.x > minmaxVerticalRotation.x && input.y < 0) || (transform.rotation.eulerAngles.x < minmaxVerticalRotation.y && input.y > 0)) 
+                    verticalRot = input.y; 
+                print(input);
+                transform.RotateAround(targetPos, Vector3.up, input.x);
+                transform.RotateAround(targetPos, transform.right, verticalRot);
+                transform.LookAt(targetPos);
             }
             //standard movement
             else
             {
-                totalInput = new Vector2(0, 0);
-                desiredPosition = targetPos + target.transform.rotation * offset;
+                totalInput = Vector2.zero;
+                transform.position = Vector3.Slerp(transform.position, target.transform.rotation * offset, Time.deltaTime * damping);
+                transform.LookAt(targetPos);
             }
 
-            Vector3 position = Vector3.Slerp(transform.position, desiredPosition, Time.deltaTime * damping);
-            transform.position = position;
-
-            transform.LookAt(targetPos);
-            totalInput += input;
+            timeSinceInput += Time.deltaTime;
 
             //collision correction
-            RaycastHit wallHit = new RaycastHit();
-            if (Physics.Linecast(targetPos, transform.position, out wallHit, 1 << wallLayer))
-            {
-                Vector3 direction = (transform.position - targetPos).normalized;
-                transform.position = wallHit.point - direction * 0.01f;
-                correctedMagnitude = (targetPos - transform.position).magnitude;
-            }
-
-            return;
+            //RaycastHit wallHit = new RaycastHit();
+            //if (Physics.Linecast(targetPos, transform.position, out wallHit, 1 << wallLayer))
+            //{
+            //    Vector3 direction = (transform.position - targetPos).normalized;
+            //    transform.position = wallHit.point - direction * 0.01f;
+            //    correctedMagnitude = (targetPos - transform.position).magnitude;
+            //}
+            //
+            //return;
         }
 
         //Do overriden stuff

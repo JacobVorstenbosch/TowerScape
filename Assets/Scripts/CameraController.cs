@@ -33,27 +33,26 @@ public class CameraController : MonoBehaviour {
             Vector3 targetPos = target.transform.position + targetToCenter;
 
             Vector2 input = new Vector2(Input.GetAxis("RightJoystickHorizontal"), Input.GetAxis("RightJoystickVertical"));
+            //input *= Mathf.Deg2Rad;
             if (input.magnitude >= 0.1f)
                 timeSinceInput = 0f;
             //controlled rotation
             if (timeSinceInput <= resetTime)
             {
-                //float verticalRot = 0;
-                //if ((transform.rotation.eulerAngles.x > minmaxVerticalRotation.x && input.y < 0) || (transform.rotation.eulerAngles.x < minmaxVerticalRotation.y && input.y > 0))
-                //    verticalRot = input.y;
-                //
-                //print(verticalRot);
-                //Quaternion rotation = Quaternion.Euler(verticalRot, input.x, 0);
-                //transform.position = target.transform.position + (rotation * transform.position);
-                //
-                //transform.LookAt(target.transform);
+                float verticalRot = 0; 
+                if ((transform.rotation.eulerAngles.x > minmaxVerticalRotation.x && input.y < 0) || (transform.rotation.eulerAngles.x < minmaxVerticalRotation.y && input.y > 0)) 
+                    verticalRot = input.y; 
+                print(input);
+                transform.RotateAround(targetPos, Vector3.up, input.x);
+                transform.RotateAround(targetPos, transform.right, verticalRot);
+                transform.LookAt(targetPos);
             }
             //standard movement
             else
             {
                 totalInput = Vector2.zero;
                 transform.position = Vector3.Slerp(transform.position, target.transform.rotation * offset, Time.deltaTime * damping);
-                transform.LookAt(target.transform);
+                transform.LookAt(targetPos);
             }
 
             timeSinceInput += Time.deltaTime;

@@ -15,10 +15,10 @@ TagManager:
   - 
   - 
   - Enviroment
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - PlayerWeapon
+  - Enemy
+  - EnemyWeapon
   - 
   - 
   - 

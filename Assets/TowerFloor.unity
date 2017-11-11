@@ -585,7 +585,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1331569225}
   m_Enabled: 1
-  m_ExtensionPropertyValues: []
 --- !u!124 &1331569227
 Behaviour:
   m_ObjectHideFlags: 0

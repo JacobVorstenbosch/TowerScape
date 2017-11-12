@@ -7,6 +7,9 @@ public class CollisionTreeManager : MonoBehaviour {
     public Transform skeletonRef;
     public Transform weaponHand;
     public GameObject weapon;
+    public Health health;
+    public float invulnLength = 1f;
+    private float currentInvuln = 0f;
 
     private List<Collider> colliders = new List<Collider>();
 
@@ -17,19 +20,24 @@ public class CollisionTreeManager : MonoBehaviour {
         for (int i = 0; i < colliders.Count; i++)
         {
             colliders[i].isTrigger = true;
-            colliders[i].transform.gameObject.AddComponent<CharacterColliderObject>();
+            CharacterColliderObject cco = colliders[i].transform.gameObject.AddComponent<CharacterColliderObject>();
+            cco.health = health;
         }
 
-        GameObject equipedWeapon = Instantiate(weapon, weaponHand);
-        equipedWeapon.layer = 10;
+        if (weapon)
+        {
+            GameObject equipedWeapon = Instantiate(weapon, weaponHand);
+            equipedWeapon.layer = 10;
+        }
 	}
 
     private void RecursiveFillColliderList(Transform node)
     {
         for (int i = 0; i < node.transform.childCount; i++)
             RecursiveFillColliderList(node.GetChild(i));
-        Collider c = node.gameObject.GetComponent<Collider>();
-        if (c)
-            colliders.Add(c);
+        Collider[] c = node.gameObject.GetComponents<Collider>();
+        if (c.Length > 0)
+            for (int i = 0; i < c.Length; i++)
+                colliders.Add(c[i]);
     }
 }

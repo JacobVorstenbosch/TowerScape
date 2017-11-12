@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CharacterColliderObject : MonoBehaviour {
 
-    private int hitLayer;
-
+    public Health health;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +19,7 @@ public class CharacterColliderObject : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         print("THit");
+
     }
 
     void OnCollisionEnter(Collision col)

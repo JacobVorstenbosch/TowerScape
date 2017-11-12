@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour {
 
+    public enum OwnerClass { Enemy, Boss, Player };
+
     const float viewConeHalfAngle = 11.75f;
     const float maxPositionOffset = 2.5f;
     const float bgWidth = 1;
@@ -24,10 +26,13 @@ public class Health : MonoBehaviour {
     public float verticalOffset;
     public Vector3 fgColor;
     public Vector3 bgColor;
+    public OwnerClass ownerClass = OwnerClass.Enemy;
 
     // Use this for initialization
     void Start ()
     {
+        if (!(ownerClass == OwnerClass.Enemy))
+            return;
         m_goCanvas = new GameObject("NamePlate");
         m_goCanvas.transform.parent = transform;
         Canvas canvas = m_goCanvas.AddComponent<Canvas>();
@@ -51,6 +56,8 @@ public class Health : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (!(ownerClass == OwnerClass.Enemy))
+            return;
         //orient to camera
         m_goBG.transform.rotation = Camera.main.transform.rotation;
         m_goFG.transform.rotation = Camera.main.transform.rotation;

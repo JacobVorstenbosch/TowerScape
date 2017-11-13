@@ -9,7 +9,7 @@ public class PlayerScript : MonoBehaviour
     public float player_Speed = 100.0f;
     private float inputH;
     private float inputV;
-    Vector3 moveDir;
+    private bool _Slash;
     public float DegreesPerSecond = 60.0f;
 
     // Use this for initialization
@@ -34,18 +34,16 @@ public class PlayerScript : MonoBehaviour
         //getting input from controller left stick
         inputH = Input.GetAxis("LeftStickHorizontal");
         inputV = Input.GetAxis("LeftStickVertical");
-        // = Input.GetButtonDown("Fire3");//get x button press
+        _Slash = Input.GetButtonDown("Fire3");//get x button press
         //animator setting values
         anim.SetFloat("inputH", inputH);
         anim.SetFloat("inputV", inputV);
-        //rbody movement
-        // moveDir = new Vector3(inputH * player_Speed * Time.deltaTime, 0, inputV * -player_Speed * Time.deltaTime);
+
         var desiredMoveDir = -forward * inputV + right * inputH;
         transform.Translate(desiredMoveDir * player_Speed * Time.deltaTime);
-       // rbody.velocity = new Vector3(inputH *player_Speed * Time.deltaTime, 0.0f, inputV * -player_Speed * Time.deltaTime);
+        //rbody movement
+        // rbody.velocity = new Vector3(inputH *player_Speed * Time.deltaTime, 0.0f, inputV * -player_Speed * Time.deltaTime);
         //rotate char
-       //transform.Rotate(0, Input.GetAxis("LeftStickHorizontal") * DegreesPerSecond * Time.deltaTime, 0);
-
+        //transform.Rotate(0, Input.GetAxis("RightJoystickHorizontal") * DegreesPerSecond, 0);
     }
-
 }  

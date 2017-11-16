@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour {
     public float damping = 1;
     public Vector3 baseOffset;
     public float resetTime = 3;
+    public float controllerSensitivity = 3;
     public int wallLayer;
     public Vector2 minmaxVerticalRotation;
 
@@ -33,7 +34,7 @@ public class CameraController : MonoBehaviour {
         {
             Vector3 targetPos = target.transform.position + targetToCenter;
 
-            Vector2 input = new Vector2(Input.GetAxis("RightJoystickHorizontal"), Input.GetAxis("RightJoystickVertical"));
+            Vector2 input = new Vector2(Input.GetAxis("RightJoystickHorizontal"), Input.GetAxis("RightJoystickVertical")) * controllerSensitivity;
             //input *= Mathf.Deg2Rad;
             if (input.magnitude >= 0.1f)
                 timeSinceInput = 0f;
@@ -51,7 +52,7 @@ public class CameraController : MonoBehaviour {
             else
             {
                 totalInput = Vector2.zero;
-                transform.position = Vector3.Slerp(transform.position, target.transform.rotation * offset, Time.deltaTime * damping);
+                transform.position = Vector3.Slerp(transform.position, target.transform.position + target.transform.rotation * offset, Time.deltaTime * damping);
                 transform.LookAt(targetPos);
             }
 

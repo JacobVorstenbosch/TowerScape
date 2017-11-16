@@ -4,7 +4,76 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour {
+    
+    #region INTAKEMETHODS
 
+    /// <summary>
+    /// Intake class represents any modificaton to health.
+    /// </summary>
+    public class Intake
+    {
+        public struct Modifier
+        {
+            public enum ModifierType { ADDITIVE, MULTIPLICATIVE };
+            public ModifierType modType;
+            public float val;
+            public Modifier(ModifierType modifierType, float value)
+            {
+                modType = modifierType;
+                val = value;
+            }
+        }
+        public enum IntakeType { DAMAGE, HEAL };
+        public IntakeType intakeType;
+        protected float ammount;
+        protected List<Modifier> modifiers = new List<Modifier>();
+        private int index;
+        //note values must be in % format, ie 15% is 0.15 and -15% is -0.15
+        public void AddModifier(Modifier m)
+        {
+            if (m.modType == Modifier.ModifierType.ADDITIVE)
+                modifiers.Insert(index, m);
+            else if (m.modType == Modifier.ModifierType.MULTIPLICATIVE)
+                for (int i = 0; i < index; i++)
+                    if (modifiers[i].val < m.val)
+                    {
+                        modifiers.Insert(i, m);
+                        index++;
+                    }
+        }
+        public float GetModifiedAmmount()
+        {
+            float additiveScalar = 1;
+            float multiplicitaveScalar = 1;
+            //calculate additive scalar
+            for (int i = 0; i < index; i++)
+                additiveScalar += modifiers[i].val;
+            //calculate multiplicitve scalar
+            for (int i = index; i < modifiers.Count; i++)
+                multiplicitaveScalar *= 1 + modifiers[i].val;
+
+            float final = ammount * additiveScalar * multiplicitaveScalar;
+
+            return final > 0 ? final : 0;
+        }
+    }
+
+    public class Heal : Intake
+    {
+        public enum HealClass { PURE, PASSIVE, ACTIVE };
+        public HealClass healClass;
+        public GameObject origin;
+    }
+
+    public class Damage : Intake
+    {
+        public enum DamageClass { PURE, PHYSICAL, FIRE, ICE, CHAOS, IGNORE_INVULN };
+        public DamageClass damageClass;
+        public GameObject origin;
+    }
+    #endregion
+
+    #region HEALTHMETHODS
     public enum OwnerClass { Enemy, Boss, Player };
 
     const float viewConeHalfAngle = 11.75f;
@@ -21,6 +90,7 @@ public class Health : MonoBehaviour {
     GameObject m_goFG;
     GameObject m_goBG;
     GameObject m_goCanvas;
+    BuffManager buffManager;
     public float maxHealth;
     public float currentHealth;
     public float verticalOffset;
@@ -31,6 +101,7 @@ public class Health : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        //find buffmanager
         if (!(ownerClass == OwnerClass.Enemy))
             return;
         m_goCanvas = new GameObject("NamePlate");
@@ -91,4 +162,13 @@ public class Health : MonoBehaviour {
         //set width of fg based off of health pct
         m_healthFG.rectTransform.sizeDelta = new Vector2(currentHealth / maxHealth * fgWidth, fgHeight);
     }
+
+    public void ApplyIntake(ref List<Intake> intake)
+    {
+        for (int i = 0; i < intake.Count; i++)
+        {
+
+        }
+    }
+    #endregion
 }

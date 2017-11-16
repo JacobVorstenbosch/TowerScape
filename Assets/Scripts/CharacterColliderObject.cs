@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterColliderObject : MonoBehaviour {
 
-    public Health health;
+    private CollisionTreeManager ctmParent;
 
 	// Use this for initialization
 	void Start () {
@@ -19,11 +19,15 @@ public class CharacterColliderObject : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         print("THit");
-
     }
 
     void OnCollisionEnter(Collision col)
     {
         print("CHit");
+    }
+
+    public void SetCTMParent(CollisionTreeManager parent)
+    {
+        ctmParent = parent;
     }
 }

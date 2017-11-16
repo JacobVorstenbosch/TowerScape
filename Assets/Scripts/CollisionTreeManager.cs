@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class CollisionTreeManager : MonoBehaviour {
 
+    public BuffManager buffManager;
     public Transform skeletonRef;
     public Transform weaponHand;
     public GameObject weapon;
     public Health health;
     public float invulnLength = 1f;
     private float currentInvuln = 0f;
+    private bool invuln;
 
     private List<Collider> colliders = new List<Collider>();
 
@@ -21,7 +23,7 @@ public class CollisionTreeManager : MonoBehaviour {
         {
             colliders[i].isTrigger = true;
             CharacterColliderObject cco = colliders[i].transform.gameObject.AddComponent<CharacterColliderObject>();
-            cco.health = health;
+            cco.SetCTMParent(this);
         }
 
         if (weapon)
@@ -39,5 +41,10 @@ public class CollisionTreeManager : MonoBehaviour {
         if (c.Length > 0)
             for (int i = 0; i < c.Length; i++)
                 colliders.Add(c[i]);
+    }
+
+    public void OnIntake(ref List<Health.Intake> intake)
+    {
+        health.ApplyIntake(ref intake);
     }
 }

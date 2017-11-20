@@ -5,18 +5,18 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     public Animator anim;
-    public Rigidbody rbody;
+    //public Rigidbody rbody;
     public float player_Speed = 100.0f;
     private float inputH;
     private float inputV;
     private bool _Slash;
-    public float DegreesPerSecond = 60.0f;
+    //public float DegreesPerSecond = 60.0f;
 
     // Use this for initialization
     void Start()
     {
         anim = GetComponent<Animator>();
-        rbody = GetComponent<Rigidbody>();
+       // rbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame

@@ -138,7 +138,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 10009778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 135.5, y: -190, z: 0}
+  m_LocalPosition: {x: 135.5, y: -147, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 892671769}
@@ -333,7 +333,7 @@ CharacterController:
   m_GameObject: {fileID: 276125204}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Height: 1.8
   m_Radius: 0.2
@@ -481,6 +481,7 @@ MonoBehaviour:
   damping: 1
   baseOffset: {x: 0, y: 5, z: -4}
   resetTime: 3
+  controllerSensitivity: 3
   wallLayer: 8
   minmaxVerticalRotation: {x: 15, y: 60}
 --- !u!1 &441835872
@@ -565,7 +566,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 441835872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 225.5, y: 210, z: 0}
+  m_LocalPosition: {x: 225.5, y: 167, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 10009779}
@@ -818,6 +819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e9fbe837f2292408bcdcbf26b597da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buffManager: {fileID: 0}
   skeletonRef: {fileID: 630795540}
   weaponHand: {fileID: 0}
   weapon: {fileID: 0}
@@ -1269,6 +1271,21 @@ Prefab:
         type: 2}
       propertyPath: player_Speed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 95369924944106298, guid: b426c071311df4a47a354287996498aa,
+        type: 2}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 95369924944106298, guid: b426c071311df4a47a354287996498aa,
+        type: 2}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 95369924944106298, guid: b426c071311df4a47a354287996498aa,
+        type: 2}
+      propertyPath: m_CullingMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 54861557417032564, guid: b426c071311df4a47a354287996498aa, type: 2}

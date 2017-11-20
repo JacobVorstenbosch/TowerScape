@@ -39,8 +39,14 @@ public class PlayerScript : MonoBehaviour
         anim.SetFloat("inputH", inputH);
         anim.SetFloat("inputV", inputV);
 
-        var desiredMoveDir = -forward * inputV + right * inputH;
-        transform.Translate(desiredMoveDir * player_Speed * Time.deltaTime);
+
+        Vector3 desiredMoveDir = -forward * inputV + right * inputH;
+
+        if(desiredMoveDir.magnitude != 0)
+            transform.forward = desiredMoveDir.normalized;
+
+        transform.position += (desiredMoveDir * player_Speed * Time.deltaTime);
+        
         //rbody movement
         // rbody.velocity = new Vector3(inputH *player_Speed * Time.deltaTime, 0.0f, inputV * -player_Speed * Time.deltaTime);
         //rotate char

@@ -66,7 +66,7 @@ public class CollisionTreeManager : MonoBehaviour {
             }
 
             for (int j = start; j < start + len; j++)
-                buffManager.buffs[j].Trigger(ref intake, originalIntakeCount);
+                buffManager.buffs[j].Trigger(intake, originalIntakeCount);
         }
         health.ApplyIntake(ref intake);
     }

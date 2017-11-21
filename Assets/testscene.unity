@@ -872,13 +872,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffManager: {fileID: 630795550}
-  maxHealth: 100
-  currentHealth: 75
+  maxHealth: 1000
+  currentHealth: 1000
   verticalOffset: 2
   fgColor: {x: 1, y: 0, z: 0}
   bgColor: {x: 0.75, y: 0.75, z: 0.75}
   ownerClass: 0
-  invulnLength: 5
+  invulnLength: 0.125
 --- !u!114 &630795550
 MonoBehaviour:
   m_ObjectHideFlags: 0

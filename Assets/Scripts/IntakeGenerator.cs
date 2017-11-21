@@ -39,7 +39,7 @@ public class IntakeGenerator : MonoBehaviour
         }
 
         for (int i = start; i < start + len; i++)
-            buffManager.buffs[i].Trigger(ref ilist);
+            buffManager.buffs[i].Trigger(ilist);
 
         return ilist;
     }
@@ -76,12 +76,19 @@ public class Intake
         if (m.modType == Modifier.ModifierType.ADDITIVE)
             modifiers.Insert(index, m);
         else if (m.modType == Modifier.ModifierType.MULTIPLICATIVE)
+        {
             for (int i = 0; i < index; i++)
+            {
                 if (modifiers[i].val < m.val)
                 {
                     modifiers.Insert(i, m);
                     index++;
+                    return;
                 }
+            }
+            modifiers.Insert(0, m);
+            index++;
+        }
     }
     public float GetModifiedAmmount()
     {
@@ -117,5 +124,9 @@ public class Intake
         else if (intakeClass == IntakeClass.IGNORE_INVULN)
             return "IGNORE_INVULN";
         else return "UNKOWN";
+    }
+    public int GetNumModifiers()
+    {
+        return modifiers.Count;
     }
 }

@@ -16,7 +16,8 @@ public class BuffManager : MonoBehaviour
     /// <returns>Returns the number of buffs that use the activator passed</returns>
     public int GetActivatorLength(Buff.Activator a)
     {
-        return indicies[(int)a + 1 >= indicies.Length ? buffs.Count : (int)a + 1] - indicies[(int)a];
+        int index = (int)a + 1 >= indicies.Length ? indicies.Length - 1 : (int)a + 1;
+        return indicies[index] - indicies[(int)a];
     }
 
     /// <summary>
@@ -34,17 +35,19 @@ public class BuffManager : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        if (buffs.Count != 0)
-        {
-            string debug = "a\ts\tl\n";
-            for (int i =  0; i < 5; i++)
-                debug += i + "\t" + GetActivatorFirstElementIndex((Buff.Activator)i) + "\t" + GetActivatorLength((Buff.Activator)i) + "\n";
-            print(debug);
-        }
+        //if (buffs.Count != 0)
+        //{
+        //    string debug = "a\ts\tl\n";
+        //    for (int i =  0; i < indicies.Length; i++)
+        //        debug += i.ToString() + "\t" + GetActivatorFirstElementIndex((Buff.Activator)i).ToString() + "\t" + GetActivatorLength((Buff.Activator)i).ToString() + "\n";
+        //    print(debug);
+        //}
 
-        for (int i = GetActivatorFirstElementIndex(Buff.Activator.ON_TICK), s = GetActivatorLength(Buff.Activator.ON_TICK); i < s; i++)
-            buffs[i].Trigger(ref emptyIntakeList);
-
+        int otstart = GetActivatorFirstElementIndex(Buff.Activator.ON_TICK);
+        int otlen = GetActivatorLength(Buff.Activator.ON_TICK);
+        for (int i = otstart, s = otstart + otlen; i < s; i++)
+            buffs[i].Trigger(emptyIntakeList, 0);
+        
         for (int i = buffs.Count - 1; i >= 0; i--)
         {
             buffs[i].durationRemaining -= Time.deltaTime;
@@ -91,7 +94,7 @@ public class BuffManager : MonoBehaviour
         public abstract void OnEnd();
         public abstract void OnUpdate();
 
-        public abstract void Trigger(ref List<Intake> intake, int orignalIntakeCount = 1);
+        public abstract void Trigger(List<Intake> intake, int orignalIntakeCount = 1);
     }
 
     /* BASE BUFF/DEBUFF CLASS
@@ -142,12 +145,13 @@ public class BuffManager : MonoBehaviour
         {
         }
 
-        public override void Trigger(ref List<Intake> intake, int originalIntakeCount = 1)
+        public override void Trigger(List<Intake> intake, int originalIntakeCount = 1)
         {
-            print("Invuln triggered");
             for (int i = 0; i < intake.Count; i++)
+            {
                 if (intake[i].intakeType == Intake.IntakeType.DAMAGE && intake[i].intakeClass != Intake.IntakeClass.IGNORE_INVULN)
-                        intake[i].AddModifier(new Intake.Modifier(Intake.Modifier.ModifierType.MULTIPLICATIVE, -1));
+                    intake[i].AddModifier(new Intake.Modifier(Intake.Modifier.ModifierType.MULTIPLICATIVE, -1));
+            }
         }
     }
     #endregion

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65999264345893500}
   - component: {fileID: 23466160359339938}
   - component: {fileID: 54004993224337866}
+  - component: {fileID: 114157609655975596}
   m_Layer: 0
   m_Name: weapon_Staff
   m_TagString: Untagged
@@ -111,3 +112,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114157609655975596
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1338956831177522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88969b40d9ff2a844bbb01b3aeec6964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itype: 0
+  iclass: 3
+  ammount: 25
+  buffManager: {fileID: 0}

@@ -18,12 +18,9 @@ public class CharacterColliderObject : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        print("THit");
-    }
-
-    void OnCollisionEnter(Collision col)
-    {
-        print("CHit");
+        IntakeGenerator intake = other.gameObject.GetComponent<IntakeGenerator>();
+        List<Intake> ilist = intake.GetBuffedIntakeList();
+        ctmParent.OnIntake(ref ilist);
     }
 
     public void SetCTMParent(CollisionTreeManager parent)

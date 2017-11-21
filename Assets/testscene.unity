@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 10009778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 135.5, y: -121.5, z: 0}
+  m_LocalPosition: {x: 484, y: -276.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 892671769}
@@ -549,7 +549,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 441835872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 225.5, y: 141.5, z: 0}
+  m_LocalPosition: {x: 574, y: 296.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 10009779}
@@ -802,11 +802,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e9fbe837f2292408bcdcbf26b597da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffManager: {fileID: 0}
+  buffManager: {fileID: 630795550}
   skeletonRef: {fileID: 630795540}
   weaponHand: {fileID: 0}
   weapon: {fileID: 0}
-  health: {fileID: 0}
+  health: {fileID: 630795549}
   invulnLength: 1
 --- !u!136 &630795545
 CapsuleCollider:
@@ -871,12 +871,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4f65882f3779345bbc36a4c9c6e379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buffManager: {fileID: 630795550}
   maxHealth: 100
   currentHealth: 75
   verticalOffset: 2
   fgColor: {x: 1, y: 0, z: 0}
   bgColor: {x: 0.75, y: 0.75, z: 0.75}
   ownerClass: 0
+  invulnLength: 5
+--- !u!114 &630795550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 630795539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa5f14f4877f0f94eadf96b9fa04fc1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &658301616
 Prefab:
   m_ObjectHideFlags: 0
@@ -916,55 +929,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 114990781945945072, guid: b58eff603f9652546ab94bfc8b0398c3,
-        type: 2}
-      propertyPath: weaponHand
-      value: 
-      objectReference: {fileID: 658301618}
-    - target: {fileID: 114990781945945072, guid: b58eff603f9652546ab94bfc8b0398c3,
-        type: 2}
-      propertyPath: skeletonRef
-      value: 
-      objectReference: {fileID: 658301619}
-    - target: {fileID: 114990781945945072, guid: b58eff603f9652546ab94bfc8b0398c3,
-        type: 2}
-      propertyPath: health
-      value: 
-      objectReference: {fileID: 658301617}
-    - target: {fileID: 95872737771712820, guid: b58eff603f9652546ab94bfc8b0398c3,
-        type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 2464701b9c0ed604ba03850466baa9ce, type: 2}
-    - target: {fileID: 95872737771712820, guid: b58eff603f9652546ab94bfc8b0398c3,
-        type: 2}
-      propertyPath: m_UpdateMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 95872737771712820, guid: b58eff603f9652546ab94bfc8b0398c3,
-        type: 2}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b58eff603f9652546ab94bfc8b0398c3, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &658301617 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114809128596402858, guid: b58eff603f9652546ab94bfc8b0398c3,
-    type: 2}
-  m_PrefabInternal: {fileID: 658301616}
-  m_Script: {fileID: 11500000, guid: be4f65882f3779345bbc36a4c9c6e379, type: 3}
---- !u!4 &658301618 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4501005621318350, guid: b58eff603f9652546ab94bfc8b0398c3,
-    type: 2}
-  m_PrefabInternal: {fileID: 658301616}
---- !u!4 &658301619 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4920365341584146, guid: b58eff603f9652546ab94bfc8b0398c3,
-    type: 2}
-  m_PrefabInternal: {fileID: 658301616}
 --- !u!1 &704443831
 GameObject:
   m_ObjectHideFlags: 0

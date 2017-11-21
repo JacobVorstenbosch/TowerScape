@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuffManager : MonoBehaviour
 {
     #region MANAGER
-    private List<Health.Intake> emptyIntakeList = new List<Health.Intake>();
+    private List<Intake> emptyIntakeList = new List<Intake>();
     public List<Buff> buffs = new List<Buff>();
     private int[] indicies = new int[5];//number must always be the size of activators
 
@@ -16,7 +16,7 @@ public class BuffManager : MonoBehaviour
     /// <returns>Returns the number of buffs that use the activator passed</returns>
     public int GetActivatorLength(Buff.Activator a)
     {
-        return indicies[(int)a > indicies.Length ? (int)a + 1 : buffs.Count] - indicies[(int)a];
+        return indicies[(int)a + 1 >= indicies.Length ? buffs.Count : (int)a + 1] - indicies[(int)a];
     }
 
     /// <summary>
@@ -34,16 +34,24 @@ public class BuffManager : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        for (int i = GetActivatorFirstElementIndex(Buff.Activator.ON_TICK); i < GetActivatorLength(Buff.Activator.ON_TICK); i++)
+        if (buffs.Count != 0)
+        {
+            string debug = "a\ts\tl\n";
+            for (int i =  0; i < 5; i++)
+                debug += i + "\t" + GetActivatorFirstElementIndex((Buff.Activator)i) + "\t" + GetActivatorLength((Buff.Activator)i) + "\n";
+            print(debug);
+        }
+
+        for (int i = GetActivatorFirstElementIndex(Buff.Activator.ON_TICK), s = GetActivatorLength(Buff.Activator.ON_TICK); i < s; i++)
             buffs[i].Trigger(ref emptyIntakeList);
 
-        for (int i = 0; i < buffs.Count; i++)
+        for (int i = buffs.Count - 1; i >= 0; i--)
         {
             buffs[i].durationRemaining -= Time.deltaTime;
             buffs[i].OnUpdate();
             if (buffs[i].durationRemaining <= 0)
             {
-                for (int j = (int)buffs[i].activator + 1; j < 3; j++)
+                for (int j = (int)buffs[i].activator + 1; j < 5; j++)//J MUST BE LESS THAN  NUMBER OF ACTIVATORS
                     indicies[j]--;
                 buffs[i].OnEnd();
                 buffs.RemoveAt(i);
@@ -59,7 +67,7 @@ public class BuffManager : MonoBehaviour
     {
         b.OnStart();
         buffs.Insert(indicies[(int)b.activator], b);
-        for (int i = (int)b.activator; i < indicies.Length; i++)
+        for (int i = (int)b.activator + 1; i < indicies.Length; i++)
             indicies[i]++;
     }
 
@@ -69,7 +77,7 @@ public class BuffManager : MonoBehaviour
     public abstract class Buff
     {
         public enum Effect { POSITIVE, NEGATIVE };
-        public enum Activator { ON_DMG_INTAKE, ON_DMG_DEAL, ON_HEALTH_GAIN, ON_TICK };
+        public enum Activator { ON_DMG_INTAKE, ON_DMG_DEAL, ON_HEAL_INTAKE, ON_TICK, ON_HEAL_DEAL };
 
         public string name;
         public Effect effect;
@@ -83,7 +91,7 @@ public class BuffManager : MonoBehaviour
         public abstract void OnEnd();
         public abstract void OnUpdate();
 
-        public abstract void Trigger(ref List<Health.Intake> intake);
+        public abstract void Trigger(ref List<Intake> intake, int orignalIntakeCount = 1);
     }
 
     /* BASE BUFF/DEBUFF CLASS
@@ -91,7 +99,9 @@ public class BuffManager : MonoBehaviour
     {
         public override void OnStart()
         {
+            //set duration or passive
             durationRemaining = startDuration;
+            //set activator
             //apply particle effects
         }
 
@@ -105,7 +115,7 @@ public class BuffManager : MonoBehaviour
             //update particle effects
         }
 
-        public override void Trigger(Health.Intake intake = null)
+        public override void Trigger(List<Intake> intake = null, int originalIntakeCount = 1)
         {
             //apply buff to intake
         }
@@ -117,6 +127,7 @@ public class BuffManager : MonoBehaviour
         public override void OnStart()
         {
             durationRemaining = startDuration;
+            activator = Activator.ON_DMG_INTAKE;
             name = "Invulnerability";
             hidden = true;
             //apply particles
@@ -131,11 +142,12 @@ public class BuffManager : MonoBehaviour
         {
         }
 
-        public override void Trigger(ref List<Health.Intake> intake)
+        public override void Trigger(ref List<Intake> intake, int originalIntakeCount = 1)
         {
+            print("Invuln triggered");
             for (int i = 0; i < intake.Count; i++)
-                if (intake[i].intakeType == Health.Intake.IntakeType.DAMAGE)
-                    intake[i].AddModifier(new Health.Intake.Modifier(Health.Intake.Modifier.ModifierType.MULTIPLICATIVE, -1));
+                if (intake[i].intakeType == Intake.IntakeType.DAMAGE && intake[i].intakeClass != Intake.IntakeClass.IGNORE_INVULN)
+                        intake[i].AddModifier(new Intake.Modifier(Intake.Modifier.ModifierType.MULTIPLICATIVE, -1));
         }
     }
     #endregion

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollisionTreeManager : MonoBehaviour {
 
+    [Tooltip("BuffManager must always be on the root gameobject.")]
     public BuffManager buffManager;
     public Transform skeletonRef;
     public Transform weaponHand;
@@ -29,6 +30,8 @@ public class CollisionTreeManager : MonoBehaviour {
         if (weapon)
         {
             GameObject equipedWeapon = Instantiate(weapon, weaponHand);
+            IntakeGenerator ig = equipedWeapon.GetComponent<IntakeGenerator>();
+            ig.buffManager = buffManager;
             equipedWeapon.layer = 10;
         }
 	}
@@ -43,8 +46,28 @@ public class CollisionTreeManager : MonoBehaviour {
                 colliders.Add(c[i]);
     }
 
-    public void OnIntake(ref List<Health.Intake> intake)
+    public void OnIntake(ref List<Intake> intake)
     {
+        //apply our onintake buffs
+        int originalIntakeCount = intake.Count; //so we dont infinitley proc additional effects
+        for (int i = 0; i < originalIntakeCount; i++)
+        {
+            int start = 0;
+            int len = 0;
+            if (intake[i].intakeType == Intake.IntakeType.DAMAGE)
+            {
+                start = buffManager.GetActivatorFirstElementIndex(BuffManager.Buff.Activator.ON_DMG_INTAKE);
+                len = buffManager.GetActivatorLength(BuffManager.Buff.Activator.ON_DMG_INTAKE);
+            }
+            else if (intake[i].intakeType == Intake.IntakeType.HEAL)
+            {
+                start = buffManager.GetActivatorFirstElementIndex(BuffManager.Buff.Activator.ON_HEAL_INTAKE);
+                len = buffManager.GetActivatorLength(BuffManager.Buff.Activator.ON_HEAL_INTAKE);
+            }
+
+            for (int j = start; j < start + len; j++)
+                buffManager.buffs[j].Trigger(ref intake, originalIntakeCount);
+        }
         health.ApplyIntake(ref intake);
     }
 }

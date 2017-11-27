@@ -1,0 +1,274 @@
+fileFormatVersion: 2
+guid: 7c8809747785b0a40bdffadcabe61011
+timeCreated: 1511799786
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: GolemRig_Ctrl_ChestEndEffector
+    100004: GolemRig_Ctrl_ChestOriginEffector
+    100006: GolemRig_Ctrl_Head
+    100008: GolemRig_Ctrl_HeadEffector
+    100010: GolemRig_Ctrl_Hips
+    100012: GolemRig_Ctrl_HipsEffector
+    100014: GolemRig_Ctrl_LeftAnkleEffector
+    100016: GolemRig_Ctrl_LeftArm
+    100018: GolemRig_Ctrl_LeftElbowEffector
+    100020: GolemRig_Ctrl_LeftFoot
+    100022: GolemRig_Ctrl_LeftFootEffector
+    100024: GolemRig_Ctrl_LeftForeArm
+    100026: GolemRig_Ctrl_LeftHand
+    100028: GolemRig_Ctrl_LeftHipEffector
+    100030: GolemRig_Ctrl_LeftKneeEffector
+    100032: GolemRig_Ctrl_LeftLeg
+    100034: GolemRig_Ctrl_LeftShoulder
+    100036: GolemRig_Ctrl_LeftShoulderEffector
+    100038: GolemRig_Ctrl_LeftToeBase
+    100040: GolemRig_Ctrl_LeftUpLeg
+    100042: GolemRig_Ctrl_LeftWristEffector
+    100044: GolemRig_Ctrl_Neck
+    100046: GolemRig_Ctrl_Reference
+    100048: GolemRig_Ctrl_RightAnkleEffector
+    100050: GolemRig_Ctrl_RightArm
+    100052: GolemRig_Ctrl_RightElbowEffector
+    100054: GolemRig_Ctrl_RightFoot
+    100056: GolemRig_Ctrl_RightFootEffector
+    100058: GolemRig_Ctrl_RightForeArm
+    100060: GolemRig_Ctrl_RightHand
+    100062: GolemRig_Ctrl_RightHipEffector
+    100064: GolemRig_Ctrl_RightKneeEffector
+    100066: GolemRig_Ctrl_RightLeg
+    100068: GolemRig_Ctrl_RightShoulder
+    100070: GolemRig_Ctrl_RightShoulderEffector
+    100072: GolemRig_Ctrl_RightToeBase
+    100074: GolemRig_Ctrl_RightUpLeg
+    100076: GolemRig_Ctrl_RightWristEffector
+    100078: GolemRig_Ctrl_Spine
+    100080: GolemRig_Ctrl_Spine1
+    100082: GolemRig_Ctrl_Spine2
+    100084: GolemRig_Guides
+    100086: GolemRig_Head
+    100088: GolemRig_Hips
+    100090: GolemRig_LeftArm
+    100092: GolemRig_LeftFoot
+    100094: GolemRig_LeftForeArm
+    100096: GolemRig_LeftHand
+    100098: GolemRig_LeftLeg
+    100100: GolemRig_LeftShoulder
+    100102: GolemRig_LeftToeBase
+    100104: GolemRig_LeftUpLeg
+    100106: GolemRig_Neck
+    100108: GolemRig_Reference
+    100110: GolemRig_RightArm
+    100112: GolemRig_RightFoot
+    100114: GolemRig_RightForeArm
+    100116: GolemRig_RightHand
+    100118: GolemRig_RightLeg
+    100120: GolemRig_RightShoulder
+    100122: GolemRig_RightToeBase
+    100124: GolemRig_RightUpLeg
+    100126: GolemRig_Spine
+    100128: GolemRig_Spine1
+    100130: GolemRig_Spine2
+    100132: Head
+    100134: Hips
+    100136: LeftArm
+    100138: LeftFoot
+    100140: LeftForeArm
+    100142: LeftHand
+    100144: LeftLeg
+    100146: LeftShoulder
+    100148: LeftToeBase
+    100150: LeftUpLeg
+    100152: mesh_Golem
+    100154: Neck
+    100156: Reference
+    100158: RightArm
+    100160: RightFoot
+    100162: RightForeArm
+    100164: RightHand
+    100166: RightLeg
+    100168: RightShoulder
+    100170: RightToeBase
+    100172: RightUpLeg
+    100174: Spine
+    100176: Spine1
+    100178: Spine2
+    400000: //RootNode
+    400002: GolemRig_Ctrl_ChestEndEffector
+    400004: GolemRig_Ctrl_ChestOriginEffector
+    400006: GolemRig_Ctrl_Head
+    400008: GolemRig_Ctrl_HeadEffector
+    400010: GolemRig_Ctrl_Hips
+    400012: GolemRig_Ctrl_HipsEffector
+    400014: GolemRig_Ctrl_LeftAnkleEffector
+    400016: GolemRig_Ctrl_LeftArm
+    400018: GolemRig_Ctrl_LeftElbowEffector
+    400020: GolemRig_Ctrl_LeftFoot
+    400022: GolemRig_Ctrl_LeftFootEffector
+    400024: GolemRig_Ctrl_LeftForeArm
+    400026: GolemRig_Ctrl_LeftHand
+    400028: GolemRig_Ctrl_LeftHipEffector
+    400030: GolemRig_Ctrl_LeftKneeEffector
+    400032: GolemRig_Ctrl_LeftLeg
+    400034: GolemRig_Ctrl_LeftShoulder
+    400036: GolemRig_Ctrl_LeftShoulderEffector
+    400038: GolemRig_Ctrl_LeftToeBase
+    400040: GolemRig_Ctrl_LeftUpLeg
+    400042: GolemRig_Ctrl_LeftWristEffector
+    400044: GolemRig_Ctrl_Neck
+    400046: GolemRig_Ctrl_Reference
+    400048: GolemRig_Ctrl_RightAnkleEffector
+    400050: GolemRig_Ctrl_RightArm
+    400052: GolemRig_Ctrl_RightElbowEffector
+    400054: GolemRig_Ctrl_RightFoot
+    400056: GolemRig_Ctrl_RightFootEffector
+    400058: GolemRig_Ctrl_RightForeArm
+    400060: GolemRig_Ctrl_RightHand
+    400062: GolemRig_Ctrl_RightHipEffector
+    400064: GolemRig_Ctrl_RightKneeEffector
+    400066: GolemRig_Ctrl_RightLeg
+    400068: GolemRig_Ctrl_RightShoulder
+    400070: GolemRig_Ctrl_RightShoulderEffector
+    400072: GolemRig_Ctrl_RightToeBase
+    400074: GolemRig_Ctrl_RightUpLeg
+    400076: GolemRig_Ctrl_RightWristEffector
+    400078: GolemRig_Ctrl_Spine
+    400080: GolemRig_Ctrl_Spine1
+    400082: GolemRig_Ctrl_Spine2
+    400084: GolemRig_Guides
+    400086: GolemRig_Head
+    400088: GolemRig_Hips
+    400090: GolemRig_LeftArm
+    400092: GolemRig_LeftFoot
+    400094: GolemRig_LeftForeArm
+    400096: GolemRig_LeftHand
+    400098: GolemRig_LeftLeg
+    400100: GolemRig_LeftShoulder
+    400102: GolemRig_LeftToeBase
+    400104: GolemRig_LeftUpLeg
+    400106: GolemRig_Neck
+    400108: GolemRig_Reference
+    400110: GolemRig_RightArm
+    400112: GolemRig_RightFoot
+    400114: GolemRig_RightForeArm
+    400116: GolemRig_RightHand
+    400118: GolemRig_RightLeg
+    400120: GolemRig_RightShoulder
+    400122: GolemRig_RightToeBase
+    400124: GolemRig_RightUpLeg
+    400126: GolemRig_Spine
+    400128: GolemRig_Spine1
+    400130: GolemRig_Spine2
+    400132: Head
+    400134: Hips
+    400136: LeftArm
+    400138: LeftFoot
+    400140: LeftForeArm
+    400142: LeftHand
+    400144: LeftLeg
+    400146: LeftShoulder
+    400148: LeftToeBase
+    400150: LeftUpLeg
+    400152: mesh_Golem
+    400154: Neck
+    400156: Reference
+    400158: RightArm
+    400160: RightFoot
+    400162: RightForeArm
+    400164: RightHand
+    400166: RightLeg
+    400168: RightShoulder
+    400170: RightToeBase
+    400172: RightUpLeg
+    400174: Spine
+    400176: Spine1
+    400178: Spine2
+    4300000: mesh_Golem
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: mesh_Golem
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert3
+    second: {fileID: 2100000, guid: 650c9c124e56dac4e91cc7b4f738ee5b, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

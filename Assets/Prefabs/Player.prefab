@@ -815,7 +815,7 @@ GameObject:
   - component: {fileID: 114304557455197068}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: PlayerRoot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2737,6 +2737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffManager: {fileID: 114304557455197068}
+  assignTag: Player
   skeletonRef: {fileID: 4920365341584146}
   weaponHand: {fileID: 4501005621318350}
   weapon: {fileID: 1338956831177522, guid: 8be2c49896a262e4193796741def29e4, type: 2}

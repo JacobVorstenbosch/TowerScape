@@ -6,6 +6,8 @@ public class CollisionTreeManager : MonoBehaviour {
 
     [Tooltip("BuffManager must always be on the root gameobject.")]
     public BuffManager buffManager;
+    [Tooltip("Tag to be assigned to all colliders.")]
+    public string assignTag = "Untagged";
     public Transform skeletonRef;
     public Transform weaponHand;
     public GameObject weapon;
@@ -42,8 +44,11 @@ public class CollisionTreeManager : MonoBehaviour {
             RecursiveFillColliderList(node.GetChild(i));
         Collider[] c = node.gameObject.GetComponents<Collider>();
         if (c.Length > 0)
+        {
             for (int i = 0; i < c.Length; i++)
                 colliders.Add(c[i]);
+            c[0].gameObject.tag = assignTag;
+        }
     }
 
     public void OnIntake(ref List<Intake> intake)

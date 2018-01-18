@@ -10,6 +10,7 @@ public class IntakeGenerator : MonoBehaviour
     public Intake.IntakeClass iclass;
     public float ammount;
 
+
     [Tooltip("Auto Assigned")]
     public BuffManager buffManager;
 

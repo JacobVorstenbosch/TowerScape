@@ -12,7 +12,7 @@ public class SceneTransistor : MonoBehaviour {
     [Tooltip("Controller axis to actually transition.")]
     public string controllerAxis = "";
     [Tooltip("Key used as backup to actually transition.")]
-    public KeyCode transitionKey;
+    public KeyCode transistionKey;
     [Tooltip("Interaction text.")]
     public string interactionText;
     [Tooltip("Canvas interaction pane.")]
@@ -27,13 +27,12 @@ public class SceneTransistor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (playerInArea && (Input.GetKeyDown(transitionKey) || (controllerAxis != "" && Input.GetAxis(controllerAxis) > 0.1)))
+        if (playerInArea && ((transistionKey != KeyCode.None && Input.GetKeyDown(transistionKey)) || (controllerAxis != "" && Input.GetAxis(controllerAxis) > 0.1)))
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
 	}
 
     void OnTriggerEnter(Collider collision)
     {
-        print("Object entered with tag: " + collision.gameObject.tag);
         if (collision.transform.CompareTag("PlayerRoot"))
         {
             pane.SetActive(true);

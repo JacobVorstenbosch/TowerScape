@@ -18,6 +18,7 @@ ModelImporter:
     100020: pPlane1
     100022: pPlane2
     100024: pTorus2
+    100026: polySurface44
     400000: //RootNode
     400002: pCube23
     400004: pCube24
@@ -31,6 +32,7 @@ ModelImporter:
     400020: pPlane1
     400022: pPlane2
     400024: pTorus2
+    400026: polySurface44
     2100000: pCube23Mat
     2100002: pCube24Mat
     2100004: pCube25Mat
@@ -43,6 +45,7 @@ ModelImporter:
     2100018: pPlane1Mat
     2100020: pPlane2Mat
     2100022: pTorus2Mat
+    2100024: polySurface44Mat
     2300000: pCube23
     2300002: pCube24
     2300004: pCube25
@@ -55,6 +58,7 @@ ModelImporter:
     2300018: pPlane1
     2300020: pPlane2
     2300022: pTorus2
+    2300024: polySurface44
     3300000: pCube23
     3300002: pCube24
     3300004: pCube25
@@ -67,6 +71,7 @@ ModelImporter:
     3300018: pPlane1
     3300020: pPlane2
     3300022: pTorus2
+    3300024: polySurface44
     4300000: pCube23
     4300002: pCube24
     4300004: pCube25
@@ -79,6 +84,7 @@ ModelImporter:
     4300018: pPlane1
     4300020: pPlane2
     4300022: pTorus2
+    4300024: polySurface44
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -109,7 +115,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.089
     meshCompression: 0
     addColliders: 0
     importVisibility: 1

@@ -372,19 +372,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1589100363602106, guid: b58eff603f9652546ab94bfc8b0398c3,
     type: 2}
   m_PrefabInternal: {fileID: 658301616}
---- !u!136 &315236508
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 315236500}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.25
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &376263283
 Prefab:
   m_ObjectHideFlags: 0
@@ -947,6 +934,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5f14f4877f0f94eadf96b9fa04fc1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &630795555
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 630795539}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!1001 &658301616
 Prefab:
   m_ObjectHideFlags: 0

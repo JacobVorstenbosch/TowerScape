@@ -19,12 +19,26 @@ public class CharacterColliderObject : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    print(other.tag);
+    //    if (other.CompareTag("IntakeSource"))
+    //    {
+    //        IntakeGenerator intake = other.gameObject.GetComponent<IntakeGenerator>();
+    //        if (!intake || intake.active == false)
+    //            return;
+    //        List<Intake> ilist = intake.GetBuffedIntakeList();
+    //        ctmParent.OnIntake(ref ilist);
+    //    }
+    //}
+
+    void OnTriggerStay(Collider other)
     {
-        print(other.tag);
         if (other.CompareTag("IntakeSource"))
         {
             IntakeGenerator intake = other.gameObject.GetComponent<IntakeGenerator>();
+            if (!intake || intake.active == false)
+                return;
             List<Intake> ilist = intake.GetBuffedIntakeList();
             ctmParent.OnIntake(ref ilist);
         }

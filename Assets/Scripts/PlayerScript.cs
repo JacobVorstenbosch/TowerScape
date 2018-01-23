@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     public Animator anim;
+    public CollisionTreeManager ctm;
+    private IntakeGenerator ig;
     //public Rigidbody rbody;
     public float player_Speed = 100.0f;
     private float inputH;
     private float inputV;
-    private bool _Slash;
+    private bool attacc;
     //public float DegreesPerSecond = 60.0f;
 
     // Use this for initialization
@@ -22,6 +24,11 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!ig)
+        {
+            ig = ctm.weaponHand.transform.GetChild(0).gameObject.GetComponent<IntakeGenerator>();
+        }
+
         var camera = Camera.main;
         var forward = camera.transform.forward;
         var right = camera.transform.right;
@@ -34,10 +41,16 @@ public class PlayerScript : MonoBehaviour
         //getting input from controller left stick
         inputH = Input.GetAxis("LeftStickHorizontal");
         inputV = Input.GetAxis("LeftStickVertical");
-        _Slash = Input.GetButtonDown("Fire3");//get x button press
+        attacc = Input.GetButtonDown("Fire3");//get x button press
         //animator setting values
         anim.SetFloat("inputH", inputH);
         anim.SetFloat("inputV", inputV);
+        anim.SetBool("attacc", attacc);
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("SwordCross"))
+            ig.active = true;
+        else
+            ig.active = false;
 
 
         Vector3 desiredMoveDir = -forward * inputV + right * inputH;

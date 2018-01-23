@@ -1893,7 +1893,7 @@ Prefab:
     - target: {fileID: 114692854098098526, guid: 9bcdc4dd9a268904d99556c44092715e,
         type: 2}
       propertyPath: interactionText
-      value: Press Q to enter the tower.
+      value: Press X to enter the tower.
       objectReference: {fileID: 0}
     - target: {fileID: 114692854098098526, guid: 9bcdc4dd9a268904d99556c44092715e,
         type: 2}
@@ -1904,6 +1904,11 @@ Prefab:
         type: 2}
       propertyPath: transistionKey
       value: 113
+      objectReference: {fileID: 0}
+    - target: {fileID: 114692854098098526, guid: 9bcdc4dd9a268904d99556c44092715e,
+        type: 2}
+      propertyPath: controllerAxis
+      value: Fire3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9bcdc4dd9a268904d99556c44092715e, type: 2}

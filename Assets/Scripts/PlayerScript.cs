@@ -12,6 +12,7 @@ public class PlayerScript : MonoBehaviour
     private float inputH;
     private float inputV;
     private bool attacc;
+    public int attaccPhase;
     //public float DegreesPerSecond = 60.0f;
 
     // Use this for initialization
@@ -41,11 +42,24 @@ public class PlayerScript : MonoBehaviour
         //getting input from controller left stick
         inputH = Input.GetAxis("LeftStickHorizontal");
         inputV = Input.GetAxis("LeftStickVertical");
-        attacc = Input.GetButtonDown("Fire3");//get x button press
+        attacc = Input.GetButtonDown("FireShift3");//get x button press
+        
+
+        if(attacc)
+        {
+            if (attaccPhase < 3)
+                attaccPhase++;
+            else
+                attaccPhase = 1;
+        }
+
         //animator setting values
         anim.SetFloat("inputH", inputH);
         anim.SetFloat("inputV", inputV);
         anim.SetBool("attacc", attacc);
+        anim.SetInteger("attaccPhase", attaccPhase);
+       
+        
 
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("SwordCross"))
             ig.active = true;

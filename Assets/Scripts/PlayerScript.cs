@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     private float inputV;
     private bool attacc;
     public int attaccPhase;
+    private bool rollyPolly;
     //public float DegreesPerSecond = 60.0f;
 
     // Use this for initialization
@@ -42,7 +43,8 @@ public class PlayerScript : MonoBehaviour
         //getting input from controller left stick
         inputH = Input.GetAxis("LeftStickHorizontal");
         inputV = Input.GetAxis("LeftStickVertical");
-        attacc = Input.GetButtonDown("FireShift3");//get x button press
+        attacc = Input.GetButtonDown("Fire3");//get x button press
+        rollyPolly = Input.GetButtonDown("Fire2"); // get b button press
         
 
         if(attacc)
@@ -58,6 +60,7 @@ public class PlayerScript : MonoBehaviour
         anim.SetFloat("inputV", inputV);
         anim.SetBool("attacc", attacc);
         anim.SetInteger("attaccPhase", attaccPhase);
+        anim.SetBool("rollyPolly", rollyPolly);
        
         
 

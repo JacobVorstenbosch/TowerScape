@@ -2726,8 +2726,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95872737771712820}
   ctm: {fileID: 114990781945945072}
-  ig: {fileID: 0}
   player_Speed: 5
+  attaccPhase: 0
 --- !u!114 &114990781945945072
 MonoBehaviour:
   m_ObjectHideFlags: 1

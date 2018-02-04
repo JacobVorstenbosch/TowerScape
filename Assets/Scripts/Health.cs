@@ -19,8 +19,10 @@ public class Health : MonoBehaviour {
 
     RawImage m_healthFG;
     RawImage m_healthBG;
+    RawImage m_healthIG;
     GameObject m_goFG;
     GameObject m_goBG;
+    GameObject m_goIG;
     GameObject m_goCanvas;
     public BuffManager buffManager;
     public float maxHealth;
@@ -28,8 +30,16 @@ public class Health : MonoBehaviour {
     public float verticalOffset;
     public Vector3 fgColor;
     public Vector3 bgColor;
+    public Vector3 ihColor;
     public OwnerClass ownerClass = OwnerClass.Enemy;
     public float invulnLength = 0.1f;
+    private Vector3 origPos;
+    private float origScale;
+
+    private float preHitHpPCT;
+    private float impactChangeDelay = 5.0f;
+    private float impactChangeTimer;
+
 
     // Use this for initialization
     void Start ()
@@ -49,22 +59,40 @@ public class Health : MonoBehaviour {
         m_healthBG.rectTransform.sizeDelta = new Vector2(bgWidth, bgHeight);
         m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z);
 
+        m_goIG = new GameObject("HealthIG");
+        m_goIG.transform.parent = m_goCanvas.transform;
+        m_healthIG = m_goIG.AddComponent<RawImage>();
+        m_healthIG.transform.localPosition = new Vector3(0, 0, 0);
+        m_healthIG.rectTransform.sizeDelta = new Vector2(fgWidth, fgHeight);
+        m_healthIG.color = new Color(ihColor.x, ihColor.y, ihColor.z);
+
         m_goFG = new GameObject("HealthFG");
         m_goFG.transform.parent = m_goCanvas.transform;
         m_healthFG = m_goFG.AddComponent<RawImage>();
         m_healthFG.transform.localPosition = new Vector3(0, 0, 0);
         m_healthFG.rectTransform.sizeDelta = new Vector2(fgWidth, fgHeight);
         m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z);
+
+        origPos = m_healthFG.transform.position;
+        preHitHpPCT = currentHealth / maxHealth;
+        impactChangeTimer = impactChangeDelay;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (!(ownerClass == OwnerClass.Enemy))
+        if (ownerClass == OwnerClass.Player)
             return;
+
+        else if (ownerClass == OwnerClass.Boss)
+        {
+
+        }
+
         //orient to camera
         m_goBG.transform.rotation = Camera.main.transform.rotation;
         m_goFG.transform.rotation = Camera.main.transform.rotation;
+        m_goIG.transform.rotation = Camera.main.transform.rotation;
 
         Vector3 proj = Vector3.Project(transform.position, Camera.main.transform.forward);
         float offsetMag = (transform.position - proj).magnitude;
@@ -82,6 +110,7 @@ public class Health : MonoBehaviour {
         {
             m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z);
             m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z);
+            m_healthIG.color = new Color(ihColor.x, ihColor.y, ihColor.z);
         }
         else
         {
@@ -90,10 +119,32 @@ public class Health : MonoBehaviour {
             float alpha = coneFade * circleFade;
             m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z, alpha);
             m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z, alpha);
+            m_healthIG.color = new Color(ihColor.x, ihColor.y, ihColor.z, alpha);
         }
 
         //set width of fg based off of health pct
-        m_healthFG.rectTransform.sizeDelta = new Vector2(currentHealth / maxHealth * fgWidth, fgHeight);
+        float pct = currentHealth / maxHealth;
+        m_healthFG.rectTransform.sizeDelta = new Vector2(pct * fgWidth, fgHeight);
+        m_healthFG.transform.position = origPos + new Vector3(pct * fgWidth / 2 - fgWidth / 2,0,0);
+
+        if (impactChangeTimer <= 0)
+            preHitHpPCT = Mathf.MoveTowards(preHitHpPCT, pct, Time.deltaTime * 0.5f);
+        else
+            impactChangeTimer -= Time.deltaTime;
+
+        if (preHitHpPCT < pct) preHitHpPCT = pct;
+        
+        //hfg.x = left side + delta = ig left
+
+        m_healthIG.rectTransform.sizeDelta = new Vector2((preHitHpPCT - pct) * fgWidth, fgHeight);
+        //m_healthIG.transform.position = origPos + new Vector3(m_healthFG.transform.position.x + (preHitHpPCT - pct) * fgWidth / 2, 0, 0);
+
+        //m_healthIG.transform.position = origPos + new Vector3((m_healthFG.transform.position.x + pct * fgWidth / 2/* - fgWidth / 2*/) + ((preHitHpPCT - pct) * fgWidth / 2),0,0);
+
+
+        //m_healthFG.rectTransform.sizeDelta = new Vector2(w, fgHeight);
+        //m_healthFG.transform.position = origPos + new Vector3(w / 2 - fgWidth / 2, 0, 0);
+        m_healthIG.transform.position = origPos + new Vector3(m_healthFG.rectTransform.rect.xMax + m_healthFG.rectTransform.rect.width / 2 + ((preHitHpPCT - pct) * fgWidth / 2 - fgWidth / 2), 0, 0);
     }
 
 
@@ -109,7 +160,11 @@ public class Health : MonoBehaviour {
             {
                 float incoming = intake[i].GetModifiedAmmount();
                 print("Took " + incoming + " " + intake[i].GetTypeString() + " Damage.");
-                currentHealth -= incoming;
+                float newhp = currentHealth - incoming;
+                float postHitHpPCT = newhp / maxHealth;
+                if (preHitHpPCT <= postHitHpPCT) { preHitHpPCT = postHitHpPCT; impactChangeTimer = impactChangeDelay; }
+
+                currentHealth = newhp;
                 if (currentHealth < 0) currentHealth = 0;
 
                 //applying invuln
@@ -124,7 +179,12 @@ public class Health : MonoBehaviour {
             {
                 float incoming = intake[i].GetModifiedAmmount();
                 print("Took " + incoming + " " + intake[i].GetTypeString() + " Healing.");
-                currentHealth += incoming;
+
+                float newhp = currentHealth - incoming;
+                float postHitHpPCT = newhp / maxHealth;
+                preHitHpPCT = postHitHpPCT;
+                if (currentHealth > maxHealth) currentHealth = maxHealth;
+                currentHealth = newhp;
                 if (currentHealth > maxHealth) currentHealth = maxHealth;
             }
         }

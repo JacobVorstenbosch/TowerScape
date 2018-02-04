@@ -8,14 +8,14 @@ public class Health : MonoBehaviour {
     #region HEALTHMETHODS
     public enum OwnerClass { Enemy, Boss, Player };
 
-    const float viewConeHalfAngle = 11.75f;
-    const float maxPositionOffset = 2.5f;
-    const float bgWidth = 1;
-    const float bgHeight = 0.1f;
-    const float fgWidth = 0.995f;
-    const float fgHeight = 0.095f;
-    const float minCircleFade = 5f;
-    const float maxCircleFade = 7.5f;
+    private float viewConeHalfAngle = 11.75f;
+    private float maxPositionOffset = 2.5f;
+    private float bgWidth = 1;
+    private float bgHeight = 0.1f;
+    private float fgWidth = 0.995f;
+    private float fgHeight = 0.095f;
+    private float minCircleFade = 5f;
+    private float maxCircleFade = 7.5f;
 
     RawImage m_healthFG;
     RawImage m_healthBG;
@@ -37,6 +37,7 @@ public class Health : MonoBehaviour {
     private float origScale;
 
     private float preHitHpPCT;
+    private float fgHalfWidth;
     private float impactChangeDelay = 5.0f;
     private float impactChangeTimer;
 
@@ -45,87 +46,104 @@ public class Health : MonoBehaviour {
     void Start ()
     {
         //find buffmanager
-        if (!(ownerClass == OwnerClass.Enemy))
-            return;
-        m_goCanvas = new GameObject("NamePlate");
-        m_goCanvas.transform.parent = transform;
-        Canvas canvas = m_goCanvas.AddComponent<Canvas>();
-        canvas.transform.localPosition = new Vector3(0, verticalOffset, 0);
+        Transform canvasParent = null; ;
+        Vector3 offset = new Vector3(0, 0, 0);
+        if (ownerClass == OwnerClass.Enemy)
+        {
+            m_goCanvas = new GameObject("NamePlate");
+            m_goCanvas.transform.parent = transform;
+            m_goCanvas.AddComponent<Canvas>().transform.localPosition = new Vector3(0, verticalOffset, 0);
+
+            canvasParent = m_goCanvas.transform;
+        }
+        else if (ownerClass == OwnerClass.Boss)
+        {
+            canvasParent = GameObject.FindGameObjectWithTag("HUDCanvas").transform.Find("BossHealthRoot");
+            offset = new Vector3(0, verticalOffset * canvasParent.childCount, 0);
+            bgWidth = 505;
+            bgHeight = 20;
+            fgWidth = 500;
+            fgHeight = 15;
+        }
+        else if (ownerClass == OwnerClass.Player)
+        {
+            canvasParent = GameObject.FindGameObjectWithTag("HUDCanvas").transform.Find("PlayerHealthRoot");
+            bgWidth = 205;
+            bgHeight = 20;
+            fgWidth = 200;
+            fgHeight = 15;
+        }
         
         m_goBG = new GameObject("HealthBG");
-        m_goBG.transform.parent = m_goCanvas.transform;
+        m_goBG.transform.parent = canvasParent;
         m_healthBG = m_goBG.AddComponent<RawImage>();
-        m_healthBG.transform.localPosition = new Vector3(0, 0, 0);
+        m_healthBG.transform.localPosition = offset;
         m_healthBG.rectTransform.sizeDelta = new Vector2(bgWidth, bgHeight);
         m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z);
 
         m_goIG = new GameObject("HealthIG");
-        m_goIG.transform.parent = m_goCanvas.transform;
+        m_goIG.transform.parent = canvasParent;
         m_healthIG = m_goIG.AddComponent<RawImage>();
-        m_healthIG.transform.localPosition = new Vector3(0, 0, 0);
+        m_healthIG.transform.localPosition = offset;
         m_healthIG.rectTransform.sizeDelta = new Vector2(fgWidth, fgHeight);
         m_healthIG.color = new Color(ihColor.x, ihColor.y, ihColor.z);
 
         m_goFG = new GameObject("HealthFG");
-        m_goFG.transform.parent = m_goCanvas.transform;
+        m_goFG.transform.parent = canvasParent;
         m_healthFG = m_goFG.AddComponent<RawImage>();
-        m_healthFG.transform.localPosition = new Vector3(0, 0, 0);
+        m_healthFG.transform.localPosition = offset;
         m_healthFG.rectTransform.sizeDelta = new Vector2(fgWidth, fgHeight);
         m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z);
 
         origPos = m_healthFG.transform.position;
         preHitHpPCT = currentHealth / maxHealth;
         impactChangeTimer = impactChangeDelay;
+        fgHalfWidth = fgWidth / 2;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (ownerClass == OwnerClass.Player)
-            return;
-
-        else if (ownerClass == OwnerClass.Boss)
+        if (ownerClass == OwnerClass.Enemy)
         {
+            //orient to camera
+            m_goBG.transform.rotation = Camera.main.transform.rotation;
+            m_goFG.transform.rotation = Camera.main.transform.rotation;
+            m_goIG.transform.rotation = Camera.main.transform.rotation;
 
-        }
+            Vector3 proj = Vector3.Project(transform.position, Camera.main.transform.forward);
+            float offsetMag = (transform.position - proj).magnitude;
 
-        //orient to camera
-        m_goBG.transform.rotation = Camera.main.transform.rotation;
-        m_goFG.transform.rotation = Camera.main.transform.rotation;
-        m_goIG.transform.rotation = Camera.main.transform.rotation;
+            //calculate the opposite side of the triangle
+            //tan(theta) = opposite / adjacent
+            //adjacent = proj.mag
+            //opposite = tan * adjacent
+            float coneWidth = Mathf.Tan(viewConeHalfAngle * Mathf.Deg2Rad) * proj.magnitude;
 
-        Vector3 proj = Vector3.Project(transform.position, Camera.main.transform.forward);
-        float offsetMag = (transform.position - proj).magnitude;
-        
-        //calculate the opposite side of the triangle
-        //tan(theta) = opposite / adjacent
-        //adjacent = proj.mag
-        //opposite = tan * adjacent
-        float coneWidth = Mathf.Tan(viewConeHalfAngle * Mathf.Deg2Rad) * proj.magnitude;
-
-        //offset from cone
-        float coneOffset = offsetMag - coneWidth;
-        //if coneOffset is negative we are in the cone itself
-        if (coneOffset < 0 && proj.magnitude < minCircleFade)
-        {
-            m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z);
-            m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z);
-            m_healthIG.color = new Color(ihColor.x, ihColor.y, ihColor.z);
-        }
-        else
-        {
-            float coneFade = 1 - coneOffset / maxPositionOffset;
-            float circleFade = 1 - (proj.magnitude - minCircleFade) / maxCircleFade;
-            float alpha = coneFade * circleFade;
-            m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z, alpha);
-            m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z, alpha);
-            m_healthIG.color = new Color(ihColor.x, ihColor.y, ihColor.z, alpha);
+            //offset from cone
+            float coneOffset = offsetMag - coneWidth;
+            //if coneOffset is negative we are in the cone itself
+            if (coneOffset < 0 && proj.magnitude < minCircleFade)
+            {
+                m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z);
+                m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z);
+                m_healthIG.color = new Color(ihColor.x, ihColor.y, ihColor.z);
+            }
+            else
+            {
+                float coneFade = 1 - coneOffset / maxPositionOffset;
+                float circleFade = 1 - (proj.magnitude - minCircleFade) / maxCircleFade;
+                float alpha = coneFade * circleFade;
+                m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z, alpha);
+                m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z, alpha);
+                m_healthIG.color = new Color(ihColor.x, ihColor.y, ihColor.z, alpha);
+            }
         }
 
         //set width of fg based off of health pct
         float pct = currentHealth / maxHealth;
         m_healthFG.rectTransform.sizeDelta = new Vector2(pct * fgWidth, fgHeight);
-        m_healthFG.transform.position = origPos + new Vector3(pct * fgWidth / 2 - fgWidth / 2,0,0);
+        m_healthFG.transform.position = origPos + new Vector3(pct * fgWidth / 2 - fgHalfWidth,0,0);
 
         if (impactChangeTimer <= 0)
             preHitHpPCT = Mathf.MoveTowards(preHitHpPCT, pct, Time.deltaTime * 0.5f);
@@ -134,17 +152,8 @@ public class Health : MonoBehaviour {
 
         if (preHitHpPCT < pct) preHitHpPCT = pct;
         
-        //hfg.x = left side + delta = ig left
-
         m_healthIG.rectTransform.sizeDelta = new Vector2((preHitHpPCT - pct) * fgWidth, fgHeight);
-        //m_healthIG.transform.position = origPos + new Vector3(m_healthFG.transform.position.x + (preHitHpPCT - pct) * fgWidth / 2, 0, 0);
-
-        //m_healthIG.transform.position = origPos + new Vector3((m_healthFG.transform.position.x + pct * fgWidth / 2/* - fgWidth / 2*/) + ((preHitHpPCT - pct) * fgWidth / 2),0,0);
-
-
-        //m_healthFG.rectTransform.sizeDelta = new Vector2(w, fgHeight);
-        //m_healthFG.transform.position = origPos + new Vector3(w / 2 - fgWidth / 2, 0, 0);
-        m_healthIG.transform.position = origPos + new Vector3(m_healthFG.rectTransform.rect.xMax + m_healthFG.rectTransform.rect.width / 2 + ((preHitHpPCT - pct) * fgWidth / 2 - fgWidth / 2), 0, 0);
+        m_healthIG.transform.position = origPos + new Vector3(m_healthFG.rectTransform.rect.xMax + m_healthFG.rectTransform.rect.width / 2 + ((preHitHpPCT - pct) * fgWidth / 2 - fgHalfWidth), 0, 0);
     }
 
 

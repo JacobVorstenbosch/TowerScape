@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -354,9 +355,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &1073348865
@@ -403,7 +404,7 @@ Transform:
   m_GameObject: {fileID: 1190042617}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.471381, y: 1.9711393, z: 1.493727}
   m_Children: []
   m_Father: {fileID: 1490191682}
   m_RootOrder: 0
@@ -443,13 +444,15 @@ MonoBehaviour:
       reference="9"><_jointColor>0,0.6,0,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_neck><_lookTime>1</_lookTime><_minimumTargetChange>0.1</_minimumTargetChange><_resetEachFrame>False</_resetEachFrame></_animator><_navigator
       type="RAIN.Navigation.BasicNavigator" reference="10"><_drawPaths>False</_drawPaths><_pathColor>0.6,0.5529412,0.009411765,1</_pathColor><_outlineColorOffset>-0.5</_outlineColorOffset><_maxPathfindingSteps>100</_maxPathfindingSteps><_maxPathLength>0</_maxPathLength><_padding>0</_padding><_graphTags></_graphTags></_navigator><_senses
       type="RAIN.Perception.BasicSenses" reference="11"><_sensors><element0 type="RAIN.Perception.Sensors.VisualSensor"
-      reference="12"><_showVisual>True</_showVisual><_sensorName>eyes</_sensorName><_isActive>True</_isActive><_sensorColor>0,0.6,0,1</_sensorColor><_mountPoint
-      sceneobject="ab3e108b-08fe-4312-ab8a-436d2f0ebba5" component="0"></_mountPoint><_positionOffset>0,-0.05871391,0</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>10</_range><_canDetectSelf>False</_canDetectSelf><_horizontalAngle>360</_horizontalAngle><_verticalAngle>180</_verticalAngle><_lineOfSight>True</_lineOfSight><_lineOfSightMask>-1</_lineOfSightMask></element0></_sensors></_senses><_customElements></_customElements></_ai></component>
+      reference="12"><_showVisual>True</_showVisual><_sensorName>eyes</_sensorName><_isActive>True</_isActive><_sensorColor>0.07439446,0.6323529,0.07439446,1</_sensorColor><_mountPoint
+      sceneobject="ab3e108b-08fe-4312-ab8a-436d2f0ebba5" component="0"></_mountPoint><_positionOffset>0,-0.05871391,0</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>10</_range><_canDetectSelf>False</_canDetectSelf><_horizontalAngle>360</_horizontalAngle><_verticalAngle>180</_verticalAngle><_lineOfSight>True</_lineOfSight><_lineOfSightMask>-1</_lineOfSightMask></element0><element1
+      type="RAIN.Perception.Sensors.VisualSensor" reference="13"><_showVisual>True</_showVisual><_sensorName>AttackRangeFront</_sensorName><_isActive>True</_isActive><_sensorColor>0,0.6,0,1</_sensorColor><_mountPoint
+      sceneobject="ab3e108b-08fe-4312-ab8a-436d2f0ebba5" component="0"></_mountPoint><_positionOffset>0,0,0</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>2</_range><_canDetectSelf>False</_canDetectSelf><_horizontalAngle>120</_horizontalAngle><_verticalAngle>180</_verticalAngle><_lineOfSight>True</_lineOfSight><_lineOfSightMask>-1</_lineOfSightMask></element1></_sensors></_senses><_customElements></_customElements></_ai></component>
     _serializedMetaDocument: <meta><element0><key>/component/_ai+_selected</key><value
-      type="System.Int32">4</value></element0><element1><key>/component/_ai/_navigator/_graphTags+_foldout</key><value
+      type="System.Int32">5</value></element0><element1><key>/component/_ai/_navigator/_graphTags+_foldout</key><value
       type="System.Boolean">False</value></element1></meta>
     _serializedObjects:
-    - {fileID: 4900000, guid: a44da588471cf714e8edc2f898c9b09f, type: 3}
+    - {fileID: 4900000, guid: 60b2761a7c976c047be87e2c004d8d4e, type: 3}
     _serializedCustomData: []
 --- !u!1 &1377073358
 GameObject:
@@ -723,7 +726,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1490191677}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.98, y: 0.36, z: -2.8}
+  m_LocalPosition: {x: -1.98, y: 0.36, z: -3.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1190042618}
@@ -857,7 +860,8 @@ MonoBehaviour:
       reference="12"><_showVisual>True</_showVisual><_sensorName>Visual Sensor</_sensorName><_isActive>True</_isActive><_sensorColor>0.6,0.5529412,0.009411765,1</_sensorColor><_mountPoint
       sceneobject="0f048ac7-969f-4366-b1a3-a3d83d4291de" component="0"></_mountPoint><_positionOffset>0,0,0</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>10</_range><_canDetectSelf>False</_canDetectSelf><_horizontalAngle>360</_horizontalAngle><_verticalAngle>180</_verticalAngle><_lineOfSight>False</_lineOfSight><_lineOfSightMask>-5</_lineOfSightMask></element0></_sensors></_senses><_customElements></_customElements></_ai></component>
     _serializedMetaDocument: <meta><element0><key>/component/_ai+_selected</key><value
-      type="System.Int32">5</value></element0></meta>
+      type="System.Int32">5</value></element0><element1><key>/component/_ai/_navigator/_graphTags+_foldout</key><value
+      type="System.Boolean">False</value></element1></meta>
     _serializedObjects:
     - {fileID: 4900000, guid: ed2cf2f68cd26f4409f03edac37dcebc, type: 3}
     _serializedCustomData: []
@@ -900,10 +904,10 @@ MonoBehaviour:
     _serializedDocument: <component version="1.8" type="RAIN.Navigation.Waypoints.WaypointRig"
       reference="0" includecustomdata="False"><_visualMode>AlwaysOn</_visualMode><_waypointSet
       reference="1"><_mountPoint sceneobject="d9979da6-0ed9-45fc-b4d7-ee389ed666d0"
-      component="0"></_mountPoint><_setName>Waypoint Route</_setName><_setType>Route</_setType><_networkColor>0,0,0.6,1</_networkColor><_outlineColorOffset>-0.5</_outlineColorOffset><_selectionColorOffset>0.4</_selectionColorOffset><_showOctTree>False</_showOctTree><_waypoints><element0
+      component="0"></_mountPoint><_setName>Patrol</_setName><_setType>Route</_setType><_networkColor>0,0,0.6,1</_networkColor><_outlineColorOffset>-0.5</_outlineColorOffset><_selectionColorOffset>0.4</_selectionColorOffset><_showOctTree>False</_showOctTree><_waypoints><element0
       reference="2"><_waypointSet reference="1"></_waypointSet><_waypointName></_waypointName><_position>-8.901107,0,5.11727</_position><_range>0.5</_range></element0><element1
       reference="3"><_waypointSet reference="1"></_waypointSet><_waypointName></_waypointName><_position>0.02544075,0,7.639483</_position><_range>0.5</_range></element1><element2
-      reference="4"><_waypointSet reference="1"></_waypointSet><_waypointName></_waypointName><_position>0.02543926,0,0.007097244</_position><_range>0.5</_range></element2><element3
+      reference="4"><_waypointSet reference="1"></_waypointSet><_waypointName></_waypointName><_position>0.02543926,0,-1.637446</_position><_range>0.5</_range></element2><element3
       reference="5"><_waypointSet reference="1"></_waypointSet><_waypointName></_waypointName><_position>9.238479,0,0.007097244</_position><_range>0.5</_range></element3><element4
       reference="6"><_waypointSet reference="1"></_waypointSet><_waypointName></_waypointName><_position>14.97319,0,-4.407896</_position><_range>0.5</_range></element4></_waypoints><_connections></_connections></_waypointSet></component>
     _serializedMetaDocument: <meta></meta>
@@ -1086,6 +1090,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10

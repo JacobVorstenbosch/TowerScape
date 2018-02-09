@@ -4,8 +4,8 @@ Comments to not need to be //d
 
 //Dummy
 {
-	"type" : "dummy",
-	"aitype" : "dummy",
+	"type" : "TrainingDummy",
+	"aitype" : "TrainingDummy",
 	"hp" : "10000",
 	"dmg" : "0",
 	"atsp" : "0",

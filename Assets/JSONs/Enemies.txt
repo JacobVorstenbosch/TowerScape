@@ -5,7 +5,7 @@ Comments to not need to be //d
 //Dummy
 {
 	"type" : "TrainingDummy",
-	"aitype" : "TrainingDummy",
+	"aitype" : "unimplemented",
 	"hp" : "10000",
 	"dmg" : "0",
 	"atsp" : "0",

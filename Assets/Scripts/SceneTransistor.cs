@@ -22,7 +22,8 @@ public class SceneTransistor : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+        if (pane == null)
+            pane = GameObject.FindGameObjectWithTag("HUDCanvas").transform.Find("InteractionPane").GetComponent<InteractionPane>();
 	}
 	
 	// Update is called once per frame

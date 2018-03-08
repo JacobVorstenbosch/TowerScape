@@ -104,6 +104,22 @@ public class Health : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (currentHealth <= 0 && ownerClass != OwnerClass.Player)
+        {
+            //TODO:
+            //play anim, and do this once done
+            //destroy everything we own
+            Destroy(m_goBG);
+            Destroy(m_goFG);
+            Destroy(m_goIG);
+            //destroy our object
+            Destroy(gameObject);
+        }
+        else if (currentHealth <= 0 && ownerClass == OwnerClass.Player)
+        {
+            //home teleport, and reset
+        }
+
         if (ownerClass == OwnerClass.Enemy)
         {
             //orient to camera

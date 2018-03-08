@@ -31,6 +31,13 @@ public class CameraController : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);
     }
 
+    public void ResetPosition()
+    {
+        timeSinceInput = resetTime;
+        transform.position = target.transform.position + offset;
+        transform.LookAt(target.transform);
+    }
+
     void LateUpdate()
     {
         if (!m_overriden)

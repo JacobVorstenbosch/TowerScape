@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Encounter : MonoBehaviour {
 
+    public Transform playerSpawn;
+
     public Transform trianglePoint1;
     public Transform trianglePoint2;
     public Transform trianglePoint3;
@@ -35,6 +37,7 @@ public class Encounter : MonoBehaviour {
         m_encounter = m_jsonManager.GetEncounterByFloor(floorNumber);
         ConfigureRoom();
         SpawnEncounter();
+        SetPlayerPosition();
         m_jsonManager.currentFloor++;
     }
     
@@ -54,6 +57,17 @@ public class Encounter : MonoBehaviour {
             offset.Scale(clutterMaxOffset);
             clutter.transform.position += offset;
         }
+    }
+
+    void SetPlayerPosition()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("PlayerRoot");
+        player.transform.position = playerSpawn.position;
+        player.transform.rotation = playerSpawn.rotation;
+
+        CameraController cameraController = FindObjectOfType<CameraController>();
+        //todo intro cutscene
+        cameraController.ResetPosition();
     }
 
     void SpawnEncounter()
@@ -171,7 +185,7 @@ public class Encounter : MonoBehaviour {
 
     void SpawnEnemy(string e, Vector3 p)
     {
-        GameObject go = Instantiate(Resources.Load("EnemyModels/" + e) as GameObject, p, Quaternion.identity);
+        GameObject go = Instantiate(Resources.Load("EnemyModels/" + e) as GameObject, p, Quaternion.identity, transform);
         go.AddComponent<Enemy>();
         go.GetComponent<Enemy>().SetJSON(EnemyByName(e));
     }

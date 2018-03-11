@@ -40,11 +40,11 @@ public class Health : MonoBehaviour {
     private float fgHalfWidth;
     private float impactChangeDelay = 5.0f;
     private float impactChangeTimer;
-
-
+    
     // Use this for initialization
     void Start ()
     {
+        UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnSceneChange;
         //find buffmanager
         Transform canvasParent = null; ;
         Vector3 offset = new Vector3(0, 0, 0);
@@ -104,6 +104,22 @@ public class Health : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (currentHealth <= 0 && ownerClass != OwnerClass.Player)
+        {
+            //TODO:
+            //play anim, and do this once done
+            //destroy everything we own
+            Destroy(m_goBG);
+            Destroy(m_goFG);
+            Destroy(m_goIG);
+            //destroy our object
+            Destroy(gameObject);
+        }
+        else if (currentHealth <= 0 && ownerClass == OwnerClass.Player)
+        {
+            //home teleport, and reset
+        }
+
         if (ownerClass == OwnerClass.Enemy)
         {
             //orient to camera
@@ -156,6 +172,16 @@ public class Health : MonoBehaviour {
         m_healthIG.transform.position = origPos + new Vector3(m_healthFG.rectTransform.rect.xMax + m_healthFG.rectTransform.rect.width / 2 + ((preHitHpPCT - pct) * fgWidth / 2 - fgHalfWidth), 0, 0);
     }
 
+    public void OnSceneChange(UnityEngine.SceneManagement.Scene OldScene, UnityEngine.SceneManagement.Scene NewScene)
+    {
+        if (ownerClass == OwnerClass.Boss)
+        {
+            //destroy everything we own
+            Destroy(m_goBG);
+            Destroy(m_goFG);
+            Destroy(m_goIG);
+        }
+    }
 
     /// <summary>
     /// The function used for dealing damage or healing a unit
@@ -174,8 +200,7 @@ public class Health : MonoBehaviour {
                 if (preHitHpPCT <= postHitHpPCT) { preHitHpPCT = postHitHpPCT; impactChangeTimer = impactChangeDelay; }
 
                 currentHealth = newhp;
-                if (currentHealth < 0) currentHealth = 0;
-
+                if (currentHealth <= 0) Destroy(gameObject);
                 //applying invuln
                 if (intake[i].intakeClass != Intake.IntakeClass.IGNORE_INVULN && incoming > 0)
                 {

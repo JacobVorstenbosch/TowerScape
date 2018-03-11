@@ -14,7 +14,6 @@ public class CameraController : MonoBehaviour {
     public Vector2 minmaxVerticalRotation;
 
     Vector3 offset;
-    Vector2 totalInput;
     float timeSinceInput;
     float dampingsqrd;
 
@@ -22,11 +21,22 @@ public class CameraController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        totalInput = new Vector2(0,0);
         offset = baseOffset + targetToCenter;
         timeSinceInput = resetTime;
         dampingsqrd = damping * damping;
 	}
+
+    void Awake()
+    {
+        DontDestroyOnLoad(transform.gameObject);
+    }
+
+    public void ResetPosition()
+    {
+        timeSinceInput = resetTime;
+        transform.position = target.transform.position + offset;
+        transform.LookAt(target.transform);
+    }
 
     void LateUpdate()
     {
@@ -51,7 +61,6 @@ public class CameraController : MonoBehaviour {
             //standard movement
             else
             {
-                totalInput = Vector2.zero;
                 transform.position = Vector3.Slerp(transform.position, target.transform.position + target.transform.rotation * offset, Time.deltaTime * damping);
                 transform.LookAt(targetPos);
             }

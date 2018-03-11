@@ -23,6 +23,11 @@ public class PlayerScript : MonoBehaviour
        // rbody = GetComponent<Rigidbody>();
     }
 
+    void Awake()
+    {
+        DontDestroyOnLoad(transform.gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {

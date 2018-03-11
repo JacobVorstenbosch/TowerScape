@@ -4,28 +4,71 @@ using UnityEngine;
 
 public class Encounter : MonoBehaviour {
 
+    public Transform playerSpawn;
+
     public Transform trianglePoint1;
     public Transform trianglePoint2;
     public Transform trianglePoint3;
+    public GameObject floorBlocker;
 
     public int floorNumber;
+
+    [Header("Wall Generation")]
+    public Transform[] wallNodes;
+    public GameObject[] wallObjects;
+
+    [Header("Clutter Generation")]
+    public Vector3 clutterMaxOffset;
+    [Range(0.0f,1.0f)]
+    public float clutterChance = 0.5f;
+
+    public Transform[] clutterNodes;
+    public GameObject[] clutterObjects;
 
     private JSONManager m_jsonManager;
     private JSONManager.EncounterJSON m_encounter;
 
 
-    public GameObject baseEnemy;
-
 	// Use this for initialization
 	void Start ()
     {
         m_jsonManager = GameObject.FindGameObjectWithTag("JSONManager").GetComponent<JSONManager>();
-        m_jsonManager.currentFloor++;
         floorNumber = m_jsonManager.currentFloor;
         m_encounter = m_jsonManager.GetEncounterByFloor(floorNumber);
+        ConfigureRoom();
         SpawnEncounter();
+        SetPlayerPosition();
+        m_jsonManager.currentFloor++;
     }
     
+    void ConfigureRoom()
+    {
+        for (int i = 0; i < wallNodes.Length; i++)
+        {
+            Instantiate(wallObjects[Random.Range(0, wallObjects.Length + 1)], wallNodes[i]);
+        }
+
+        for (int i = 0; i < clutterNodes.Length; i++)
+        {
+            if (Random.Range(0.0f, 1.0f) > clutterChance)
+                continue;
+            GameObject clutter = Instantiate(clutterObjects[Random.Range(0, clutterObjects.Length + 1)], clutterNodes[i]);
+            Vector3 offset = Random.insideUnitSphere;
+            offset.Scale(clutterMaxOffset);
+            clutter.transform.position += offset;
+        }
+    }
+
+    void SetPlayerPosition()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("PlayerRoot");
+        player.transform.position = playerSpawn.position;
+        player.transform.rotation = playerSpawn.rotation;
+
+        CameraController cameraController = FindObjectOfType<CameraController>();
+        //todo intro cutscene
+        cameraController.ResetPosition();
+    }
 
     void SpawnEncounter()
     {
@@ -142,8 +185,14 @@ public class Encounter : MonoBehaviour {
 
     void SpawnEnemy(string e, Vector3 p)
     {
-        GameObject go = Instantiate(Resources.Load("EnemyModels/" + e) as GameObject, p, Quaternion.identity);
+        GameObject go = Instantiate(Resources.Load("EnemyModels/" + e) as GameObject, p, Quaternion.identity, transform);
         go.AddComponent<Enemy>();
         go.GetComponent<Enemy>().SetJSON(EnemyByName(e));
+    }
+
+    void Update()
+    {
+        if (transform.childCount <= 3)
+            floorBlocker.SetActive(false);
     }
 }

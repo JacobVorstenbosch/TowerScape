@@ -1,23 +1,24 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: b000b12b4774d4f4a9a3fcce859479e9
-timeCreated: 1521090999
-=======
-guid: 37ede33aee8fa834e9b114f5cda891a2
-timeCreated: 1520800801
->>>>>>> master
+guid: c37cd19992b72f443bc4d4e6e9766338
+timeCreated: 1520814210
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: initialShadingGroup_polySurface271
+    100000: DungeonFirstFloor1:DungeonFirstFloor1:polySurface44
     100002: //RootNode
-    400000: initialShadingGroup_polySurface271
+    100004: initialShadingGroup_DungeonFirstFloor1:DungeonFirstFloor1:polySurface44
+    400000: DungeonFirstFloor1:DungeonFirstFloor1:polySurface44
     400002: //RootNode
-    2100000: initialShadingGroup_polySurface271Mat
-    2300000: initialShadingGroup_polySurface271
-    3300000: initialShadingGroup_polySurface271
-    4300000: initialShadingGroup_polySurface271
+    400004: initialShadingGroup_DungeonFirstFloor1:DungeonFirstFloor1:polySurface44
+    2100000: DungeonFirstFloor1_DungeonFirstFloor1_polySurface44Mat
+    2100002: initialShadingGroup_DungeonFirstFloor1_DungeonFirstFloor1_polySurface44Mat
+    2300000: DungeonFirstFloor1:DungeonFirstFloor1:polySurface44
+    2300002: initialShadingGroup_DungeonFirstFloor1:DungeonFirstFloor1:polySurface44
+    3300000: DungeonFirstFloor1:DungeonFirstFloor1:polySurface44
+    3300002: initialShadingGroup_DungeonFirstFloor1:DungeonFirstFloor1:polySurface44
+    4300000: DungeonFirstFloor1:DungeonFirstFloor1:polySurface44
+    4300002: initialShadingGroup_DungeonFirstFloor1:DungeonFirstFloor1:polySurface44
   externalObjects: {}
   materials:
     importMaterials: 1

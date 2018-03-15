@@ -1,23 +1,22 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: b000b12b4774d4f4a9a3fcce859479e9
-timeCreated: 1521090999
-=======
-guid: 37ede33aee8fa834e9b114f5cda891a2
-timeCreated: 1520800801
->>>>>>> master
+guid: 92f0f097a852d18448c5a5ebfc3082af
+timeCreated: 1521135712
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: initialShadingGroup_polySurface271
+    100000: joint1
     100002: //RootNode
-    400000: initialShadingGroup_polySurface271
+    100004: Slime
+    400000: joint1
     400002: //RootNode
-    2100000: initialShadingGroup_polySurface271Mat
-    2300000: initialShadingGroup_polySurface271
-    3300000: initialShadingGroup_polySurface271
-    4300000: initialShadingGroup_polySurface271
+    400004: Slime
+    2100000: lambert2
+    4300000: Slime
+    7400000: Slime_Walk
+    7400002: Slime_Jump
+    9500000: //RootNode
+    13700000: Slime
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -44,11 +43,67 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Slime_Walk
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Slime_Jump
+      takeName: Take 001
+      firstFrame: 30
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 60
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -92,7 +147,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

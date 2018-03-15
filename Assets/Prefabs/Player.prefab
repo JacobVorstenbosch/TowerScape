@@ -2705,12 +2705,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4f65882f3779345bbc36a4c9c6e379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BarTexture: {fileID: 2800000, guid: 312e95a32c1bcd249973b76063b25b03, type: 3}
   buffManager: {fileID: 114304557455197068}
   maxHealth: 100
   currentHealth: 100
   verticalOffset: 0
-  fgColor: {x: 0, y: 0, z: 0}
-  bgColor: {x: 0, y: 0, z: 0}
+  fgColor: {x: 1, y: 0, z: 0}
+  bgColor: {x: 0.75, y: 0.75, z: 0.75}
+  ihColor: {x: 1, y: 0.75, z: 0}
   ownerClass: 2
   invulnLength: 0.1
 --- !u!114 &114872629576037430

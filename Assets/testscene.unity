@@ -546,9 +546,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 315236500}
-  targetToCenter: {x: 0, y: 0.9, z: 0}
+  targetToCenter: {x: 0, y: 1.3, z: 0}
   damping: 1
-  baseOffset: {x: 0, y: 5, z: -4}
+  baseOffset: {x: 0, y: 2, z: -5}
   resetTime: 3
   controllerSensitivity: 3
   wallLayer: 8
@@ -635,6 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4f65882f3779345bbc36a4c9c6e379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BarTexture: {fileID: 0}
   buffManager: {fileID: 0}
   maxHealth: 1000
   currentHealth: 1000
@@ -909,41 +910,6 @@ Prefab:
     - target: {fileID: 4146940460647020, guid: b58eff603f9652546ab94bfc8b0398c3, type: 2}
       propertyPath: m_RootOrder
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 114809128596402858, guid: b58eff603f9652546ab94bfc8b0398c3,
-        type: 2}
-      propertyPath: fgColor.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114809128596402858, guid: b58eff603f9652546ab94bfc8b0398c3,
-        type: 2}
-      propertyPath: fgColor.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114809128596402858, guid: b58eff603f9652546ab94bfc8b0398c3,
-        type: 2}
-      propertyPath: bgColor.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 114809128596402858, guid: b58eff603f9652546ab94bfc8b0398c3,
-        type: 2}
-      propertyPath: bgColor.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 114809128596402858, guid: b58eff603f9652546ab94bfc8b0398c3,
-        type: 2}
-      propertyPath: bgColor.z
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 114809128596402858, guid: b58eff603f9652546ab94bfc8b0398c3,
-        type: 2}
-      propertyPath: ihColor.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114809128596402858, guid: b58eff603f9652546ab94bfc8b0398c3,
-        type: 2}
-      propertyPath: ihColor.y
-      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b58eff603f9652546ab94bfc8b0398c3, type: 2}
@@ -2252,7 +2218,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1770940226}
-  m_LocalRotation: {x: -0.57315505, y: 0.11400101, z: -0.76876074, w: 0.2598151}
+  m_LocalRotation: {x: -0.5731551, y: 0.11400103, z: -0.76876086, w: 0.25981513}
   m_LocalPosition: {x: 0.2768612, y: 3.34, z: -2.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

@@ -45,17 +45,18 @@ public class Encounter : MonoBehaviour {
     {
         for (int i = 0; i < wallNodes.Length; i++)
         {
-            Instantiate(wallObjects[Random.Range(0, wallObjects.Length + 1)], wallNodes[i]);
+            GameObject wall = Instantiate(wallObjects[Random.Range(0, wallObjects.Length)], wallNodes[i]);
+            wall.transform.position += new Vector3(0,0.15f,0);
         }
 
         for (int i = 0; i < clutterNodes.Length; i++)
         {
             if (Random.Range(0.0f, 1.0f) > clutterChance)
                 continue;
-            GameObject clutter = Instantiate(clutterObjects[Random.Range(0, clutterObjects.Length + 1)], clutterNodes[i]);
+            GameObject clutter = Instantiate(clutterObjects[Random.Range(0, clutterObjects.Length)], clutterNodes[i]);
             Vector3 offset = Random.insideUnitSphere;
             offset.Scale(clutterMaxOffset);
-            clutter.transform.position += offset;
+            clutter.transform.localPosition += offset;
         }
     }
 

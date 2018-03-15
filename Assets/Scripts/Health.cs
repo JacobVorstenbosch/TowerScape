@@ -8,12 +8,15 @@ public class Health : MonoBehaviour {
     #region HEALTHMETHODS
     public enum OwnerClass { Enemy, Boss, Player };
 
+    public Texture BarTexture;
+    public static Texture StaticBarTexture;
+
     private float viewConeHalfAngle = 11.75f;
     private float maxPositionOffset = 2.5f;
     private float bgWidth = 1;
-    private float bgHeight = 0.1f;
+    private float bgHeight = 0.15f;
     private float fgWidth = 0.995f;
-    private float fgHeight = 0.095f;
+    private float fgHeight = 0.145f;
     private float minCircleFade = 5f;
     private float maxCircleFade = 7.5f;
 
@@ -104,6 +107,14 @@ public class Health : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (!StaticBarTexture || m_healthFG.texture != StaticBarTexture)
+        {
+            if (BarTexture)
+                StaticBarTexture = BarTexture;
+            m_healthFG.texture = StaticBarTexture;
+            m_healthBG.texture = StaticBarTexture;
+            m_healthIG.texture = StaticBarTexture;
+        }
         if (currentHealth <= 0 && ownerClass != OwnerClass.Player)
         {
             //TODO:

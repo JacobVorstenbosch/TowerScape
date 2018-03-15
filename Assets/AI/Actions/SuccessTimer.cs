@@ -24,6 +24,9 @@ public class SuccessTimer : RAINDecision
         {
             tResult = _children[_lastRunning].Run(ai);
             if (tResult != ActionResult.SUCCESS)
+
+                
+
                 break;
         }
 

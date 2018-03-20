@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 114086838921086930}
   m_Layer: 0
   m_Name: CharacterWithMocap
-  m_TagString: Untagged
+  m_TagString: PlayerRoot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -757,7 +757,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!95 &95001128048357864
 Animator:
@@ -791,7 +791,7 @@ MonoBehaviour:
   assignTag: Player
   skeletonRef: {fileID: 4609837188708128}
   weaponHand: {fileID: 4805021812154612}
-  weapon: {fileID: 1338956831177522, guid: 8be2c49896a262e4193796741def29e4, type: 2}
+  weapon: {fileID: 1082249189263942, guid: 7249efe539dbf014a9623fe8b3bb0f1a, type: 2}
   health: {fileID: 114582722540715086}
   invulnLength: 1
 --- !u!114 &114086838921086930
@@ -831,7 +831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4f65882f3779345bbc36a4c9c6e379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BarTexture: {fileID: 2800000, guid: 312e95a32c1bcd249973b76063b25b03, type: 3}
+  BarTexture: {fileID: 0}
   buffManager: {fileID: 114252113350617294}
   maxHealth: 100
   currentHealth: 100

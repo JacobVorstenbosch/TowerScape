@@ -511,7 +511,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1758432364867350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.065, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4929317470202592}
@@ -754,7 +754,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
@@ -831,6 +831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4f65882f3779345bbc36a4c9c6e379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BarTexture: {fileID: 2800000, guid: 312e95a32c1bcd249973b76063b25b03, type: 3}
   buffManager: {fileID: 114252113350617294}
   maxHealth: 100
   currentHealth: 100
@@ -849,10 +850,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.25
-  m_Height: 2
+  m_Radius: 0.20019737
+  m_Height: 1.8685246
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: -0.085303396, y: 0.9307246, z: 0.010815948}
 --- !u!137 &137929276135386578
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

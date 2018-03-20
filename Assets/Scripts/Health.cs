@@ -47,6 +47,7 @@ public class Health : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        print("Generating as: " + ownerClass);
         UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnSceneChange;
         //find buffmanager
         Transform canvasParent = null; ;
@@ -130,7 +131,7 @@ public class Health : MonoBehaviour {
         {
             //home teleport, and reset
         }
-
+        
         if (ownerClass == OwnerClass.Enemy)
         {
             //orient to camera

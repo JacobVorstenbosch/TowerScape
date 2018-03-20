@@ -5,9 +5,29 @@ Comments to not need to be //d
 //Dummy
 {
 	"type" : "TrainingDummy",
-	"aitype" : "unimplemented",
-	"hp" : "10000",
+	"etype" : "0",
+	"hp" : "500",
 	"dmg" : "0",
 	"atsp" : "0",
 	"radius" : "1"
+}
+
+//Slime
+{
+	"type" : "Slime",
+	"etype" : "0",
+	"hp" : "50",
+	"dmg" : "5",
+	"atsp" : "1",
+	"radius" : "2"
+}
+
+//Go-mlao
+{
+	"type" : "Golem",
+	"etype" : "1",
+	"hp" : "600",
+	"dmg" : "10",
+	"atsp" : "1",
+	"radius" : "0"
 }

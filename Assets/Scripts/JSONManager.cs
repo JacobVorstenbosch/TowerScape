@@ -15,7 +15,7 @@ public class JSONManager : MonoBehaviour {
     public struct EnemyJSON
     {
         public string type;    //used for spawning
-        public string aitype;  //aitype used
+        public int etype;  //enemy type used
         public float hp;       //max health
         public float dmg;      //damage per swing
         public float atsp;     //swings per second

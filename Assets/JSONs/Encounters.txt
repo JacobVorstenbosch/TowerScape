@@ -4,30 +4,30 @@ Comments to not need to be //d
 
 //Wave 1
 {
-	"enemies" : ["TrainingDummy"],
+	"enemies" : ["Slime"],
 	"counts" : [1]
 }
 
 //Wave 2
 {
-	"enemies" : ["TrainingDummy"],
+	"enemies" : ["Slime"],
 	"counts" : [3]
 }
 
 //Wave 3
 {
-	"enemies" : ["TrainingDummy"],
-	"counts" : [5]
+	"enemies" : ["Slime","Slime"],
+	"counts" : [1,4]
 }
 
 //Wave 4
 {
-	"enemies" : ["TrainingDummy"],
-	"counts" : [7]
+	"enemies" : ["Golem"],
+	"counts" : [1]
 }
 
 //Wave 5
 {
-	"enemies" : ["TrainingDummy"],
-	"counts" : [9]
+	"enemies" : ["Golem", "Slime"],
+	"counts" : [1,3]
 }

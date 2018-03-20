@@ -68,6 +68,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4440319615421416}
   - component: {fileID: 95233920835527880}
+  - component: {fileID: 114677829311398902}
+  - component: {fileID: 114476349901007844}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -176,6 +178,81 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114476349901007844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1376564072466812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 157053555, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataSerializer:
+    _preferredSerialization: 2
+    _serializedData: 
+    _serializedMetaData: <meta></meta>
+    _serializedGameObjects: []
+    _serializedCustomData: []
+  _serializer:
+    _preferredSerialization: 1
+    _includeCustomData: 0
+    _serializedDocument: <component version="1.8" type="RAIN.Core.AIRig" reference="0"
+      includecustomdata="False"><_visualMode>OnWhenSelected</_visualMode><_useUnityMessages>True</_useUnityMessages><_useFixedUpdate>False</_useFixedUpdate><_ai
+      reference="1"><_isActive>True</_isActive><_body object="0"></_body><_workingMemory
+      type="RAIN.Memory.BasicMemory" reference="2"><_memoryItems></_memoryItems></_workingMemory><_mind
+      type="RAIN.Minds.BasicMind" reference="3"><_behaviorTree object="-1"></_behaviorTree><_behaviorTreeBindings></_behaviorTreeBindings></_mind><_motor
+      type="RAIN.Motion.BasicMotor" reference="4"><_speed>1</_speed><_rotationSpeed>360</_rotationSpeed><_closeEnoughDistance>0.1</_closeEnoughDistance><_closeEnoughAngle>0.1</_closeEnoughAngle><_faceBeforeMoveAngle>360</_faceBeforeMoveAngle><_maxHeightOffset>1</_maxHeightOffset><_allow3DMovement>False</_allow3DMovement><_allow3DRotation>False</_allow3DRotation><_allowOffGraphMovement>True</_allowOffGraphMovement><_useRootMotion>False</_useRootMotion><_overrideRootRotation>True</_overrideRootRotation><_mecanimParameters></_mecanimParameters></_motor><_animator
+      type="RAIN.Animation.BasicAnimator" reference="5"><_showVisual>True</_showVisual><_leftEye
+      reference="6"><_jointColor>0,1,0,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_leftEye><_rightEye
+      reference="7"><_jointColor>0,1,0,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_rightEye><_head
+      reference="8"><_jointColor>0,1,0,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_head><_neck
+      reference="9"><_jointColor>0,1,0,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_neck><_lookTime>1</_lookTime><_minimumTargetChange>0.1</_minimumTargetChange><_resetEachFrame>False</_resetEachFrame></_animator><_navigator
+      type="RAIN.Navigation.BasicNavigator" reference="10"><_drawPaths>False</_drawPaths><_pathColor>0,1,0,1</_pathColor><_outlineColorOffset>-0.5</_outlineColorOffset><_maxPathfindingSteps>100</_maxPathfindingSteps><_maxPathLength>0</_maxPathLength><_padding>0</_padding><_graphTags></_graphTags></_navigator><_senses
+      type="RAIN.Perception.BasicSenses" reference="11"><_sensors><element0 type="RAIN.Perception.Sensors.VisualSensor"
+      reference="12"><_showVisual>True</_showVisual><_sensorName>SlimePOV</_sensorName><_isActive>True</_isActive><_sensorColor>0.6,0.6,0.6,1</_sensorColor><_mountPoint
+      object="1"></_mountPoint><_positionOffset>0,0,0</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>50</_range><_canDetectSelf>False</_canDetectSelf><_horizontalAngle>360</_horizontalAngle><_verticalAngle>180</_verticalAngle><_lineOfSight>True</_lineOfSight><_lineOfSightMask>-5</_lineOfSightMask></element0><element1
+      type="RAIN.Perception.Sensors.VisualSensor" reference="13"><_showVisual>True</_showVisual><_sensorName>SlimeAttack</_sensorName><_isActive>True</_isActive><_sensorColor>0.6,0.6,0.6,1</_sensorColor><_mountPoint
+      object="2"></_mountPoint><_positionOffset>0,0,0</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>1.5</_range><_canDetectSelf>False</_canDetectSelf><_horizontalAngle>120</_horizontalAngle><_verticalAngle>180</_verticalAngle><_lineOfSight>True</_lineOfSight><_lineOfSightMask>-5</_lineOfSightMask></element1></_sensors></_senses><_customElements></_customElements></_ai></component>
+    _serializedMetaDocument: <meta><element0><key>/component/_ai+_selected</key><value
+      type="System.Int32">5</value></element0></meta>
+    _serializedObjects:
+    - {fileID: 1376564072466812}
+    - {fileID: 4440319615421416}
+    - {fileID: 4440319615421416}
+    _serializedCustomData: []
+--- !u!114 &114677829311398902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1376564072466812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 220721487, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataSerializer:
+    _preferredSerialization: 2
+    _serializedData: 
+    _serializedMetaData: <meta></meta>
+    _serializedGameObjects: []
+    _serializedCustomData: []
+  _serializer:
+    _preferredSerialization: 1
+    _includeCustomData: 0
+    _serializedDocument: <component version="1.8" type="RAIN.Entities.EntityRig" reference="0"
+      includecustomdata="False"><_visualMode>OnWhenSelected</_visualMode><_useUnityMessages>True</_useUnityMessages><_entity
+      reference="1"><_entityName></_entityName><_isActive>True</_isActive><_form sceneobject=""
+      object="0"></_form><_aspects><element0 type="RAIN.Entities.Aspects.VisualAspect"
+      reference="2"><_showVisual>True</_showVisual><_aspectName>Slime</_aspectName><_isActive>True</_isActive><_aspectColor>0.6,0,0,1</_aspectColor><_outlineColorOffset>-0.5</_outlineColorOffset><_selectionColorOffset>0.4</_selectionColorOffset><_visualSize>1</_visualSize><_mountPoint
+      object="1"></_mountPoint><_positionOffset>0,0,0</_positionOffset><_angleOffset>0,0,0</_angleOffset></element0></_aspects></_entity></component>
+    _serializedMetaDocument: <meta></meta>
+    _serializedObjects:
+    - {fileID: 1376564072466812}
+    - {fileID: 4440319615421416}
+    _serializedCustomData: []
 --- !u!137 &137112113161213978
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

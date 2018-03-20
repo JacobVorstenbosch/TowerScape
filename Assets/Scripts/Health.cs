@@ -47,7 +47,6 @@ public class Health : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        print("Generating as: " + ownerClass);
         UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnSceneChange;
         //find buffmanager
         Transform canvasParent = null; ;

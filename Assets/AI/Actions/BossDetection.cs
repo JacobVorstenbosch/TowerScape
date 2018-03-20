@@ -14,6 +14,7 @@ public class BossDetection : RAINAction
 
     public override ActionResult Execute(RAIN.Core.AI ai)
     {
+        
         return ActionResult.SUCCESS;
     }
 

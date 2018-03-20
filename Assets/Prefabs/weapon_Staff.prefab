@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1338956831177522}
   m_LocalRotation: {x: 0.7071065, y: 0.00000070712775, z: -0.0000009536742, w: 0.7071072}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.75}
+  m_LocalScale: {x: 0.01, y: 0.25, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -110,4 +110,5 @@ MonoBehaviour:
   itype: 0
   iclass: 3
   ammount: 25
+  active: 0
   buffManager: {fileID: 0}

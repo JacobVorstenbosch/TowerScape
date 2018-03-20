@@ -8,15 +8,35 @@ ModelImporter:
     100000: joint1
     100002: //RootNode
     100004: Slime
+    100006: LeftEye
+    100008: RightEye
+    100010: SlimeBody
+    100012: transform1
+    100014: transform2
+    100016: transform3
     400000: joint1
     400002: //RootNode
     400004: Slime
+    400006: LeftEye
+    400008: RightEye
+    400010: SlimeBody
+    400012: transform1
+    400014: transform2
+    400016: transform3
     2100000: lambert2
+    2300000: Slime
+    3300000: Slime
     4300000: Slime
+    4300002: SlimeBody
+    4300004: LeftEye
+    4300006: RightEye
     7400000: Slime_Walk
     7400002: Slime_Jump
     9500000: //RootNode
     13700000: Slime
+    13700002: LeftEye
+    13700004: RightEye
+    13700006: SlimeBody
   externalObjects: {}
   materials:
     importMaterials: 1

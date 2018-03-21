@@ -48,6 +48,7 @@ public class PlayerScript : MonoBehaviour
             Destroy(GameObject.FindGameObjectWithTag("HUDCanvas"));
             Destroy(GameObject.FindGameObjectWithTag("JSONManager"));
             UnityEngine.SceneManagement.SceneManager.LoadScene("testscene");
+            return;
         }
 
         if (!ig)

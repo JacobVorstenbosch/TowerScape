@@ -142,34 +142,6 @@ public class Health : MonoBehaviour {
             m_goBG.transform.rotation = Camera.main.transform.rotation;
             m_goFG.transform.rotation = Camera.main.transform.rotation;
             m_goIG.transform.rotation = Camera.main.transform.rotation;
-
-            //Vector3 proj = Vector3.Project(transform.position + new Vector3(0,verticalOffset), Camera.main.transform.forward);
-            //float offsetMag = (transform.position - proj).magnitude;
-            //
-            ////calculate the opposite side of the triangle
-            ////tan(theta) = opposite / adjacent
-            ////adjacent = proj.mag
-            ////opposite = tan * adjacent
-            //float coneWidth = Mathf.Tan(viewConeHalfAngle * Mathf.Deg2Rad) * proj.magnitude;
-            //
-            ////offset from cone
-            //float coneOffset = offsetMag - coneWidth;
-            ////if coneOffset is negative we are in the cone itself
-            ////if (coneOffset < 0 && proj.magnitude < minCircleFade)
-            ////{
-            ////    m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z);
-            ////    m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z);
-            ////    m_healthIG.color = new Color(ihColor.x, ihColor.y, ihColor.z);
-            ////}
-            //else
-            //{
-            //    float coneFade = 1 - coneOffset / maxPositionOffset;
-            //    float circleFade = 1 - (proj.magnitude - minCircleFade) / maxCircleFade;
-            //    float alpha = coneFade * circleFade;
-            //    m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z, alpha);
-            //    m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z, alpha);
-            //    m_healthIG.color = new Color(ihColor.x, ihColor.y, ihColor.z, alpha);
-            //}
         }
 
         //set width of fg based off of health pct

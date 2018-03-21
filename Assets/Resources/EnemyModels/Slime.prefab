@@ -57,6 +57,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4911275953507460}
+  - component: {fileID: 136473936161775418}
   m_Layer: 0
   m_Name: joint1
   m_TagString: Untagged
@@ -315,14 +316,27 @@ MonoBehaviour:
       reference="12"><_showVisual>True</_showVisual><_sensorName>SlimePOV</_sensorName><_isActive>True</_isActive><_sensorColor>0.6,0.6,0.6,1</_sensorColor><_mountPoint
       sceneobject=""></_mountPoint><_positionOffset>0,0,0</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>50</_range><_canDetectSelf>False</_canDetectSelf><_horizontalAngle>360</_horizontalAngle><_verticalAngle>180</_verticalAngle><_lineOfSight>True</_lineOfSight><_lineOfSightMask>-5</_lineOfSightMask></element0><element1
       type="RAIN.Perception.Sensors.VisualSensor" reference="13"><_showVisual>True</_showVisual><_sensorName>SlimeAttack</_sensorName><_isActive>True</_isActive><_sensorColor>0.6,0.6,0.6,1</_sensorColor><_mountPoint
-      sceneobject=""></_mountPoint><_positionOffset>0,0,0</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>0.9</_range><_canDetectSelf>False</_canDetectSelf><_horizontalAngle>120</_horizontalAngle><_verticalAngle>180</_verticalAngle><_lineOfSight>True</_lineOfSight><_lineOfSightMask>-5</_lineOfSightMask></element1></_sensors></_senses><_customElements></_customElements></_ai></component>
+      sceneobject=""></_mountPoint><_positionOffset>0,0,0</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>1.5</_range><_canDetectSelf>False</_canDetectSelf><_horizontalAngle>120</_horizontalAngle><_verticalAngle>180</_verticalAngle><_lineOfSight>True</_lineOfSight><_lineOfSightMask>-5</_lineOfSightMask></element1></_sensors></_senses><_customElements></_customElements></_ai></component>
     _serializedMetaDocument: <meta><element0><key>/component/_ai+_selected</key><value
-      type="System.Int32">5</value></element0><element1><key>/component/_ai/_navigator/_graphTags+_foldout</key><value
+      type="System.Int32">6</value></element0><element1><key>/component/_ai/_navigator/_graphTags+_foldout</key><value
       type="System.Boolean">False</value></element1></meta>
     _serializedObjects:
     - {fileID: 4900000, guid: b4e6e9e2de8d66d4182311cfee504d69, type: 3}
     - {fileID: 1197859571068534}
     _serializedCustomData: []
+--- !u!136 &136473936161775418
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1280640117099352}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.6
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!137 &137170896182466966
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

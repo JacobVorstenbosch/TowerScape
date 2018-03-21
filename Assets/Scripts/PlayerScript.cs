@@ -69,10 +69,8 @@ public class PlayerScript : MonoBehaviour
         anim.SetBool("attacc", attacc);
         anim.SetInteger("attaccPhase", attaccPhase);
         anim.SetBool("rollyPolly", rollyPolly);
-       
-        
 
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("SwordCross"))
+        if (anim.GetCurrentAnimatorStateInfo(0).tagHash == 1080829965)
             ig.active = true;
         else
             ig.active = false;

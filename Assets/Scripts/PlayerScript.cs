@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     public CollisionTreeManager ctm;
     private BuffManager bm;
     private IntakeGenerator ig;
+    private Health hp;
     //public Rigidbody rbody;
     public float player_Speed = 100.0f;
     private float inputH;
@@ -22,6 +23,7 @@ public class PlayerScript : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         bm = GetComponent<BuffManager>();
+        hp = GetComponent<Health>();
        // rbody = GetComponent<Rigidbody>();
     }
 
@@ -38,6 +40,16 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float home = Input.GetAxis("ControllerSelect");
+        if (home > 0.1f)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("PlayerRoot"));
+            Destroy(GameObject.FindGameObjectWithTag("MainCamera"));
+            Destroy(GameObject.FindGameObjectWithTag("HUDCanvas"));
+            Destroy(GameObject.FindGameObjectWithTag("JSONManager"));
+            UnityEngine.SceneManagement.SceneManager.LoadScene("testscene");
+        }
+
         if (!ig)
         {
             ig = ctm.weaponHand.transform.GetComponentInChildren<IntakeGenerator>();

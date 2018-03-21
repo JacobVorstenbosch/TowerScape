@@ -396,6 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4f65882f3779345bbc36a4c9c6e379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BarTexture: {fileID: 0}
   buffManager: {fileID: 114151144405454222}
   maxHealth: 1000
   currentHealth: 1000
@@ -404,7 +405,7 @@ MonoBehaviour:
   bgColor: {x: 0.75, y: 0.75, z: 0.75}
   ihColor: {x: 1, y: 0.75, z: 0}
   ownerClass: 0
-  invulnLength: 0.125
+  invulnLength: 1.125
 --- !u!136 &136148484558946790
 CapsuleCollider:
   m_ObjectHideFlags: 1

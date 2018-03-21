@@ -34,6 +34,14 @@ public class Encounter : MonoBehaviour {
     {
         m_jsonManager = GameObject.FindGameObjectWithTag("JSONManager").GetComponent<JSONManager>();
         floorNumber = m_jsonManager.currentFloor;
+        if (floorNumber > m_jsonManager.GetNumberEncounters())
+        {
+            Destroy(GameObject.FindGameObjectWithTag("PlayerRoot"));
+            Destroy(GameObject.FindGameObjectWithTag("MainCamera"));
+            Destroy(GameObject.FindGameObjectWithTag("HUDCanvas"));
+            Destroy(GameObject.FindGameObjectWithTag("JSONManager"));
+            UnityEngine.SceneManagement.SceneManager.LoadScene("testscene");
+        }
         m_encounter = m_jsonManager.GetEncounterByFloor(floorNumber);
         ConfigureRoom();
         SpawnEncounter();

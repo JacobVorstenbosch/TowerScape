@@ -49,6 +49,11 @@ public class JSONManager : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);
     }
 
+    public int GetNumberEncounters()
+    {
+        return m_encounterList.Count;
+    }
+
     public EncounterJSON GetEncounterByFloor(int floorNumber)
     {
         return m_encounterList[floorNumber];

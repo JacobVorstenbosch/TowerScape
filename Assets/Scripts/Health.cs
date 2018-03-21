@@ -128,7 +128,12 @@ public class Health : MonoBehaviour {
         }
         else if (currentHealth <= 0 && ownerClass == OwnerClass.Player)
         {
-            //home teleport, and reset
+            Destroy(GameObject.FindGameObjectWithTag("PlayerRoot"));
+            Destroy(GameObject.FindGameObjectWithTag("MainCamera"));
+            Destroy(GameObject.FindGameObjectWithTag("HUDCanvas"));
+            Destroy(GameObject.FindGameObjectWithTag("JSONManager"));
+            UnityEngine.SceneManagement.SceneManager.LoadScene("testscene");
+            return;
         }
         
         if (ownerClass == OwnerClass.Enemy)

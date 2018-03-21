@@ -48,6 +48,9 @@ public class PlayerScript : MonoBehaviour
         //getting input from controller left stick
         inputH = Input.GetAxis("LeftStickHorizontal");
         inputV = Input.GetAxis("LeftStickVertical");
+        Vector2 input = new Vector2(inputH, inputV);
+        if (input.magnitude < 0.1f)
+            inputH = inputV = 0;
         attacc = Input.GetButtonDown("Fire3");//get x button press
         rollyPolly = Input.GetButtonDown("Fire2"); // get b button press
         
@@ -77,7 +80,7 @@ public class PlayerScript : MonoBehaviour
 
         Vector3 desiredMoveDir = -forward * inputV + right * inputH;
 
-        if(desiredMoveDir.magnitude != 0)
+        if(desiredMoveDir.magnitude >= 0.3f)
             transform.forward = desiredMoveDir.normalized;
 
         transform.position += (desiredMoveDir * player_Speed * Time.deltaTime);

@@ -188,7 +188,7 @@ public class Health : MonoBehaviour {
                 if (preHitHpPCT <= postHitHpPCT) { preHitHpPCT = postHitHpPCT; impactChangeTimer = impactChangeDelay; }
 
                 currentHealth = newhp;
-                if (currentHealth <= 0) Destroy(gameObject);
+                //if (currentHealth <= 0) Destroy(gameObject);
                 //applying invuln
                 if (intake[i].intakeClass != Intake.IntakeClass.IGNORE_INVULN && incoming > 0)
                 {

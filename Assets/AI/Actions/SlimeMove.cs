@@ -5,20 +5,20 @@ using RAIN.Action;
 using RAIN.Core;
 
 [RAINAction]
-public class SlimeAttack : RAINAction
+public class SlimeMove : RAINAction
 {
     Animator anim;
     bool attacking;
     public override void Start(RAIN.Core.AI ai)
     {
         base.Start(ai);
-        anim = anim.GetComponent<Animator>();
-        attacking = anim.GetBool("Attack");
+        anim = ai.Body.GetComponent<Animator>();
+        attacking = false;
     }
 
     public override ActionResult Execute(RAIN.Core.AI ai)
     {
-        attacking = true;
+        attacking = false;
         return ActionResult.SUCCESS;
     }
 

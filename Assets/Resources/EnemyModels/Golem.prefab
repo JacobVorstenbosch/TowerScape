@@ -679,8 +679,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4410237213656020}
   - component: {fileID: 95401777334146572}
-  - component: {fileID: 114520215720148214}
   - component: {fileID: 114720776797156568}
+  - component: {fileID: 114520215720148214}
+  - component: {fileID: 114197186487444034}
   m_Layer: 0
   m_Name: Golem
   m_TagString: Enemy
@@ -1931,7 +1932,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1520916684068076}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
@@ -1941,7 +1942,7 @@ Transform:
   - {fileID: 4070506412307244}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4423030123959838
 Transform:
   m_ObjectHideFlags: 1
@@ -2668,6 +2669,24 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114197186487444034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1520916684068076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e9fbe837f2292408bcdcbf26b597da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffManager: {fileID: 114720776797156568}
+  assignTag: Enemy
+  skeletonRef: {fileID: 4524679272477770}
+  weaponHand: {fileID: 0}
+  weapon: {fileID: 0}
+  health: {fileID: 114520215720148214}
+  invulnLength: 0.1
 --- !u!114 &114520215720148214
 MonoBehaviour:
   m_ObjectHideFlags: 1

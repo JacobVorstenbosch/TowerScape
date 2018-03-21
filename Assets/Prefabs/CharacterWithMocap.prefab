@@ -831,7 +831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4f65882f3779345bbc36a4c9c6e379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BarTexture: {fileID: 0}
+  BarTexture: {fileID: 2800000, guid: 312e95a32c1bcd249973b76063b25b03, type: 3}
   buffManager: {fileID: 114252113350617294}
   maxHealth: 100
   currentHealth: 100
@@ -868,7 +868,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ef527855a397cd84f95264e8d78cc6ab, type: 3}
+  - {fileID: 2100000, guid: 967cdfde23e15794a8e5c3a753468bad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

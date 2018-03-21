@@ -13,8 +13,8 @@ public class Health : MonoBehaviour {
 
     private float viewConeHalfAngle = 11.75f;
     private float maxPositionOffset = 2.5f;
-    private float bgWidth = 1;
-    private float bgHeight = 0.15f;
+    private float bgWidth = 1.05f;
+    private float bgHeight = 0.165f;
     private float fgWidth = 0.995f;
     private float fgHeight = 0.145f;
     private float minCircleFade = 5f;

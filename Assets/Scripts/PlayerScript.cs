@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
     public Animator anim;
     public CollisionTreeManager ctm;
+    private BuffManager bm;
     private IntakeGenerator ig;
     //public Rigidbody rbody;
     public float player_Speed = 100.0f;
@@ -20,6 +21,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        bm = GetComponent<BuffManager>();
        // rbody = GetComponent<Rigidbody>();
     }
 
@@ -75,6 +77,17 @@ public class PlayerScript : MonoBehaviour
         anim.SetInteger("attaccPhase", attaccPhase);
         anim.SetBool("rollyPolly", rollyPolly);
 
+        //print(anim.GetCurrentAnimatorStateInfo(0).tagHash);
+
+        //invuln on roll
+        if (anim.GetCurrentAnimatorStateInfo(0).tagHash == -1061482972)
+        {
+            BuffManager.Invulnerability invuln = new BuffManager.Invulnerability();
+            invuln.startDuration = 0.1f;
+            bm.AddBuff(invuln);
+        }
+
+        //enable the swords intake (do damage)
         if (anim.GetCurrentAnimatorStateInfo(0).tagHash == 1080829965)
             ig.active = true;
         else

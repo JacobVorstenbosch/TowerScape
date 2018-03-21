@@ -29,7 +29,10 @@ public class SceneTransistor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (playerInArea && ((transistionKey != KeyCode.None && Input.GetKeyDown(transistionKey)) || (controllerAxis != "" && Input.GetAxis(controllerAxis) > 0.1)))
+        {
+            pane.SetActive(false);
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        }
 	}
 
     void OnTriggerEnter(Collider collision)

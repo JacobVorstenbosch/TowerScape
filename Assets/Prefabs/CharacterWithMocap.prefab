@@ -823,7 +823,7 @@ MonoBehaviour:
   assignTag: Player
   skeletonRef: {fileID: 4609837188708128}
   weaponHand: {fileID: 4805021812154612}
-  weapon: {fileID: 1082249189263942, guid: 7249efe539dbf014a9623fe8b3bb0f1a, type: 2}
+  weapon: {fileID: 1541937763311988, guid: 854a1b1b6a879b64fb1d4108f4fc8890, type: 2}
   health: {fileID: 114582722540715086}
   invulnLength: 1
 --- !u!114 &114086838921086930

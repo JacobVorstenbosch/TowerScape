@@ -32,8 +32,12 @@ public class CollisionTreeManager : MonoBehaviour {
         {
             GameObject equipedWeapon = Instantiate(weapon, weaponHand);
             IntakeGenerator ig = equipedWeapon.GetComponent<IntakeGenerator>();
-            ig.buffManager = buffManager;
-            equipedWeapon.layer = 10;
+
+            if (ig)
+            {
+                ig.buffManager = buffManager;
+                equipedWeapon.layer = 10;
+            }
         }
 	}
 

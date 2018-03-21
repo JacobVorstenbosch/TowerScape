@@ -28,12 +28,17 @@ public class PlayerScript : MonoBehaviour
         DontDestroyOnLoad(transform.gameObject);
     }
 
+    public void UpdateIG(IntakeGenerator _ig)
+    {
+        ig = _ig;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (!ig)
         {
-            ig = ctm.weaponHand.transform.GetChild(0).gameObject.GetComponent<IntakeGenerator>();
+            ig = ctm.weaponHand.transform.GetComponentInChildren<IntakeGenerator>();
         }
 
         var camera = Camera.main;

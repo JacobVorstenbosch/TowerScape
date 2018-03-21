@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f93927ca2520e142b256dd8e33aa6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   HiltComponents:
   - {fileID: 1869716326064368, guid: 64d5b375171444a4a8e383eeb5338284, type: 2}
   - {fileID: 1590324954389572, guid: 2b92b5f19cfe31647839e435782aefcf, type: 2}
@@ -69,3 +70,9 @@ MonoBehaviour:
   - {fileID: 1312649234381118, guid: 7f45161df6f767f47a20af9aeb5c838f, type: 2}
   - {fileID: 1109650387041656, guid: d1fba931bd7a2804992319858d881ef0, type: 2}
   - {fileID: 1385404865288230, guid: 7159a410d641a6840a77b9d3b6e72574, type: 2}
+  RarityProbabilities:
+  - 0.35
+  - 0.3
+  - 0.2
+  - 0.1
+  - 0.5

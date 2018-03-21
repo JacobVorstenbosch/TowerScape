@@ -288,15 +288,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: be87ac10b1df35140a8717e0bf73a811, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.005
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: be87ac10b1df35140a8717e0bf73a811, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.005
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: be87ac10b1df35140a8717e0bf73a811, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.005
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: be87ac10b1df35140a8717e0bf73a811, type: 3}
       propertyPath: m_Layer

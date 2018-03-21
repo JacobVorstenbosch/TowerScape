@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33387236226373664}
   - component: {fileID: 23497300114465848}
   - component: {fileID: 95974867633614524}
+  - component: {fileID: 65926834156141558}
   m_Layer: 0
   m_Name: Blade_Five
   m_TagString: Untagged
@@ -83,6 +84,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1385404865288230}
   m_Mesh: {fileID: 4300000, guid: 68e9e072a20ff434ab2b4478be5cd592, type: 3}
+--- !u!65 &65926834156141558
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1385404865288230}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.12419862, y: 0.22751862, z: 0.022}
+  m_Center: {x: 0, y: 0.113695726, z: 0}
 --- !u!95 &95974867633614524
 Animator:
   serializedVersion: 3

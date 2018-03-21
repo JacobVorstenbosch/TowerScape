@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33292491029164334}
   - component: {fileID: 23450692202742706}
   - component: {fileID: 95061266547641338}
+  - component: {fileID: 65509714290962382}
   m_Layer: 0
   m_Name: Blade_Two
   m_TagString: Untagged
@@ -83,6 +84,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1473890286304044}
   m_Mesh: {fileID: 4300000, guid: 50667746e2313fb4a8a87ff8042ba56c, type: 3}
+--- !u!65 &65509714290962382
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1473890286304044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0343776, y: 0.23506722, z: 0.011065675}
+  m_Center: {x: 0, y: 0.117533594, z: 0}
 --- !u!95 &95061266547641338
 Animator:
   serializedVersion: 3

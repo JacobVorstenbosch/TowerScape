@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33146646211863280}
   - component: {fileID: 23939884722147014}
   - component: {fileID: 95509921812218186}
+  - component: {fileID: 65912575253475938}
   m_Layer: 0
   m_Name: Blade_Three
   m_TagString: Untagged
@@ -83,6 +84,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1312649234381118}
   m_Mesh: {fileID: 4300000, guid: 30b295171f002a6448c90588da11d21f, type: 3}
+--- !u!65 &65912575253475938
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312649234381118}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.022, y: 0.2338461, z: 0.008555935}
+  m_Center: {x: 0, y: 0.11689019, z: 0}
 --- !u!95 &95509921812218186
 Animator:
   serializedVersion: 3

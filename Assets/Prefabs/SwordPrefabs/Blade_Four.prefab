@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33888951921473774}
   - component: {fileID: 23507799823615744}
   - component: {fileID: 95256817570859562}
+  - component: {fileID: 65866989777072496}
   m_Layer: 0
   m_Name: Blade_Four
   m_TagString: Untagged
@@ -83,6 +84,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1109650387041656}
   m_Mesh: {fileID: 4300000, guid: 8f2ae5ebf3ae0e04db092ae5e5cc69b7, type: 3}
+--- !u!65 &65866989777072496
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1109650387041656}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06541488, y: 0.22348353, z: 0.022228146}
+  m_Center: {x: 0, y: 0.11174177, z: 0}
 --- !u!95 &95256817570859562
 Animator:
   serializedVersion: 3

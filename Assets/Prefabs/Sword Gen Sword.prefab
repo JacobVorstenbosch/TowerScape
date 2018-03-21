@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1541937763311988}
+  m_IsPrefabParent: 1
+--- !u!1 &1541937763311988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4752712370602356}
+  - component: {fileID: 114922070142991454}
+  m_Layer: 0
+  m_Name: Sword Gen Sword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4752712370602356
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541937763311988}
+  m_LocalRotation: {x: -0.95608735, y: -0.069840334, z: 0.28414136, w: 0.01682266}
+  m_LocalPosition: {x: 0.0174, y: -0.0321, z: -0.0171}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.43100002, y: -146.92801, z: 171.772}
+--- !u!114 &114922070142991454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541937763311988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f93927ca2520e142b256dd8e33aa6f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HiltComponents:
+  - {fileID: 1869716326064368, guid: 64d5b375171444a4a8e383eeb5338284, type: 2}
+  - {fileID: 1590324954389572, guid: 2b92b5f19cfe31647839e435782aefcf, type: 2}
+  - {fileID: 1002294924002756, guid: 8e8fa750ff6e9ab4492015f2e1c531ee, type: 2}
+  - {fileID: 1813802128171848, guid: 8fd002f4ae68c1f468638a3d0447312c, type: 2}
+  - {fileID: 1891883911402120, guid: 69e29712471335148922090278d990fd, type: 2}
+  GuardComponents:
+  - {fileID: 1997449199049370, guid: 1ce1ecc0335577940b1f8f692be135af, type: 2}
+  - {fileID: 1001292805708136, guid: 9b14faceb8aed614bb76083264f4da7d, type: 2}
+  - {fileID: 1402290187348050, guid: 0750e9d1c6eebd24a8ba5a605d943ac4, type: 2}
+  - {fileID: 1266220492631566, guid: ddd2c1941204636488fbdb618ea87dc5, type: 2}
+  - {fileID: 1078634765163568, guid: 6519eff92b466df408f770c9b16b95b7, type: 2}
+  BladeComponents:
+  - {fileID: 1651059864377440, guid: 692cd64ede844fb4d8bd8d10c09dc727, type: 2}
+  - {fileID: 1473890286304044, guid: c10ae967af112c74597355af5fb192fb, type: 2}
+  - {fileID: 1312649234381118, guid: 7f45161df6f767f47a20af9aeb5c838f, type: 2}
+  - {fileID: 1109650387041656, guid: d1fba931bd7a2804992319858d881ef0, type: 2}
+  - {fileID: 1385404865288230, guid: 7159a410d641a6840a77b9d3b6e72574, type: 2}

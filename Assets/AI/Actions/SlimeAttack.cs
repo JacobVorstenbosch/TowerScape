@@ -12,18 +12,21 @@ public class SlimeAttack : RAINAction
     public override void Start(RAIN.Core.AI ai)
     {
         base.Start(ai);
-        anim = anim.GetComponent<Animator>();
-        attacking = anim.GetBool("Attack");
+        anim = ai.Body.GetComponent<Animator>();
+        attacking = true;
+        anim.SetBool("Attack", attacking);
     }
 
     public override ActionResult Execute(RAIN.Core.AI ai)
     {
         attacking = true;
+        anim.SetBool("Attack", attacking);
         return ActionResult.SUCCESS;
     }
 
     public override void Stop(RAIN.Core.AI ai)
     {
+        attacking = true;
         base.Stop(ai);
     }
 }

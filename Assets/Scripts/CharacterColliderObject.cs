@@ -34,7 +34,7 @@ public class CharacterColliderObject : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("IntakeSource"))
+        if (other.CompareTag("IntakeSource") || (other.CompareTag("Enemy") && tag.Equals("Player")))
         {
             IntakeGenerator intake = other.gameObject.GetComponent<IntakeGenerator>();
             if (!intake || intake.active == false)

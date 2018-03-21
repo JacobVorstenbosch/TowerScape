@@ -170,7 +170,7 @@ public class Health : MonoBehaviour {
         //set width of fg based off of health pct
         float pct = currentHealth / maxHealth;
         m_healthFG.rectTransform.sizeDelta = new Vector2(pct * fgWidth, fgHeight);
-        m_healthFG.transform.position = origPos + new Vector3(pct * fgWidth / 2 - fgHalfWidth,0,0);
+        m_healthFG.transform.localPosition = /*origPos + */new Vector3(pct * fgWidth / 2 - fgHalfWidth,0,0);
 
         if (impactChangeTimer <= 0)
             preHitHpPCT = Mathf.MoveTowards(preHitHpPCT, pct, Time.deltaTime * 0.5f);
@@ -180,7 +180,7 @@ public class Health : MonoBehaviour {
         if (preHitHpPCT < pct) preHitHpPCT = pct;
         
         m_healthIG.rectTransform.sizeDelta = new Vector2((preHitHpPCT - pct) * fgWidth, fgHeight);
-        m_healthIG.transform.position = origPos + new Vector3(m_healthFG.rectTransform.rect.xMax + m_healthFG.rectTransform.rect.width / 2 + ((preHitHpPCT - pct) * fgWidth / 2 - fgHalfWidth), 0, 0);
+        m_healthIG.transform.localPosition = /*origPos + */new Vector3(m_healthFG.rectTransform.rect.xMax + m_healthFG.rectTransform.rect.width / 2 + ((preHitHpPCT - pct) * fgWidth / 2 - fgHalfWidth), 0, 0);
     }
 
     public void OnSceneChange(UnityEngine.SceneManagement.Scene OldScene, UnityEngine.SceneManagement.Scene NewScene)

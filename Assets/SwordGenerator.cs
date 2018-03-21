@@ -21,7 +21,10 @@ public class SwordGenerator: MonoBehaviour {
 
     public GameObject Generate(int hiltIndex, int guardIndex, int bladeIndex )
     {
+        Destroy(sword);
+
         Transform blade = GenerateBladeComponent(bladeIndex);
+        sword = blade.gameObject;
         GenerateHiltComponent(hiltIndex, blade);
         GenerateGuardComponent(guardIndex, blade);
 

@@ -2687,7 +2687,7 @@ MonoBehaviour:
   weaponHand: {fileID: 0}
   weapon: {fileID: 0}
   health: {fileID: 114520215720148214}
-  invulnLength: 0.1
+  invulnLength: 0.6
 --- !u!114 &114520215720148214
 MonoBehaviour:
   m_ObjectHideFlags: 1

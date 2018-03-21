@@ -11,14 +11,14 @@ public class Health : MonoBehaviour {
     public Texture BarTexture;
     public static Texture StaticBarTexture;
 
-    private float viewConeHalfAngle = 11.75f;
-    private float maxPositionOffset = 2.5f;
+    public float viewConeHalfAngle = 15.0f;
+    public float maxPositionOffset = 15.0f;
     private float bgWidth = 1.05f;
     private float bgHeight = 0.165f;
     private float fgWidth = 0.995f;
     private float fgHeight = 0.145f;
-    private float minCircleFade = 5f;
-    private float maxCircleFade = 7.5f;
+    public float minCircleFade = 5f;
+    public float maxCircleFade = 7.5f;
 
     RawImage m_healthFG;
     RawImage m_healthBG;
@@ -85,20 +85,20 @@ public class Health : MonoBehaviour {
         m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z);
 
         m_goIG = new GameObject("HealthIG");
-        m_goIG.transform.parent = canvasParent;
+        m_goIG.transform.parent = m_goBG.transform;
         m_healthIG = m_goIG.AddComponent<RawImage>();
         m_healthIG.transform.localPosition = offset;
         m_healthIG.rectTransform.sizeDelta = new Vector2(fgWidth, fgHeight);
         m_healthIG.color = new Color(ihColor.x, ihColor.y, ihColor.z);
 
         m_goFG = new GameObject("HealthFG");
-        m_goFG.transform.parent = canvasParent;
+        m_goFG.transform.parent = m_goBG.transform;
         m_healthFG = m_goFG.AddComponent<RawImage>();
         m_healthFG.transform.localPosition = offset;
         m_healthFG.rectTransform.sizeDelta = new Vector2(fgWidth, fgHeight);
         m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z);
 
-        origPos = m_healthFG.transform.position;
+        origPos = m_healthFG.transform.localPosition;
         preHitHpPCT = currentHealth / maxHealth;
         impactChangeTimer = impactChangeDelay;
         fgHalfWidth = fgWidth / 2;
@@ -138,39 +138,39 @@ public class Health : MonoBehaviour {
             m_goFG.transform.rotation = Camera.main.transform.rotation;
             m_goIG.transform.rotation = Camera.main.transform.rotation;
 
-            Vector3 proj = Vector3.Project(transform.position, Camera.main.transform.forward);
-            float offsetMag = (transform.position - proj).magnitude;
-
-            //calculate the opposite side of the triangle
-            //tan(theta) = opposite / adjacent
-            //adjacent = proj.mag
-            //opposite = tan * adjacent
-            float coneWidth = Mathf.Tan(viewConeHalfAngle * Mathf.Deg2Rad) * proj.magnitude;
-
-            //offset from cone
-            float coneOffset = offsetMag - coneWidth;
-            //if coneOffset is negative we are in the cone itself
-            if (coneOffset < 0 && proj.magnitude < minCircleFade)
-            {
-                m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z);
-                m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z);
-                m_healthIG.color = new Color(ihColor.x, ihColor.y, ihColor.z);
-            }
-            else
-            {
-                float coneFade = 1 - coneOffset / maxPositionOffset;
-                float circleFade = 1 - (proj.magnitude - minCircleFade) / maxCircleFade;
-                float alpha = coneFade * circleFade;
-                m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z, alpha);
-                m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z, alpha);
-                m_healthIG.color = new Color(ihColor.x, ihColor.y, ihColor.z, alpha);
-            }
+            //Vector3 proj = Vector3.Project(transform.position + new Vector3(0,verticalOffset), Camera.main.transform.forward);
+            //float offsetMag = (transform.position - proj).magnitude;
+            //
+            ////calculate the opposite side of the triangle
+            ////tan(theta) = opposite / adjacent
+            ////adjacent = proj.mag
+            ////opposite = tan * adjacent
+            //float coneWidth = Mathf.Tan(viewConeHalfAngle * Mathf.Deg2Rad) * proj.magnitude;
+            //
+            ////offset from cone
+            //float coneOffset = offsetMag - coneWidth;
+            ////if coneOffset is negative we are in the cone itself
+            ////if (coneOffset < 0 && proj.magnitude < minCircleFade)
+            ////{
+            ////    m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z);
+            ////    m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z);
+            ////    m_healthIG.color = new Color(ihColor.x, ihColor.y, ihColor.z);
+            ////}
+            //else
+            //{
+            //    float coneFade = 1 - coneOffset / maxPositionOffset;
+            //    float circleFade = 1 - (proj.magnitude - minCircleFade) / maxCircleFade;
+            //    float alpha = coneFade * circleFade;
+            //    m_healthFG.color = new Color(fgColor.x, fgColor.y, fgColor.z, alpha);
+            //    m_healthBG.color = new Color(bgColor.x, bgColor.y, bgColor.z, alpha);
+            //    m_healthIG.color = new Color(ihColor.x, ihColor.y, ihColor.z, alpha);
+            //}
         }
 
         //set width of fg based off of health pct
         float pct = currentHealth / maxHealth;
         m_healthFG.rectTransform.sizeDelta = new Vector2(pct * fgWidth, fgHeight);
-        m_healthFG.transform.localPosition = /*origPos + */new Vector3(pct * fgWidth / 2 - fgHalfWidth,0,0);
+        m_healthFG.transform.localPosition = origPos + new Vector3(pct * fgWidth / 2 - fgHalfWidth,0,0);
 
         if (impactChangeTimer <= 0)
             preHitHpPCT = Mathf.MoveTowards(preHitHpPCT, pct, Time.deltaTime * 0.5f);
@@ -180,7 +180,7 @@ public class Health : MonoBehaviour {
         if (preHitHpPCT < pct) preHitHpPCT = pct;
         
         m_healthIG.rectTransform.sizeDelta = new Vector2((preHitHpPCT - pct) * fgWidth, fgHeight);
-        m_healthIG.transform.localPosition = /*origPos + */new Vector3(m_healthFG.rectTransform.rect.xMax + m_healthFG.rectTransform.rect.width / 2 + ((preHitHpPCT - pct) * fgWidth / 2 - fgHalfWidth), 0, 0);
+        m_healthIG.transform.localPosition = origPos + new Vector3(m_healthFG.rectTransform.rect.xMax + m_healthFG.rectTransform.rect.width / 2 + ((preHitHpPCT - pct) * fgWidth / 2 - fgHalfWidth), 0, 0);
     }
 
     public void OnSceneChange(UnityEngine.SceneManagement.Scene OldScene, UnityEngine.SceneManagement.Scene NewScene)

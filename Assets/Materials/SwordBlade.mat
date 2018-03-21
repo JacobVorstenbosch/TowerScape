@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SwordMat
-  m_Shader: {fileID: 4800000, guid: 9ce107479d11178d11005b9844295342, type: 3}
+  m_Name: SwordBlade
+  m_Shader: {fileID: 4800000, guid: 6f18b9f3bf22bdb41a724ee629ca59b6, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -47,7 +47,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseTex:
-        m_Texture: {fileID: 2800000, guid: d2105edc1c4b72f46942bbb872d948f6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 985e5a9b470e78245b8c734fa84b5836, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -59,11 +59,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Ramp:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ToonShade:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 312e95a32c1bcd249973b76063b25b03, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -79,22 +75,21 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Opacity: 10
-    - _Outline: 0.002
-    - _OutlineZ: -0.0017
+    - _Opacity: 6.92
+    - _Outline: 0.033
+    - _OutlineZ: -0.059
     - _Parallax: 0.02
-    - _RimPower: 3.43
-    - _Scale: 0.1343
+    - _RimPower: 1.31
+    - _Scale: 0.2
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpeedX: 8.92
-    - _SpeedY: 9.42
+    - _SpeedX: 3
+    - _SpeedY: 3
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color2: {r: 0, g: 0, b: 1, a: 1}
-    - _ColorR: {r: 0, g: 1, b: 1, a: 1}
+    - _Color2: {r: 1, g: 0, b: 0, a: 1}
+    - _ColorR: {r: 0.9448277, g: 1, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}

@@ -83,8 +83,8 @@ public class CameraController : MonoBehaviour {
             Vector3 uncorrectedPos = targetPos + direction * offset.magnitude;
             if (Physics.Linecast(targetPos, uncorrectedPos, out wallHit, 1 << wallLayer))
                 transform.position = wallHit.point - direction;
-            //else
-            //  transform.position = uncorrectedPos;//transform.position = Vector3.Lerp(transform.position, uncorrectedPos, 1/*Time.deltaTime * dampingsqrd*/);
+            else
+              transform.position = uncorrectedPos;//transform.position = Vector3.Lerp(transform.position, uncorrectedPos, 1/*Time.deltaTime * dampingsqrd*/);
             
 
             return;

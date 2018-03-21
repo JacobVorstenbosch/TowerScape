@@ -11,14 +11,14 @@ public class Health : MonoBehaviour {
     public Texture BarTexture;
     public static Texture StaticBarTexture;
 
-    public float viewConeHalfAngle = 15.0f;
-    public float maxPositionOffset = 15.0f;
+    private float viewConeHalfAngle = 15.0f;
+    private float maxPositionOffset = 15.0f;
     private float bgWidth = 1.05f;
     private float bgHeight = 0.165f;
     private float fgWidth = 0.995f;
     private float fgHeight = 0.145f;
-    public float minCircleFade = 5f;
-    public float maxCircleFade = 7.5f;
+    private float minCircleFade = 5f;
+    private float maxCircleFade = 7.5f;
 
     RawImage m_healthFG;
     RawImage m_healthBG;
@@ -35,7 +35,7 @@ public class Health : MonoBehaviour {
     public Vector3 bgColor;
     public Vector3 ihColor;
     public OwnerClass ownerClass = OwnerClass.Enemy;
-    public float invulnLength = 0.1f;
+    public float invulnLength = 1.125f;
     private Vector3 origPos;
     private float origScale;
 

@@ -8,22 +8,31 @@ using RAIN.Core;
 public class SlimeAttack : RAINAction
 {
     Animator anim;
+    IntakeGenerator ig;
     bool attacking;
     public override void Start(RAIN.Core.AI ai)
     {
         base.Start(ai);
-        anim = anim.GetComponent<Animator>();
-        attacking = anim.GetBool("Attack");
+        anim = ai.Body.GetComponent<Animator>();
+        ig = ai.Body.GetComponent<IntakeGenerator>();
+        attacking = true;
+        ig.active = true;
+        anim.SetBool("Attack", attacking);
     }
 
     public override ActionResult Execute(RAIN.Core.AI ai)
     {
         attacking = true;
+        ig.active = true;
+        anim.SetBool("Attack", attacking);
         return ActionResult.SUCCESS;
     }
 
     public override void Stop(RAIN.Core.AI ai)
     {
+        attacking = true;
+        ig.active = true;
+        anim.SetBool("Attack", attacking);
         base.Stop(ai);
     }
 }

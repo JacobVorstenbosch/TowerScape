@@ -14,8 +14,10 @@ public class PlayerScript : MonoBehaviour
     private float inputH;
     private float inputV;
     private bool attacc;
-    public int attaccPhase;
+    public int attaccPhase = 0;
     private bool rollyPolly;
+    private AnimatorStateInfo lastAnim;
+    private float attackPressTimer = 0;
     //public float DegreesPerSecond = 60.0f;
 
     // Use this for initialization
@@ -24,6 +26,8 @@ public class PlayerScript : MonoBehaviour
         anim = GetComponent<Animator>();
         bm = GetComponent<BuffManager>();
         hp = GetComponent<Health>();
+        //lastAnim = anim.GetCurrentAnimatorStateInfo(0);
+       // attaccPhase = 1;
        // rbody = GetComponent<Rigidbody>();
     }
 
@@ -56,6 +60,8 @@ public class PlayerScript : MonoBehaviour
             ig = ctm.weaponHand.transform.GetComponentInChildren<IntakeGenerator>();
         }
 
+        AnimatorStateInfo animState = anim.GetCurrentAnimatorStateInfo(0);
+
         var camera = Camera.main;
         var forward = camera.transform.forward;
         var right = camera.transform.right;
@@ -72,8 +78,15 @@ public class PlayerScript : MonoBehaviour
         if (input.magnitude < 0.1f)
             inputH = inputV = 0;
         attacc = Input.GetButtonDown("Fire3");//get x button press
+        //attackPressTimer -= Time.deltaTime;
+        //if (attacc)
+        //    attackPressTimer = 1;
+        //if (attackPressTimer < 0)
+        //    attacc = false;
+        //else
+        //    attacc = true;
+
         rollyPolly = Input.GetButtonDown("Fire2"); // get b button press
-        
 
         if(attacc)
         {
@@ -82,6 +95,7 @@ public class PlayerScript : MonoBehaviour
             else
                 attaccPhase = 1;
         }
+
 
         //animator setting values
         anim.SetFloat("inputH", inputH);
@@ -93,7 +107,7 @@ public class PlayerScript : MonoBehaviour
         //print(anim.GetCurrentAnimatorStateInfo(0).tagHash);
 
         //invuln on roll
-        if (anim.GetCurrentAnimatorStateInfo(0).tagHash == -1061482972)
+        if (animState.tagHash == -1061482972)
         {
             BuffManager.Invulnerability invuln = new BuffManager.Invulnerability();
             invuln.startDuration = 0.1f;
@@ -101,7 +115,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         //enable the swords intake (do damage)
-        if (anim.GetCurrentAnimatorStateInfo(0).tagHash == 1080829965)
+        if (animState.tagHash == 1080829965)
             ig.active = true;
         else
             ig.active = false;
@@ -118,5 +132,6 @@ public class PlayerScript : MonoBehaviour
         // rbody.velocity = new Vector3(inputH *player_Speed * Time.deltaTime, 0.0f, inputV * -player_Speed * Time.deltaTime);
         //rotate char
         //transform.Rotate(0, Input.GetAxis("RightJoystickHorizontal") * DegreesPerSecond, 0);
+        //lastAnim = animState;
     }
 }  

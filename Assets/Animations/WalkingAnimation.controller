@@ -51,18 +51,6 @@ AnimatorController:
     m_IKPass: 1
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
-  - serializedVersion: 5
-    m_Name: Attack Layer
-    m_StateMachine: {fileID: 1107715603399991586}
-    m_Mask: {fileID: 31900000, guid: 86858c46e8b4a624aab1cb7328f11b82, type: 2}
-    m_Motions: []
-    m_Behaviours: []
-    m_BlendingMode: 1
-    m_SyncedLayerIndex: 0
-    m_DefaultWeight: 0.66
-    m_IKPass: 1
-    m_SyncedLayerAffectsTiming: 0
-    m_Controller: {fileID: 9100000}
 --- !u!206 &206015415277549208
 BlendTree:
   m_ObjectHideFlags: 1

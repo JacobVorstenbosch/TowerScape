@@ -2662,7 +2662,7 @@ Animator:
   m_GameObject: {fileID: 1520916684068076}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 7c8809747785b0a40bdffadcabe61011, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4987de973bb7ff743a75b5d76eaeb588, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2687,7 +2687,6 @@ MonoBehaviour:
   weaponHand: {fileID: 0}
   weapon: {fileID: 0}
   health: {fileID: 114520215720148214}
-  invulnLength: 1.125
 --- !u!114 &114520215720148214
 MonoBehaviour:
   m_ObjectHideFlags: 1

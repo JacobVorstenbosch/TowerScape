@@ -213,7 +213,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -237,6 +237,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -251,8 +253,635 @@ ModelImporter:
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
-    human: []
-    skeleton: []
+    human:
+    - boneName: GolemRig_Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GolemRig_Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: GolemBoss(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_Reference
+      parentName: GolemBoss(Clone)
+      position: {x: -0, y: 0.0020223868, z: 0.06790215}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.01, y: 0.01, z: 0.01}
+    - name: GolemRig_Ctrl_ChestEndEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: -0.0000038146973, y: 299.2835, z: -6.930133}
+      rotation: {x: 0.00000008940697, y: 1.3224896e-15, z: 0.000000014901161, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_ChestOriginEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: -0, y: 228.52979, z: 5.1171827}
+      rotation: {x: 0.000000059604645, y: 9.9884045e-24, z: -1.110223e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_HeadEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: -0.000009536743, y: 376.83243, z: -3.1965237}
+      rotation: {x: 0.00000014901161, y: -2.2759572e-15, z: -0.000000014901161, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_Hips
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: -0, y: 207.76404, z: 5.262536}
+      rotation: {x: 3.061617e-17, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_LeftUpLeg
+      parentName: GolemRig_Ctrl_Hips
+      position: {x: -21.93649, y: 1.8707123, z: 0.1332159}
+      rotation: {x: -3.061617e-17, y: -5.551115e-17, z: 5.5511148e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_LeftLeg
+      parentName: GolemRig_Ctrl_LeftUpLeg
+      position: {x: 0.0000019073486, y: -91.46664, z: -1.7763568e-15}
+      rotation: {x: -3.061617e-17, y: 6.162976e-33, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_LeftFoot
+      parentName: GolemRig_Ctrl_LeftLeg
+      position: {x: 3.5527137e-15, y: -115.24527, z: -1.7763568e-15}
+      rotation: {x: 0.000000034226105, y: 8.9671236e-17, z: -4.9535787e-15, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_LeftToeBase
+      parentName: GolemRig_Ctrl_LeftFoot
+      position: {x: -0.00005340576, y: -0.8167534, z: 67.3663}
+      rotation: {x: 3.469142e-32, y: -0, z: -1.2246469e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_RightUpLeg
+      parentName: GolemRig_Ctrl_Hips
+      position: {x: 21.936487, y: 1.8707123, z: 0.1332159}
+      rotation: {x: 5.771385e-17, y: 9.343055e-17, z: -2.7855608e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_RightLeg
+      parentName: GolemRig_Ctrl_RightUpLeg
+      position: {x: 0.0000019073486, y: -91.46664, z: 0.0008955002}
+      rotation: {x: 0.000000059604645, y: 1.7763568e-15, z: 0.000000029802322, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_RightFoot
+      parentName: GolemRig_Ctrl_RightLeg
+      position: {x: -0, y: -115.24527, z: 0}
+      rotation: {x: -0.000000030035153, y: 0.000000013960743, z: -0.000000032130608,
+        w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_RightToeBase
+      parentName: GolemRig_Ctrl_RightFoot
+      position: {x: 0.005666733, y: -0.8167534, z: 67.36631}
+      rotation: {x: 3.469142e-32, y: -0, z: -1.2246469e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_Spine
+      parentName: GolemRig_Ctrl_Hips
+      position: {x: -0, y: 20.765747, z: -0.14536}
+      rotation: {x: 0.000000059604645, y: 3.3709596e-24, z: -3.6390698e-24, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_Spine1
+      parentName: GolemRig_Ctrl_Spine
+      position: {x: -1.1832914e-30, y: 20.669403, z: -1.5833864}
+      rotation: {x: 2.7755576e-17, y: 6.162976e-33, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_Spine2
+      parentName: GolemRig_Ctrl_Spine1
+      position: {x: 3.549874e-30, y: 20.669403, z: -1.5833855}
+      rotation: {x: 0.000000029802322, y: 4.3725545e-16, z: 0.000000014901161, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_LeftShoulder
+      parentName: GolemRig_Ctrl_Spine2
+      position: {x: -29.953262, y: 29.414917, z: -8.880558}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_LeftArm
+      parentName: GolemRig_Ctrl_LeftShoulder
+      position: {x: -44.929893, y: 0, z: 0}
+      rotation: {x: -0.000000029802319, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_LeftForeArm
+      parentName: GolemRig_Ctrl_LeftArm
+      position: {x: -90.34106, y: 5.684342e-14, z: -2.7755576e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_LeftHand
+      parentName: GolemRig_Ctrl_LeftForeArm
+      position: {x: -92.389984, y: 0, z: -2.7755576e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_Neck
+      parentName: GolemRig_Ctrl_Spine2
+      position: {x: 4.7331654e-30, y: 63.61093, z: -5.192384}
+      rotation: {x: 0.000000059604645, y: -1.7253416e-15, z: -0.000000029802322, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_Head
+      parentName: GolemRig_Ctrl_Neck
+      position: {x: -1.1044053e-29, y: 43.352905, z: 0.045420885}
+      rotation: {x: 3.061617e-17, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_RightShoulder
+      parentName: GolemRig_Ctrl_Spine2
+      position: {x: 29.953262, y: 29.414917, z: -8.880558}
+      rotation: {x: 0, y: -0, z: -0.000000029802322, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_RightArm
+      parentName: GolemRig_Ctrl_RightShoulder
+      position: {x: 44.929893, y: 0, z: 0}
+      rotation: {x: -0.000000029802315, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_RightForeArm
+      parentName: GolemRig_Ctrl_RightArm
+      position: {x: 90.34106, y: 5.684342e-14, z: -2.7755576e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_RightHand
+      parentName: GolemRig_Ctrl_RightForeArm
+      position: {x: 92.389984, y: 0, z: -2.7755576e-17}
+      rotation: {x: -1.2325952e-32, y: 6.123234e-17, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_HipsEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: -0.0000009536743, y: 209.63475, z: 5.395753}
+      rotation: {x: 1.4163847e-16, y: 2.7415802e-32, z: -1.110223e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_LeftAnkleEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: -21.936504, y: 2.9227843, z: 5.395793}
+      rotation: {x: 0.000000034226105, y: 8.9671236e-17, z: -4.9535787e-15, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_LeftElbowEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: -165.22427, y: 299.28348, z: -6.9301796}
+      rotation: {x: 0.00000005960465, y: 8.881785e-16, z: 0.000000014901161, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_LeftFootEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: -21.93658, y: 2.1060264, z: 72.762115}
+      rotation: {x: 4.191489e-24, y: -0.000000034226105, z: -1.2246469e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_LeftHipEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: -21.936497, y: 209.63475, z: 5.395753}
+      rotation: {x: -3.061617e-17, y: -5.551115e-17, z: 5.5511148e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_LeftKneeEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: -21.936497, y: 118.16809, z: 5.395755}
+      rotation: {x: -1.4163847e-16, y: 4.314083e-32, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_LeftShoulderEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: -74.883156, y: 299.2835, z: -6.930134}
+      rotation: {x: 0.00000005960465, y: 8.881785e-16, z: 0.000000014901161, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_LeftWristEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: -257.61432, y: 299.2834, z: -6.9301414}
+      rotation: {x: 0.00000005960465, y: 8.881785e-16, z: 0.000000014901161, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_RightAnkleEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: 21.936556, y: 2.9226089, z: 5.39653}
+      rotation: {x: 0.000000029569476, y: 0.000000013960744, z: 1.4263635e-14, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_RightElbowEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: 165.2242, y: 299.2835, z: -6.9301167}
+      rotation: {x: 0.00000005960465, y: -8.881785e-16, z: -0.000000014901161, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_RightFootEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: 21.942232, y: 2.1058521, z: 72.76282}
+      rotation: {x: 3.987672e-24, y: -0.000000032561815, z: -1.2246469e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_RightHipEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: 21.936495, y: 209.63475, z: 5.395753}
+      rotation: {x: 5.771385e-17, y: 9.343055e-17, z: 5.4510825e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_RightKneeEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: 21.936525, y: 118.16785, z: 5.3965855}
+      rotation: {x: 0.000000059604645, y: 1.7763568e-15, z: 0.000000029802322, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_RightShoulderEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: 74.88315, y: 299.2835, z: -6.930132}
+      rotation: {x: 0.00000005960465, y: -8.881785e-16, z: -0.000000014901161, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Ctrl_RightWristEffector
+      parentName: GolemRig_Ctrl_Reference
+      position: {x: 257.61423, y: 299.28357, z: -6.9301014}
+      rotation: {x: 0.00000005960465, y: -8.2694614e-16, z: -0.000000014901161, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Guides
+      parentName: GolemBoss(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.01, y: 0.01, z: 0.01}
+    - name: Head
+      parentName: GolemRig_Guides
+      position: {x: -0, y: 377.03467, z: 3.5936556}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hips
+      parentName: GolemRig_Guides
+      position: {x: -0, y: 207.96628, z: 12.052751}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftArm
+      parentName: GolemRig_Guides
+      position: {x: -74.883156, y: 299.48575, z: -0.13993979}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftFoot
+      parentName: GolemRig_Guides
+      position: {x: -49.093124, y: 8.419753, z: -14.588031}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftForeArm
+      parentName: GolemRig_Guides
+      position: {x: -102.734535, y: 213.54515, z: -0.29201612}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftHand
+      parentName: GolemRig_Guides
+      position: {x: -123.22813, y: 137.64218, z: 48.232853}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftLeg
+      parentName: GolemRig_Guides
+      position: {x: -39.187206, y: 120.01219, z: 12.439214}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftShoulder
+      parentName: GolemRig_Guides
+      position: {x: -29.953262, y: 299.48575, z: -0.13993979}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftToeBase
+      parentName: GolemRig_Guides
+      position: {x: -41.59338, y: 7.6029997, z: 52.35951}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftUpLeg
+      parentName: GolemRig_Guides
+      position: {x: -21.93649, y: 209.83699, z: 12.1859665}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Neck
+      parentName: GolemRig_Guides
+      position: {x: -0, y: 333.68176, z: 3.5482347}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Reference
+      parentName: GolemRig_Guides
+      position: {x: -0, y: 0.20223868, z: 6.7902145}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightArm
+      parentName: GolemRig_Guides
+      position: {x: 74.883156, y: 299.48575, z: -0.13993979}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightFoot
+      parentName: GolemRig_Guides
+      position: {x: 49.093124, y: 8.419753, z: -14.588031}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightForeArm
+      parentName: GolemRig_Guides
+      position: {x: 102.734535, y: 213.54515, z: -0.29201612}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightHand
+      parentName: GolemRig_Guides
+      position: {x: 123.22813, y: 137.64218, z: 48.232853}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightLeg
+      parentName: GolemRig_Guides
+      position: {x: 39.187206, y: 120.01219, z: 12.439214}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightShoulder
+      parentName: GolemRig_Guides
+      position: {x: 29.953262, y: 299.48575, z: -0.13993979}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightToeBase
+      parentName: GolemRig_Guides
+      position: {x: 41.59338, y: 7.6029997, z: 52.35951}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightUpLeg
+      parentName: GolemRig_Guides
+      position: {x: 21.93649, y: 209.83699, z: 12.1859665}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Spine
+      parentName: GolemRig_Guides
+      position: {x: -0, y: 228.73203, z: 11.907391}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Spine1
+      parentName: GolemRig_Guides
+      position: {x: -0, y: 249.40143, z: 10.324004}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Spine2
+      parentName: GolemRig_Guides
+      position: {x: -0, y: 270.07083, z: 8.740619}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Reference
+      parentName: GolemBoss(Clone)
+      position: {x: -0, y: 0.0020223868, z: 0.06790215}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.01, y: 0.01, z: 0.01}
+    - name: GolemRig_Hips
+      parentName: GolemRig_Reference
+      position: {x: -0, y: 207.76404, z: 5.262537}
+      rotation: {x: 0.498247, y: -0.50174695, z: -0.498247, w: 0.50174695}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_LeftUpLeg
+      parentName: GolemRig_Hips
+      position: {x: -1.8697339, y: 0.1463073, z: 21.93649}
+      rotation: {x: -6.283994e-17, y: -1.1129094e-16, z: 0.99999386, w: 0.003499919}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_LeftLeg
+      parentName: GolemRig_LeftUpLeg
+      position: {x: -91.46664, y: -0.000018119812, z: 0.000005722046}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_LeftFoot
+      parentName: GolemRig_LeftLeg
+      position: {x: -115.24527, y: -0.00002193451, z: 0.000009536743}
+      rotation: {x: -0.00000027123588, y: 0.0000002745443, z: 0.7028075, w: 0.71138006}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_LeftToeBase
+      parentName: GolemRig_LeftFoot
+      position: {x: -67.371254, y: 0.0000045378165, z: 0.0000014043262}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_RightUpLeg
+      parentName: GolemRig_Hips
+      position: {x: -1.8697339, y: 0.1463073, z: -21.936487}
+      rotation: {x: 1.111822e-16, y: -6.2840104e-17, z: -0.0034950452, w: 0.9999939}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_RightLeg
+      parentName: GolemRig_RightUpLeg
+      position: {x: 91.46664, y: -0.000046000387, z: -0.00002861023}
+      rotation: {x: 1.1140791e-16, y: -4.163391e-17, z: -0.0000048912398, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_RightFoot
+      parentName: GolemRig_RightLeg
+      position: {x: 115.24527, y: -0.000071525574, z: -0.00004005432}
+      rotation: {x: -0.000029564571, y: 0.000029925188, z: 0.7028075, w: 0.71138006}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_RightToeBase
+      parentName: GolemRig_RightFoot
+      position: {x: 67.371254, y: -0.000004023439, z: -0.000000510103}
+      rotation: {x: 0.000025417183, y: 0.00000006527281, z: -1.6590509e-12, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Spine
+      parentName: GolemRig_Hips
+      position: {x: -20.766256, y: 0.0000002625317, z: -2.273241e-15}
+      rotation: {x: 1.0902796e-16, y: -5.933249e-17, z: 0.034721058, w: 0.99939704}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Spine1
+      parentName: GolemRig_Spine
+      position: {x: -20.729961, y: 0.0000019685308, z: 5.1478626e-15}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Spine2
+      parentName: GolemRig_Spine1
+      position: {x: -20.729961, y: 0.0000019685308, z: 7.6184185e-15}
+      rotation: {x: 1.0674438e-16, y: -6.3348846e-17, z: 0.0024953533, w: 0.9999969}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_LeftShoulder
+      parentName: GolemRig_Spine2
+      position: {x: -30.0399, y: -6.4580154, z: 29.953262}
+      rotation: {x: -0.47922942, y: 0.5199415, z: 0.47922942, w: 0.5199415}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_LeftArm
+      parentName: GolemRig_LeftShoulder
+      position: {x: -44.929893, y: 0, z: 0.00000010430812}
+      rotation: {x: 0.7071068, y: -3.8048138e-16, z: -3.1470307e-16, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_LeftForeArm
+      parentName: GolemRig_LeftArm
+      position: {x: -90.34106, y: 0.00000020861624, z: -1.1368684e-13}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_LeftHand
+      parentName: GolemRig_LeftForeArm
+      position: {x: -92.389984, y: 0.0000002235174, z: 1.1368684e-13}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_RightShoulder
+      parentName: GolemRig_Spine2
+      position: {x: -30.0399, y: -6.4580154, z: -29.953262}
+      rotation: {x: 0.5199415, y: 0.47922942, z: -0.5199415, w: 0.47922942}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_RightArm
+      parentName: GolemRig_RightShoulder
+      position: {x: 44.929893, y: 0, z: 0.00000010430812}
+      rotation: {x: 0.7071068, y: -2.8879043e-16, z: -4.0639402e-16, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_RightForeArm
+      parentName: GolemRig_RightArm
+      position: {x: 90.34106, y: 0.0000002235174, z: 5.684342e-14}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_RightHand
+      parentName: GolemRig_RightForeArm
+      position: {x: 92.389984, y: 0.0000002235174, z: -1.1368684e-13}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Neck
+      parentName: GolemRig_Spine2
+      position: {x: -63.8225, y: 0.000012833882, z: 0.0000018957561}
+      rotation: {x: 1.09118517e-16, y: -5.916579e-17, z: -0.04123549, w: 0.9991495}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GolemRig_Head
+      parentName: GolemRig_Neck
+      position: {x: -43.35293, y: 0.000013207256, z: -0.0000013006805}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mesh_Golem
+      parentName: GolemBoss(Clone)
+      position: {x: -1.931225, y: -233.8416, z: -5.851933}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.01, y: 0.01, z: 0.01}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -263,10 +892,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

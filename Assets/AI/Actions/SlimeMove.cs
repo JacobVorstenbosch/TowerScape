@@ -14,7 +14,7 @@ public class SlimeMove : RAINAction
     {
         base.Start(ai);
         anim = ai.Body.GetComponent<Animator>();
-        ig = ai.Body.GetComponent<IntakeGenerator>();
+        ig = ai.Body.GetComponentInChildren<IntakeGenerator>();
         ig.active = false;
         attacking = false;
         anim.SetBool("Attack", attacking);

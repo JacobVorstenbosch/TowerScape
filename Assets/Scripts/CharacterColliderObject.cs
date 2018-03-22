@@ -36,7 +36,10 @@ public class CharacterColliderObject : MonoBehaviour
     {
         if (other.CompareTag("IntakeSource") || (other.CompareTag("Enemy") && tag.Equals("Player")))
         {
-            IntakeGenerator intake = other.gameObject.GetComponent<IntakeGenerator>();
+            IntakeGenerator intake;
+            if (tag.Equals("Player"))
+                intake = other.gameObject.GetComponent<IntakeGenerator>();
+            else intake = other.gameObject.GetComponent<IntakeGenerator>();
             if (!intake || intake.active == false)
                 return;
             List<Intake> ilist = intake.GetBuffedIntakeList();

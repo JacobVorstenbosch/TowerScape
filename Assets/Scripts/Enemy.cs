@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour {
         m_healthBar.ownerClass = (Health.OwnerClass)m_stats.etype;
         m_healthBar.maxHealth = m_stats.hp;
         m_healthBar.currentHealth = m_stats.hp;
+        IntakeGenerator i = gameObject.GetComponentInChildren<IntakeGenerator>();
+        i.ammount = m_stats.dmg;
     }
 
 	// Use this for initialization

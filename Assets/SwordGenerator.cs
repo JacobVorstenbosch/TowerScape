@@ -6,6 +6,8 @@ public class SwordGenerator: MonoBehaviour {
     
     public GameObject player;
 
+    public Material bladeMat;
+
     public GameObject[] HiltComponents;
     public GameObject[] GuardComponents;
     public GameObject[] BladeComponents;
@@ -13,6 +15,10 @@ public class SwordGenerator: MonoBehaviour {
     private CollisionTreeManager playerCTM;
     private BuffManager playerBM;
     private PlayerScript playerS;
+    private int rarity = 0;
+
+    private Vector4 AuraColor = new Vector4 (0,0,0,0);
+    private Vector4 Purple = new Vector4(139, 0, 139, 0);
 
     [Tooltip("Must be length of 5\nMust add up to 1\nFirst element is Common, last is Legendary")]
     public float[] RarityProbabilities;
@@ -28,7 +34,43 @@ public class SwordGenerator: MonoBehaviour {
         GenerateHiltComponent(hiltIndex, blade);
         GenerateGuardComponent(guardIndex, blade);
 
-        
+
+
+        //setting blade aura color to match rarity ~~ can we modified to match elemental type
+
+
+        if (rarity == 1)
+        {
+            bladeMat.SetColor("_ColorR", Color.grey);
+            bladeMat.SetColor("_Color2", Color.grey);
+        }
+
+        if (rarity == 2)
+        {
+            bladeMat.SetColor("_ColorR", Color.green);
+            bladeMat.SetColor("_Color2", Color.green);
+        }
+
+        if (rarity == 3)
+        {
+            bladeMat.SetColor("_ColorR", Color.blue);
+            bladeMat.SetColor("_Color2", Color.blue);
+
+        }
+
+        if (rarity == 4)
+        {
+            bladeMat.SetColor("_ColorR",Purple);
+            bladeMat.SetColor("_Color2", Purple);
+        }
+
+        if (rarity == 5)
+        {
+            bladeMat.SetColor("_ColorR", Color.yellow);
+            bladeMat.SetColor("_Color2", Color.yellow);
+        }
+
+
 
         IntakeGenerator ig = blade.GetComponent<IntakeGenerator>();
         playerCTM.weapon = ig.gameObject;
@@ -61,7 +103,6 @@ public class SwordGenerator: MonoBehaviour {
         //random this, based of rarity common = 17.5 - 22.5, uncommon = 20-25, rare = 22.5-27.5, epic = 25-30, leggo = 27.5 - 32.5
         //for each line in the file
         float ranval = Random.value;
-        int rarity = 0;
         for (; rarity < RarityProbabilities.Length; rarity++)
         {
             ranval -= RarityProbabilities[rarity];

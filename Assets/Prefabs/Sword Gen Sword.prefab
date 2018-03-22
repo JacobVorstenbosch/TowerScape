@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  bladeMat: {fileID: 2100000, guid: 3a7bec03b10239841a6639604330f15e, type: 2}
   HiltComponents:
   - {fileID: 1869716326064368, guid: 64d5b375171444a4a8e383eeb5338284, type: 2}
   - {fileID: 1590324954389572, guid: 2b92b5f19cfe31647839e435782aefcf, type: 2}

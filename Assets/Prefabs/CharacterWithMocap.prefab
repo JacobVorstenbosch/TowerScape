@@ -891,7 +891,7 @@ MonoBehaviour:
   bgColor: {x: 0.75, y: 0.75, z: 0.75}
   ihColor: {x: 1, y: 0.75, z: 0}
   ownerClass: 2
-  invulnLength: 0.1
+  invulnLength: 1
 --- !u!135 &135142306494659226
 SphereCollider:
   m_ObjectHideFlags: 1

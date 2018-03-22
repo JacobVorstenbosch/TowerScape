@@ -16,12 +16,15 @@ public class SwordGenerator: MonoBehaviour {
     private BuffManager playerBM;
     private PlayerScript playerS;
     private int rarity = 0;
+    private int typeChance = 0;
 
     private Vector4 AuraColor = new Vector4 (0,0,0,0);
     private Vector4 Purple = new Vector4(139, 0, 139, 0);
 
     [Tooltip("Must be length of 5\nMust add up to 1\nFirst element is Common, last is Legendary")]
     public float[] RarityProbabilities;
+    [Tooltip("Must be length of 5\nMust add up to 1\nPhys,Chaos,Fire,Ice,Pure")]
+    public float[] ElementProbabilities;
 
     private GameObject sword;
 
@@ -34,45 +37,67 @@ public class SwordGenerator: MonoBehaviour {
         GenerateHiltComponent(hiltIndex, blade);
         GenerateGuardComponent(guardIndex, blade);
 
+        IntakeGenerator ig = blade.GetComponent<IntakeGenerator>();
 
+        float ranval = Random.value;
+        for (; typeChance < ElementProbabilities.Length; typeChance++)
+        {
+            ranval -= ElementProbabilities[typeChance];
+            if (ranval <= 0)
+                break;
+        }
+        //Chaos = 6, Fire = 4, Ice = 5,, Pure = 0, phys = 3
+        if(typeChance == 1)
+        {
+            ig.iclass = Intake.IntakeClass.PHYSICAL;
+        }
+        if (typeChance == 2)
+        {
+            ig.iclass = Intake.IntakeClass.CHAOS;
+        }
+        if (typeChance == 3)
+        {
+            ig.iclass = Intake.IntakeClass.FIRE;
+        }
+        if (typeChance == 4)
+        {
+            ig.iclass = Intake.IntakeClass.ICE;
+        }
+        if (typeChance == 5)
+        {
+            ig.iclass = Intake.IntakeClass.PURE;
+        }
 
         //setting blade aura color to match rarity ~~ can we modified to match elemental type
-
-
-        if (rarity == 1)
+        if (ig.iclass == Intake.IntakeClass.PHYSICAL)
         {
-            bladeMat.SetColor("_ColorR", Color.grey);
-            bladeMat.SetColor("_Color2", Color.grey);
+            AuraColor = new Vector4(0, 0, 0, 0);
         }
 
-        if (rarity == 2)
+        if (ig.iclass == Intake.IntakeClass.CHAOS)
         {
-            bladeMat.SetColor("_ColorR", Color.green);
-            bladeMat.SetColor("_Color2", Color.green);
+            AuraColor = new Vector4(4, 0, 50, 1);
         }
 
-        if (rarity == 3)
+        if (ig.iclass == Intake.IntakeClass.FIRE)
         {
-            bladeMat.SetColor("_ColorR", Color.blue);
-            bladeMat.SetColor("_Color2", Color.blue);
-
+            AuraColor = new Vector4(255, 0, 0, 1);
         }
 
-        if (rarity == 4)
+        if (ig.iclass == Intake.IntakeClass.ICE)
         {
-            bladeMat.SetColor("_ColorR",Purple);
-            bladeMat.SetColor("_Color2", Purple);
+            AuraColor = new Vector4(0, 255, 255, 1);
         }
 
-        if (rarity == 5)
+        if (ig.iclass == Intake.IntakeClass.PURE)
         {
-            bladeMat.SetColor("_ColorR", Color.yellow);
-            bladeMat.SetColor("_Color2", Color.yellow);
+            AuraColor = new Vector4(255, 255, 255, 1);
         }
 
 
+        bladeMat.SetColor("_ColorR", AuraColor);
+        bladeMat.SetColor("_Color2", AuraColor);
 
-        IntakeGenerator ig = blade.GetComponent<IntakeGenerator>();
         playerCTM.weapon = ig.gameObject;
         ig.buffManager = playerBM;
         playerCTM.weapon.layer = 10;

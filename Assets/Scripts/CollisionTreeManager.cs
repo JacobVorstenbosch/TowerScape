@@ -12,8 +12,8 @@ public class CollisionTreeManager : MonoBehaviour {
     public Transform weaponHand;
     public GameObject weapon;
     public Health health;
-    public float invulnLength = 1f;
-    private bool invuln;
+    //public float invulnLength = 1f;
+    //private bool invuln;
 
     private List<Collider> colliders = new List<Collider>();
 

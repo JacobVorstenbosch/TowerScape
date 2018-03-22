@@ -60,6 +60,7 @@ ModelImporter:
     400050: QuickRigCharacter_Spine1
     400052: QuickRigCharacter_Spine2
     2100000: lambert2
+    2100002: phong1
     4300000: CharacterMesh
     7400000: Character_SwordSwingOne
     7400002: Character_SwordSwingTwo

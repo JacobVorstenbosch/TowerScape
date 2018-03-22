@@ -71,27 +71,27 @@ public class SwordGenerator: MonoBehaviour {
         //setting blade aura color to match rarity ~~ can we modified to match elemental type
         if (ig.iclass == Intake.IntakeClass.PHYSICAL)
         {
-            AuraColor = new Vector4(0, 0, 0, 0);
+            AuraColor = new Vector4(50, 50, 50, 0.7f);
         }
 
         if (ig.iclass == Intake.IntakeClass.CHAOS)
         {
-            AuraColor = new Vector4(4, 0, 50, 1);
+            AuraColor = new Vector4(4, 0, 50, 0.7f);
         }
 
         if (ig.iclass == Intake.IntakeClass.FIRE)
         {
-            AuraColor = new Vector4(255, 0, 0, 1);
+            AuraColor = new Vector4(255, 0, 0, 0.7f);
         }
 
         if (ig.iclass == Intake.IntakeClass.ICE)
         {
-            AuraColor = new Vector4(0, 255, 255, 1);
+            AuraColor = new Vector4(0, 255, 255, 0.7f);
         }
 
         if (ig.iclass == Intake.IntakeClass.PURE)
         {
-            AuraColor = new Vector4(255, 255, 255, 1);
+            AuraColor = new Vector4(255, 255, 255, 0.7f);
         }
 
 

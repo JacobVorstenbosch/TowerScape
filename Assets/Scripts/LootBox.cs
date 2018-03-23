@@ -14,6 +14,8 @@ public class LootBox : MonoBehaviour {
     public GameObject player;
     private SwordGenerator swordGen;
     bool active = false;
+    bool openable = false;
+    bool waitingForReset = false;
 
     void Start()
     {
@@ -27,17 +29,28 @@ public class LootBox : MonoBehaviour {
 
     void Update()
     {
-        if (pane.isActiveAndEnabled == true && active)
+        if (active)
         {
-            if (Input.GetAxis("Fire1") > 0.1f)
+            if (openable)
             {
-                pane.SetText("Tap key to open the chest.");
-                pane.SetActive(false);
+                pane.SetActive(true);
+                pane.SetText("Enjoy your new sword! Press A to close.");
+                swordGen.Generate();
+                openable = false;
+                waitingForReset = true;
             }
-            return;
+            else if (waitingForReset)
+            {
+                if (Input.GetAxis("Fire1") > 0.1f)
+                {
+                    pane.SetText("Tap card to open the chest.");
+                    waitingForReset = false;
+                }
+            }
         }
-
         
+
+
 
         if (sp.IsOpen)
         {
@@ -51,7 +64,16 @@ public class LootBox : MonoBehaviour {
             //}
             //else
             //    print(sp.ReadExisting());
-            string line = sp.ReadLine();
+            string line;
+
+            try
+            {
+                line = sp.ReadLine();
+            }
+            catch
+            {
+                return;
+            }
             //string line = sp.ReadTo("\n");
             //print(line);
 
@@ -60,15 +82,14 @@ public class LootBox : MonoBehaviour {
             if (split[0].Contains("RFID"))
             {
                 print("RFID CODE RECIEVED: " + split[1]);
-
-                //enable pane
-                pane.SetActive(true);
-                pane.SetText("Enjoy your new sword! Press X to close.");
-                swordGen.Generate();
-
+                openable = true;
                 return;
             }
-            else return;
+            else
+            {
+                openable = false;
+                return;
+            }
             Vector3 accel = new Vector3(0, 0, 0);
             for (int i = 1; i < 4; i++)
             {
@@ -92,8 +113,8 @@ public class LootBox : MonoBehaviour {
 
             //}
         }
-        else
-            print("port open failed");
+        //else
+        //    print("port open failed");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -101,7 +122,7 @@ public class LootBox : MonoBehaviour {
         if (other.CompareTag("Player") || other.CompareTag("PlayerRoot"))
         {
             pane.SetActive(true);
-            pane.SetText("Tap key to open the chest.");
+            pane.SetText("Tap card to open the chest.");
             active = true;
         }
     }

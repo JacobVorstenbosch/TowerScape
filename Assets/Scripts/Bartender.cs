@@ -34,7 +34,7 @@ public class Bartender : MonoBehaviour {
         {
             active = true;
             pane.SetActive(true);
-            pane.SetText("Press X to order a drink.");
+            pane.SetText("Press A to order a drink.");
         }
     }
 

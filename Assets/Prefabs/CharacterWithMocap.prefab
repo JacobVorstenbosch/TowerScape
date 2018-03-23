@@ -820,8 +820,8 @@ MonoBehaviour:
       includecustomdata="False"><_visualMode>OnWhenSelected</_visualMode><_useUnityMessages>True</_useUnityMessages><_entity
       reference="1"><_entityName></_entityName><_isActive>True</_isActive><_form sceneobject=""
       object="0"></_form><_aspects><element0 type="RAIN.Entities.Aspects.VisualAspect"
-      reference="2"><_showVisual>True</_showVisual><_aspectName>Player</_aspectName><_isActive>True</_isActive><_aspectColor>0,0.6,0.6,1</_aspectColor><_outlineColorOffset>-0.5</_outlineColorOffset><_selectionColorOffset>0.4</_selectionColorOffset><_visualSize>0.1</_visualSize><_mountPoint
-      object="1"></_mountPoint><_positionOffset>0,0,0</_positionOffset><_angleOffset>0,0,0</_angleOffset></element0></_aspects></_entity></component>
+      reference="2"><_showVisual>True</_showVisual><_aspectName>Player</_aspectName><_isActive>True</_isActive><_aspectColor>0,0.6,0.6,1</_aspectColor><_outlineColorOffset>-0.5</_outlineColorOffset><_selectionColorOffset>0.4</_selectionColorOffset><_visualSize>2</_visualSize><_mountPoint
+      object="1"></_mountPoint><_positionOffset>0,1,0</_positionOffset><_angleOffset>0,0,0</_angleOffset></element0></_aspects></_entity></component>
     _serializedMetaDocument: <meta></meta>
     _serializedObjects:
     - {fileID: 1758432364867350}
@@ -844,7 +844,6 @@ MonoBehaviour:
   weaponHand: {fileID: 4805021812154612}
   weapon: {fileID: 1541937763311988, guid: 854a1b1b6a879b64fb1d4108f4fc8890, type: 2}
   health: {fileID: 114582722540715086}
-  invulnLength: 1
 --- !u!114 &114086838921086930
 MonoBehaviour:
   m_ObjectHideFlags: 1

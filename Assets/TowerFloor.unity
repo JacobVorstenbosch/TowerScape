@@ -535,7 +535,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -727687000
+  randomSeed: -1802814684
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4674,6 +4674,9 @@ MonoBehaviour:
   - {fileID: 1324193088137466, guid: 211710ce0edbdd443832bbd818a2a9dd, type: 2}
   - {fileID: 1045526952943344, guid: 4114cc2cb82700144890cc5b480b06ea, type: 2}
   - {fileID: 1199864233527218, guid: 33bcd51a11072184abd4b29b690b09b8, type: 2}
+  - {fileID: 1634189871845752, guid: be94a63b42593b94fa9389b9e112b1ee, type: 2}
+  - {fileID: 1670699121507850, guid: 9a0a691e2a488f14386913b5deda07cb, type: 2}
+  - {fileID: 1185363519437776, guid: b448d5ff4a71c5742aec1cdc74f448b3, type: 2}
 --- !u!1001 &1701678212
 Prefab:
   m_ObjectHideFlags: 0

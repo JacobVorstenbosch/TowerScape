@@ -19,7 +19,6 @@ public class SwordGenerator: MonoBehaviour {
     private int typeChance = 0;
 
     private Vector4 AuraColor = new Vector4 (0,0,0,0);
-    private Vector4 Purple = new Vector4(139, 0, 139, 0);
 
     [Tooltip("Must be length of 5\nMust add up to 1\nFirst element is Common, last is Legendary")]
     public float[] RarityProbabilities;
@@ -30,7 +29,12 @@ public class SwordGenerator: MonoBehaviour {
 
     public GameObject Generate()
     {
-        return sword = Generate(Random.Range(0, HiltComponents.Length), Random.Range(0, GuardComponents.Length), Random.Range(0, BladeComponents.Length));
+        sword = Generate(Random.Range(0, HiltComponents.Length), Random.Range(0, GuardComponents.Length), Random.Range(0, BladeComponents.Length));
+        //bladeMat = GetComponent<Renderer>().material;
+        //bladeMat.SetColor("_ColorR", new Vector4(50, 50, 50, 0.7f));
+        //bladeMat.SetColor("_Color2", new Vector4(50, 50, 50, 0.7f));
+        return sword;
+
     }
 
     public GameObject Generate(int hiltIndex, int guardIndex, int bladeIndex )
@@ -73,6 +77,7 @@ public class SwordGenerator: MonoBehaviour {
             ig.iclass = Intake.IntakeClass.PURE;
         }
 
+
         //setting blade aura color to match rarity ~~ can we modified to match elemental type
         if (ig.iclass == Intake.IntakeClass.PHYSICAL)
         {
@@ -99,7 +104,7 @@ public class SwordGenerator: MonoBehaviour {
             AuraColor = new Vector4(255, 255, 255, 0.7f);
         }
 
-
+        bladeMat = sword.GetComponent<Renderer>().material;
         bladeMat.SetColor("_ColorR", AuraColor);
         bladeMat.SetColor("_Color2", AuraColor);
 

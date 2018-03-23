@@ -18,6 +18,9 @@ public class LootBox : MonoBehaviour {
     bool waitingForReset = false;
     float cooldown = 0.0f;
 
+
+    private Vector4 AuraColor;
+
     void Start()
     {
         sp.Open();
@@ -37,7 +40,17 @@ public class LootBox : MonoBehaviour {
             {
                 pane.SetActive(true);
                 pane.SetText("Enjoy your new sword! Press A to close.");
+
+                float ranValR = Random.Range(0.0f,255.0f);
+                float ranValG = Random.Range(0.0f, 255.0f);
+
+                float ranValB = Random.Range(0.0f, 255.0f);
+
+                AuraColor = new Vector4(ranValR, ranValG, ranValB, 0.7f);
+
                 swordGen.Generate();
+                swordGen.bladeMat.SetColor("_ColorR", AuraColor);
+                swordGen.bladeMat.SetColor("_Color2", AuraColor);
                 openable = false;
                 waitingForReset = true;
             }

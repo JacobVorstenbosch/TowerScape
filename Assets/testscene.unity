@@ -339,19 +339,9 @@ Prefab:
       objectReference: {fileID: 716027307}
     - target: {fileID: 114226842980835708, guid: 1ade6602038178442a30554c9cf84460,
         type: 2}
-      propertyPath: player
+      propertyPath: playerWeaponHand
       value: 
-      objectReference: {fileID: 1212613220}
-    - target: {fileID: 114226842980835708, guid: 1ade6602038178442a30554c9cf84460,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23370468854773778, guid: 1ade6602038178442a30554c9cf84460,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e682dec3dbc275845ad57ba4c3262285, type: 2}
+      objectReference: {fileID: 1689864342}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ade6602038178442a30554c9cf84460, type: 2}
   m_IsPrefabParent: 0
@@ -3309,6 +3299,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4749218348535548, guid: 6e762ec50d188254b83cfe590dba1108,
     type: 2}
   m_PrefabInternal: {fileID: 1750683009}
+--- !u!1 &1689864342 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1679147505771552, guid: 8df8f3e18c03397439c06469f2f7fc2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 452818365}
 --- !u!4 &1731067073 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4749218348535548, guid: 6e762ec50d188254b83cfe590dba1108,

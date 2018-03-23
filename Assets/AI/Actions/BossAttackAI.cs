@@ -9,6 +9,7 @@ public class BossAttackAI : RAINAction
 {
     Animator anim;
     Animation ForLoop;
+    IntakeGenerator ig;
     bool attacking1;
     bool walkAnim;
     bool idle;
@@ -22,11 +23,13 @@ public class BossAttackAI : RAINAction
     {
 
         base.Start(ai);
+        ig = ai.Body.GetComponentInChildren<IntakeGenerator>();
         anim = ai.Body.GetComponent<Animator>();
         if (actionName == "GolemAttack")
         {
             ai.WorkingMemory.SetItem("attacking", true);
             ai.WorkingMemory.SetItem("walking", false);
+            ig.active = true;
             walkAnim = false;
             attacking1 = true;  
         }
@@ -36,6 +39,7 @@ public class BossAttackAI : RAINAction
             ai.WorkingMemory.SetItem("walking", true);
             walkAnim = true;
             attacking1 = false;
+            ig.active = false;
         }
         anim.SetBool("walking", walkAnim);
         anim.SetBool("attacking", attacking1);

@@ -5,33 +5,35 @@ using System.IO.Ports;
 
 public class LootBox : MonoBehaviour {
 
-    SerialPort sp = new SerialPort("COM6", 9600);
+    SerialPort sp = new SerialPort("COM3", 9600);
 
 
     [Tooltip("Canvas interaction pane.")]
     public InteractionPane pane;
 
-    public GameObject player;
+    public GameObject playerWeaponHand;
     private SwordGenerator swordGen;
     bool active = false;
     bool openable = false;
     bool waitingForReset = false;
+    float cooldown = 0.0f;
 
     void Start()
     {
         sp.Open();
         sp.ReadTimeout = 25;
 
-        swordGen = player.GetComponent<CollisionTreeManager>().weaponHand.GetChild(1).GetComponent<SwordGenerator>();
+        swordGen = playerWeaponHand.GetComponentInChildren<SwordGenerator>();
         if (!swordGen)
             print("Unable to find sword gen. Lootbox will not function.");
     }
 
     void Update()
     {
+
         if (active)
         {
-            if (openable)
+            if (openable && !waitingForReset)
             {
                 pane.SetActive(true);
                 pane.SetText("Enjoy your new sword! Press A to close.");
@@ -41,10 +43,11 @@ public class LootBox : MonoBehaviour {
             }
             else if (waitingForReset)
             {
-                if (Input.GetAxis("Fire1") > 0.1f)
+                if (Input.GetButtonDown("Fire1"))
                 {
                     pane.SetText("Tap card to open the chest.");
                     waitingForReset = false;
+                    openable = false;
                 }
             }
         }
@@ -79,13 +82,19 @@ public class LootBox : MonoBehaviour {
 
             string[] split = line.Split(new char[] { '\n', ',', ':' }, System.StringSplitOptions.RemoveEmptyEntries);
 
-            if (split[0].Contains("RFID"))
+            if (active && split[0].Contains("RFID"))
             {
+                if (cooldown > 0)
+                {
+                    cooldown -= Time.deltaTime;
+                    return;
+                }
                 print("RFID CODE RECIEVED: " + split[1]);
                 openable = true;
+                cooldown = 0.2f;
                 return;
             }
-            else
+            else if (active)
             {
                 openable = false;
                 return;

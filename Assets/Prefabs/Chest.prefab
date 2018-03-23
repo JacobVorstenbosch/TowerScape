@@ -88,7 +88,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: adc7245dc98ce3b4a97b5618c4c5b2c7, type: 3}
+  - {fileID: 2100000, guid: e682dec3dbc275845ad57ba4c3262285, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,4 +168,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pane: {fileID: 0}
-  player: {fileID: 0}
+  playerWeaponHand: {fileID: 0}

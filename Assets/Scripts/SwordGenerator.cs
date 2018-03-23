@@ -28,6 +28,11 @@ public class SwordGenerator: MonoBehaviour {
 
     private GameObject sword;
 
+    public GameObject Generate()
+    {
+        return sword = Generate(Random.Range(0, HiltComponents.Length), Random.Range(0, GuardComponents.Length), Random.Range(0, BladeComponents.Length));
+    }
+
     public GameObject Generate(int hiltIndex, int guardIndex, int bladeIndex )
     {
         Destroy(sword);

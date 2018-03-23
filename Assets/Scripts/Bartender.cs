@@ -6,13 +6,13 @@ public class Bartender : MonoBehaviour {
 
     bool active = false;
     float cooldown = 0.0f;
-    private Health playerHp;
+    public Health playerHp;
 
     public InteractionPane pane;
 
 	// Use this for initialization
 	void Start () {
-        playerHp = GameObject.FindGameObjectWithTag("PlayerRoot").GetComponent<Health>();
+
 	}
 	
 	// Update is called once per frame

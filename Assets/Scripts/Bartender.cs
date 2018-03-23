@@ -21,7 +21,7 @@ public class Bartender : MonoBehaviour {
 		if (active && cooldown <= 0 && Input.GetAxis("Fire1") > 0.1f)
         {
             cooldown = 1.0f;
-            if (playerHp.currentHealth > 1)
+            if (playerHp.currentHealth > 10)
                 playerHp.currentHealth -= 10;
             else
                 pane.SetText("I think you've had enough.");

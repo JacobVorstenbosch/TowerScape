@@ -402,9 +402,62 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114210500442204234, guid: 64044fdd48cc3f041b5f3e4bd0f7d0ef,
+        type: 2}
+      propertyPath: _serializer._preferredSerialization
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114210500442204234, guid: 64044fdd48cc3f041b5f3e4bd0f7d0ef,
+        type: 2}
+      propertyPath: _serializer._serializedDocument
+      value: <component version="1.8" type="RAIN.Core.AIRig" reference="0" includecustomdata="False"><_visualMode>OnWhenSelected</_visualMode><_useUnityMessages>True</_useUnityMessages><_useFixedUpdate>False</_useFixedUpdate><_ai
+        reference="1"><_isActive>True</_isActive><_body sceneobject="ba9d8835-73ec-4d62-b520-44f5471a1eae"></_body><_workingMemory
+        type="RAIN.Memory.BasicMemory" reference="2"><_memoryItems><element0 reference="14"><Key>walking</Key><ValueType>System.Boolean</ValueType><Value
+        type="System.Boolean">False</Value></element0><element1 reference="15"><Key>attacking</Key><ValueType>System.Boolean</ValueType><Value
+        type="System.Boolean">False</Value></element1></_memoryItems></_workingMemory><_mind
+        type="RAIN.Minds.BasicMind" reference="3"><_behaviorTree object="0"></_behaviorTree><_behaviorTreeBindings></_behaviorTreeBindings></_mind><_motor
+        type="RAIN.Motion.BasicMotor" reference="4"><_speed>1</_speed><_rotationSpeed>360</_rotationSpeed><_closeEnoughDistance>0.1</_closeEnoughDistance><_closeEnoughAngle>0.1</_closeEnoughAngle><_faceBeforeMoveAngle>360</_faceBeforeMoveAngle><_maxHeightOffset>1</_maxHeightOffset><_allow3DMovement>False</_allow3DMovement><_allow3DRotation>False</_allow3DRotation><_allowOffGraphMovement>True</_allowOffGraphMovement><_useRootMotion>False</_useRootMotion><_overrideRootRotation>True</_overrideRootRotation><_mecanimParameters></_mecanimParameters></_motor><_animator
+        type="RAIN.Animation.BasicAnimator" reference="5"><_showVisual>True</_showVisual><_leftEye
+        reference="6"><_jointColor>0,1,0,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_leftEye><_rightEye
+        reference="7"><_jointColor>0,1,0,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_rightEye><_head
+        reference="8"><_jointColor>0,1,0,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_head><_neck
+        reference="9"><_jointColor>0,1,0,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_neck><_lookTime>1</_lookTime><_minimumTargetChange>0.1</_minimumTargetChange><_resetEachFrame>False</_resetEachFrame></_animator><_navigator
+        type="RAIN.Navigation.BasicNavigator" reference="10"><_drawPaths>False</_drawPaths><_pathColor>0,1,0,1</_pathColor><_outlineColorOffset>-0.5</_outlineColorOffset><_maxPathfindingSteps>100</_maxPathfindingSteps><_maxPathLength>0</_maxPathLength><_padding>0</_padding><_graphTags></_graphTags></_navigator><_senses
+        type="RAIN.Perception.BasicSenses" reference="11"><_sensors><element0 type="RAIN.Perception.Sensors.VisualSensor"
+        reference="12"><_showVisual>True</_showVisual><_sensorName>eyes</_sensorName><_isActive>True</_isActive><_sensorColor>0.6,0,0.6,1</_sensorColor><_mountPoint
+        sceneobject="ba9d8835-73ec-4d62-b520-44f5471a1eae" component="0"></_mountPoint><_positionOffset>0,0,0</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>30</_range><_canDetectSelf>True</_canDetectSelf><_horizontalAngle>360</_horizontalAngle><_verticalAngle>180</_verticalAngle><_lineOfSight>True</_lineOfSight><_lineOfSightMask>-5</_lineOfSightMask></element0><element1
+        type="RAIN.Perception.Sensors.VisualSensor" reference="13"><_showVisual>True</_showVisual><_sensorName>AttackRangeFront</_sensorName><_isActive>True</_isActive><_sensorColor>0.6,0.6,0.6,1</_sensorColor><_mountPoint
+        sceneobject="ba9d8835-73ec-4d62-b520-44f5471a1eae" component="0"></_mountPoint><_positionOffset>0,2.5,0</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>3</_range><_canDetectSelf>True</_canDetectSelf><_horizontalAngle>127</_horizontalAngle><_verticalAngle>62</_verticalAngle><_lineOfSight>True</_lineOfSight><_lineOfSightMask>-5</_lineOfSightMask></element1></_sensors></_senses><_customElements></_customElements></_ai></component>
+      objectReference: {fileID: 0}
+    - target: {fileID: 114210500442204234, guid: 64044fdd48cc3f041b5f3e4bd0f7d0ef,
+        type: 2}
+      propertyPath: _serializer._serializedMetaDocument
+      value: <meta><element0><key>/component/_ai+_selected</key><value type="System.Int32">4</value></element0><element1><key>/component/_ai/_navigator/_graphTags+_foldout</key><value
+        type="System.Boolean">False</value></element1></meta>
+      objectReference: {fileID: 0}
+    - target: {fileID: 114210500442204234, guid: 64044fdd48cc3f041b5f3e4bd0f7d0ef,
+        type: 2}
+      propertyPath: _serializer._serializedObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114210500442204234, guid: 64044fdd48cc3f041b5f3e4bd0f7d0ef,
+        type: 2}
+      propertyPath: _serializer._serializedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 4900000, guid: 60b2761a7c976c047be87e2c004d8d4e, type: 3}
+    - target: {fileID: 114210500442204234, guid: 64044fdd48cc3f041b5f3e4bd0f7d0ef,
+        type: 2}
+      propertyPath: _serializer._serializedCustomData.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64044fdd48cc3f041b5f3e4bd0f7d0ef, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &403728057 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4410237213656020, guid: 64044fdd48cc3f041b5f3e4bd0f7d0ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 403728056}
 --- !u!1 &411386443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,6 +1206,57 @@ Prefab:
     - target: {fileID: 4527609244691534, guid: 3a21edc8180f81f43bb0bf307008fa41, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807189171886960, guid: 3a21edc8180f81f43bb0bf307008fa41,
+        type: 2}
+      propertyPath: _serializer._preferredSerialization
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807189171886960, guid: 3a21edc8180f81f43bb0bf307008fa41,
+        type: 2}
+      propertyPath: _serializer._serializedDocument
+      value: <component version="1.8" type="RAIN.Core.AIRig" reference="0" includecustomdata="False"><_visualMode>OnWhenSelected</_visualMode><_useUnityMessages>True</_useUnityMessages><_useFixedUpdate>False</_useFixedUpdate><_ai
+        reference="1"><_isActive>True</_isActive><_body sceneobject="" object="1"></_body><_workingMemory
+        type="RAIN.Memory.BasicMemory" reference="2"><_memoryItems></_memoryItems></_workingMemory><_mind
+        type="RAIN.Minds.BasicMind" reference="3"><_behaviorTree object="0"></_behaviorTree><_behaviorTreeBindings></_behaviorTreeBindings></_mind><_motor
+        type="RAIN.Motion.BasicMotor" reference="4"><_speed>1</_speed><_rotationSpeed>360</_rotationSpeed><_closeEnoughDistance>0.1</_closeEnoughDistance><_closeEnoughAngle>0.1</_closeEnoughAngle><_faceBeforeMoveAngle>360</_faceBeforeMoveAngle><_maxHeightOffset>1</_maxHeightOffset><_allow3DMovement>False</_allow3DMovement><_allow3DRotation>False</_allow3DRotation><_allowOffGraphMovement>True</_allowOffGraphMovement><_useRootMotion>False</_useRootMotion><_overrideRootRotation>True</_overrideRootRotation><_mecanimParameters></_mecanimParameters></_motor><_animator
+        type="RAIN.Animation.BasicAnimator" reference="5"><_showVisual>True</_showVisual><_leftEye
+        reference="6"><_jointColor>0,1,0,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_leftEye><_rightEye
+        reference="7"><_jointColor>0,1,0,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_rightEye><_head
+        reference="8"><_jointColor>0,1,0,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_head><_neck
+        reference="9"><_jointColor>0,1,0,1</_jointColor><_joint sceneobject=""></_joint><_jointOffset>0,0,0</_jointOffset><_jointOrientation>0,0,0</_jointOrientation><_maxLeftRight>60</_maxLeftRight><_maxUpDown>45</_maxUpDown><_weight>1</_weight></_neck><_lookTime>1</_lookTime><_minimumTargetChange>0.1</_minimumTargetChange><_resetEachFrame>False</_resetEachFrame></_animator><_navigator
+        type="RAIN.Navigation.BasicNavigator" reference="10"><_drawPaths>False</_drawPaths><_pathColor>0,1,0,1</_pathColor><_outlineColorOffset>-0.5</_outlineColorOffset><_maxPathfindingSteps>100</_maxPathfindingSteps><_maxPathLength>0</_maxPathLength><_padding>0</_padding><_graphTags></_graphTags></_navigator><_senses
+        type="RAIN.Perception.BasicSenses" reference="11"><_sensors><element0 type="RAIN.Perception.Sensors.VisualSensor"
+        reference="12"><_showVisual>True</_showVisual><_sensorName>SlimePOV</_sensorName><_isActive>True</_isActive><_sensorColor>0.6,0.6,0.6,1</_sensorColor><_mountPoint
+        sceneobject=""></_mountPoint><_positionOffset>0,0,0</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>50</_range><_canDetectSelf>False</_canDetectSelf><_horizontalAngle>360</_horizontalAngle><_verticalAngle>180</_verticalAngle><_lineOfSight>True</_lineOfSight><_lineOfSightMask>-5</_lineOfSightMask></element0><element1
+        type="RAIN.Perception.Sensors.VisualSensor" reference="13"><_showVisual>True</_showVisual><_sensorName>SlimeAttack</_sensorName><_isActive>True</_isActive><_sensorColor>0.6,0.6,0.6,1</_sensorColor><_mountPoint
+        sceneobject=""></_mountPoint><_positionOffset>0,0,0</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>1.5</_range><_canDetectSelf>False</_canDetectSelf><_horizontalAngle>120</_horizontalAngle><_verticalAngle>180</_verticalAngle><_lineOfSight>True</_lineOfSight><_lineOfSightMask>-5</_lineOfSightMask></element1></_sensors></_senses><_customElements></_customElements></_ai></component>
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807189171886960, guid: 3a21edc8180f81f43bb0bf307008fa41,
+        type: 2}
+      propertyPath: _serializer._serializedMetaDocument
+      value: <meta><element0><key>/component/_ai+_selected</key><value type="System.Int32">3</value></element0><element1><key>/component/_ai/_navigator/_graphTags+_foldout</key><value
+        type="System.Boolean">True</value></element1></meta>
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807189171886960, guid: 3a21edc8180f81f43bb0bf307008fa41,
+        type: 2}
+      propertyPath: _serializer._serializedObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807189171886960, guid: 3a21edc8180f81f43bb0bf307008fa41,
+        type: 2}
+      propertyPath: _serializer._serializedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 4900000, guid: b4e6e9e2de8d66d4182311cfee504d69, type: 3}
+    - target: {fileID: 114807189171886960, guid: 3a21edc8180f81f43bb0bf307008fa41,
+        type: 2}
+      propertyPath: _serializer._serializedObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 1989346772}
+    - target: {fileID: 114807189171886960, guid: 3a21edc8180f81f43bb0bf307008fa41,
+        type: 2}
+      propertyPath: _serializer._serializedCustomData.Array.size
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a21edc8180f81f43bb0bf307008fa41, type: 2}
@@ -2072,7 +2176,11 @@ MonoBehaviour:
   m_Script: {fileID: -25400194, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _serializedTags: []
+  _serializedTags:
+  - _guid: ba9d8835-73ec-4d62-b520-44f5471a1eae
+    _sceneObject: {fileID: 1940074853}
+    _sceneComponents:
+    - {fileID: 403728057}
 --- !u!4 &1590790682
 Transform:
   m_ObjectHideFlags: 1
@@ -2384,6 +2492,16 @@ MonoBehaviour:
   verticalOffset: 15
   inventoryCellPrefab: {fileID: 1674794210292466, guid: d8e9b6afd17244848b10f44f122d12f3,
     type: 2}
+--- !u!1 &1940074853 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1520916684068076, guid: 64044fdd48cc3f041b5f3e4bd0f7d0ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 403728056}
+--- !u!1 &1989346772 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1197859571068534, guid: 3a21edc8180f81f43bb0bf307008fa41,
+    type: 2}
+  m_PrefabInternal: {fileID: 720153534}
 --- !u!4 &2042591965 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4749218348535548, guid: 6e762ec50d188254b83cfe590dba1108,

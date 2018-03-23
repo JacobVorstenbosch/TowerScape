@@ -24,7 +24,7 @@ public class Bartender : MonoBehaviour {
             if (playerHp.currentHealth > 1)
                 playerHp.currentHealth -= 10;
             else
-                playerHp.currentHealth = 1;
+                pane.SetText("I think you've had enough.");
         }
 	}
 

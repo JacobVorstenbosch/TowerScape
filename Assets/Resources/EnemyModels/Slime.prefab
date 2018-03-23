@@ -74,6 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4012514625838768}
   - component: {fileID: 137861474668786578}
+  - component: {fileID: 114132354579501324}
   m_Layer: 0
   m_Name: SlimeBody
   m_TagString: Untagged
@@ -199,6 +200,17 @@ MonoBehaviour:
   ammount: 0
   active: 0
   buffManager: {fileID: 114655688606495264}
+--- !u!114 &114132354579501324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1562674220331598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e9eb658f0cf1f4fa8153682a35b486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114211833720749520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,7 +228,6 @@ MonoBehaviour:
   weaponHand: {fileID: 0}
   weapon: {fileID: 0}
   health: {fileID: 114596717208690526}
-  invulnLength: 1.125
 --- !u!114 &114327874546910412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -351,7 +362,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 21567ac2936059a4eb8f194789f79fcb, type: 2}
+  - {fileID: 2100000, guid: db005c8b37b09ba4f869e1560aae1dbc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -398,7 +409,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 21567ac2936059a4eb8f194789f79fcb, type: 2}
+  - {fileID: 2100000, guid: db005c8b37b09ba4f869e1560aae1dbc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

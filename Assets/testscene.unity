@@ -350,6 +350,84 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ade6602038178442a30554c9cf84460, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &63530010
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400132, guid: 4697065441413ba49a7bd9ff2a0f50ce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400132, guid: 4697065441413ba49a7bd9ff2a0f50ce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 400132, guid: 4697065441413ba49a7bd9ff2a0f50ce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 400132, guid: 4697065441413ba49a7bd9ff2a0f50ce, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400132, guid: 4697065441413ba49a7bd9ff2a0f50ce, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400132, guid: 4697065441413ba49a7bd9ff2a0f50ce, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400132, guid: 4697065441413ba49a7bd9ff2a0f50ce, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400132, guid: 4697065441413ba49a7bd9ff2a0f50ce, type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 4697065441413ba49a7bd9ff2a0f50ce, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6ab26f734fde81d43b17d78ab1b3f565, type: 2}
+    - target: {fileID: 100132, guid: 4697065441413ba49a7bd9ff2a0f50ce, type: 3}
+      propertyPath: m_Name
+      value: Bartender
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4697065441413ba49a7bd9ff2a0f50ce, type: 3}
+  m_IsPrefabParent: 0
+--- !u!1 &63530011 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100132, guid: 4697065441413ba49a7bd9ff2a0f50ce, type: 3}
+  m_PrefabInternal: {fileID: 63530010}
+--- !u!65 &63530012
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 63530011}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 3, z: 2.5}
+  m_Center: {x: 0, y: 1.5, z: 2.5}
+--- !u!114 &63530013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 63530011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb751fada217e044ac5d1e52be90644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pane: {fileID: 716027307}
 --- !u!1001 &146923924
 Prefab:
   m_ObjectHideFlags: 0

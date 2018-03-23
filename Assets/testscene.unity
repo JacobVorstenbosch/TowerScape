@@ -440,6 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acb751fada217e044ac5d1e52be90644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHp: {fileID: 1212613221}
   pane: {fileID: 716027307}
 --- !u!1001 &146923924
 Prefab:
@@ -2233,6 +2234,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1758432364867350, guid: 8df8f3e18c03397439c06469f2f7fc2a,
     type: 2}
   m_PrefabInternal: {fileID: 452818365}
+--- !u!114 &1212613221 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114582722540715086, guid: 8df8f3e18c03397439c06469f2f7fc2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 452818365}
+  m_Script: {fileID: 11500000, guid: be4f65882f3779345bbc36a4c9c6e379, type: 3}
 --- !u!1 &1318902439 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: be87ac10b1df35140a8717e0bf73a811, type: 3}

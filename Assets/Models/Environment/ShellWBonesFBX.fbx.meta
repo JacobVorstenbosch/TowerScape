@@ -25,6 +25,7 @@ ModelImporter:
     400016: CENTREJOINT
     2100000: lambert2
     2100002: lambert1
+    2100004: lambert3
     2300000: CoreShell1
     3300000: CoreShell1
     4300000: CoreShell1
